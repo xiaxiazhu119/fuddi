@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.Mall", "Fuddi.Mall\Fuddi.Mall.csproj", "{ECAFDF03-F9B9-4B4D-B7C2-FDF22A60434D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.Models", "Fuddi.Models\Fuddi.Models.csproj", "{B0E367E5-7F2F-42DC-86F2-4CADAA58CD53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.DAL", "Fuddi.DAL\Fuddi.DAL.csproj", "{CE0ECBB3-8560-44CD-A31E-AFFB87CC839D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.BLL", "Fuddi.BLL\Fuddi.BLL.csproj", "{8DB4A317-0197-4EB0-AB5E-41B2B99F98B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.Ctrls", "Fuddi.Ctrls\Fuddi.Ctrls.csproj", "{1CE9F8CD-63E2-47E3-A35F-1FD1A4B80072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.Transport", "Fuddi.Transport\Fuddi.Transport.csproj", "{E534DA4D-2162-4E68-8A3D-191BAC6204C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECAFDF03-F9B9-4B4D-B7C2-FDF22A60434D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECAFDF03-F9B9-4B4D-B7C2-FDF22A60434D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECAFDF03-F9B9-4B4D-B7C2-FDF22A60434D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECAFDF03-F9B9-4B4D-B7C2-FDF22A60434D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E367E5-7F2F-42DC-86F2-4CADAA58CD53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E367E5-7F2F-42DC-86F2-4CADAA58CD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E367E5-7F2F-42DC-86F2-4CADAA58CD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E367E5-7F2F-42DC-86F2-4CADAA58CD53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE0ECBB3-8560-44CD-A31E-AFFB87CC839D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0ECBB3-8560-44CD-A31E-AFFB87CC839D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0ECBB3-8560-44CD-A31E-AFFB87CC839D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0ECBB3-8560-44CD-A31E-AFFB87CC839D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB4A317-0197-4EB0-AB5E-41B2B99F98B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB4A317-0197-4EB0-AB5E-41B2B99F98B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB4A317-0197-4EB0-AB5E-41B2B99F98B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB4A317-0197-4EB0-AB5E-41B2B99F98B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE9F8CD-63E2-47E3-A35F-1FD1A4B80072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE9F8CD-63E2-47E3-A35F-1FD1A4B80072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE9F8CD-63E2-47E3-A35F-1FD1A4B80072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE9F8CD-63E2-47E3-A35F-1FD1A4B80072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E534DA4D-2162-4E68-8A3D-191BAC6204C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E534DA4D-2162-4E68-8A3D-191BAC6204C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E534DA4D-2162-4E68-8A3D-191BAC6204C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E534DA4D-2162-4E68-8A3D-191BAC6204C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

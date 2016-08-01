@@ -250,3 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+Fuddi.Mall/App_Data
+Fuddi.Mall/App_Start
+Fuddi.Mall/Web.Debug.config
+Fuddi.Mall/Web.Release.config
+*.bak
