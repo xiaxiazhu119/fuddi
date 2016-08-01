@@ -129,6 +129,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\home\index.js" />
+    <Content Include="assets\js\main.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
