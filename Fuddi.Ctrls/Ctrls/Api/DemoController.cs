@@ -8,6 +8,7 @@ namespace Fuddi.Ctrls.Api
 {
     public class DemoController : ApiBaseController
     {
+        [EnableCors]
         public JsonResult Index()
         {
             return BuildJsonResult(new { Name = "小明", Age = 22, Sex = "男" });

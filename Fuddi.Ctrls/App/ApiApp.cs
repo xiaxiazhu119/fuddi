@@ -11,16 +11,5 @@ namespace Fuddi.Ctrls.App
 {
     public class ApiApp : BaseApp
     {
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
-            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "http://localhost:2722/");
-            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "http://test.mall.fuddi.jp");
-        }
-
-        protected void Application_Start()
-        {
-            AreaRegistration.RegisterAllAreas();
-        }
     }
 }

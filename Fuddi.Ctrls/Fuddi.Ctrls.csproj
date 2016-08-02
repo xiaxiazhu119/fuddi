@@ -59,6 +59,7 @@
     <Compile Include="CustomAreaRegistration.cs" />
     <Compile Include="Ctrls\Mall\HomeController.cs" />
     <Compile Include="Ctrls\Mall\MallBaseController.cs" />
+    <Compile Include="EnableCorsAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewEngineExt.cs" />
   </ItemGroup>

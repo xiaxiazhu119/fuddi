@@ -11,17 +11,5 @@ namespace Fuddi.Ctrls.App
 {
     public class TransportApp : BaseApp
     {
-        protected void Application_Start()
-        {
-            AreaRegistration.RegisterAllAreas();
-
-            RegisterView();
-        }
-
-        protected void RegisterView()
-        {
-            ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new Fuddi.Ctrls.ViewEngineExt());
-        }
     }
 }
