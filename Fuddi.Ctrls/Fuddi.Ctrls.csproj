@@ -47,9 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\ApiApp.cs" />
+    <Compile Include="App\BaseApp.cs" />
     <Compile Include="App\TransportApp.cs" />
     <Compile Include="App\MallApp.cs" />
-    <Compile Include="Ctrls\ApiController.cs" />
+    <Compile Include="Ctrls\Api\ApiBaseController.cs" />
+    <Compile Include="Ctrls\Api\DemoController.cs" />
     <Compile Include="Ctrls\BaseController.cs" />
     <Compile Include="Ctrls\Transport\HomeController.cs" />
     <Compile Include="Ctrls\Transport\TransportBaseController.cs" />

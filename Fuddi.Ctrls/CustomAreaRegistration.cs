@@ -17,6 +17,19 @@ namespace Fuddi.Ctrls
         {
             string[] mallCtrlNamespaces = new string[] { "Fuddi.Ctrls", "Fuddi.Ctrls.Mall" };
             string[] transportCtrlNamespaces = new string[] { "Fuddi.Ctrls", "Fuddi.Ctrls.Transport" };
+            string[] apiCtrlNamespaces = new string[] { "Fuddi.Ctrls", "Fuddi.Ctrls.Api" };
+
+            #region api router
+
+            context.MapRoute(
+                "api-default",
+                "Api/{controller}/{action}/{*prms}",
+                new { controller = "Demo", action = "Index", prms = UrlParameter.Optional },
+                null,
+                apiCtrlNamespaces
+                );
+
+            #endregion
 
             #region mall router
 

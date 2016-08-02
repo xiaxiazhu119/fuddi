@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.Ctrls", "Fuddi.Ctrls\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.Transport", "Fuddi.Transport\Fuddi.Transport.csproj", "{E534DA4D-2162-4E68-8A3D-191BAC6204C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuddi.Api", "Fuddi.Api\Fuddi.Api.csproj", "{887CB07C-5A4D-48DE-A1F3-66DAD7BFB14C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{E534DA4D-2162-4E68-8A3D-191BAC6204C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E534DA4D-2162-4E68-8A3D-191BAC6204C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E534DA4D-2162-4E68-8A3D-191BAC6204C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{887CB07C-5A4D-48DE-A1F3-66DAD7BFB14C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{887CB07C-5A4D-48DE-A1F3-66DAD7BFB14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{887CB07C-5A4D-48DE-A1F3-66DAD7BFB14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{887CB07C-5A4D-48DE-A1F3-66DAD7BFB14C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ using System.Web.Routing;
 
 namespace Fuddi.Ctrls.App
 {
-    public class MallApp : System.Web.HttpApplication
+    public class MallApp : BaseApp
     {
         protected void Application_Start()
         {

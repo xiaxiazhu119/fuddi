@@ -12,5 +12,14 @@ namespace Fuddi.Ctrls
         {
             base.OnActionExecuting(filterContext);
         }
+
+        protected internal JsonResult BuildJsonResult(object obj)
+        {
+            var jr = new JsonResult();
+            jr.Data = obj;
+            jr.JsonRequestBehavior = JsonRequestBehavior.AllowGet;//允许使用GET方式获取，否则用GET获取是会报错。  
+            return jr;
+        }
+
     }
 }
