@@ -34,4 +34,11 @@ namespace Fuddi.Ctrls.App
             ViewEngines.Engines.Add(new Fuddi.Ctrls.ViewEngineExt());
         }
     }
+    public class FilterConfig
+    {
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+        }
+    }
 }

@@ -40,6 +40,9 @@ namespace Fuddi.Ctrls
         protected bool IsAllowedOrigin(string origin)
         {
             // ** replace with your own logic to check the origin header
+
+            return true;
+
             string allowedOrigin = "http://test.mall.fuddi.jp,http://test.transport.fuddi.jp";
             return allowedOrigin.IndexOf(origin) != -1;
         }

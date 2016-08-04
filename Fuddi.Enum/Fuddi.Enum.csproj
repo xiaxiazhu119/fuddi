@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1CE9F8CD-63E2-47E3-A35F-1FD1A4B80072}</ProjectGuid>
+    <ProjectGuid>{7B1E5E51-2CFA-4327-877E-9EAEB09A7EE2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fuddi.Ctrls</RootNamespace>
-    <AssemblyName>Fuddi.Ctrls</AssemblyName>
+    <RootNamespace>Fuddi.Enum</RootNamespace>
+    <AssemblyName>Fuddi.Enum</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,14 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,28 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\ApiApp.cs" />
-    <Compile Include="App\BaseApp.cs" />
-    <Compile Include="App\TransportApp.cs" />
-    <Compile Include="App\MallApp.cs" />
-    <Compile Include="Ctrls\Api\ApiBaseController.cs" />
-    <Compile Include="Ctrls\Api\DemoController.cs" />
-    <Compile Include="Ctrls\BaseController.cs" />
-    <Compile Include="Ctrls\CMS\HomeController.cs" />
-    <Compile Include="Ctrls\CMS\CMSBaseController.cs" />
-    <Compile Include="Ctrls\Transport\HomeController.cs" />
-    <Compile Include="Ctrls\Transport\TransportBaseController.cs" />
-    <Compile Include="CustomAreaRegistration.cs" />
-    <Compile Include="Ctrls\Mall\HomeController.cs" />
-    <Compile Include="Ctrls\Mall\MallBaseController.cs" />
-    <Compile Include="EnableCorsAttribute.cs" />
+    <Compile Include="EnumClass.cs" />
+    <Compile Include="Enumerate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewEngineExt.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fuddi.Enum\Fuddi.Enum.csproj">
-      <Project>{7b1e5e51-2cfa-4327-877e-9eaeb09a7ee2}</Project>
-      <Name>Fuddi.Enum</Name>
+    <ProjectReference Include="..\Fuddi.Configuration\Fuddi.Configuration.csproj">
+      <Project>{610c5c0a-a191-4a0f-b408-5c79d2d54eba}</Project>
+      <Name>Fuddi.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

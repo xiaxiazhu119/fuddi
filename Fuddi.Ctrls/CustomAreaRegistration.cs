@@ -13,11 +13,21 @@ namespace Fuddi.Ctrls
             get { return "Fuddi"; }
         }
 
+        private static string BASE_NAMESPACE
+        {
+            get
+            {
+                return "Fuddi.Ctrls";
+            }
+        }
+
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            string[] mallCtrlNamespaces = new string[] { "Fuddi.Ctrls", "Fuddi.Ctrls.Mall" };
-            string[] transportCtrlNamespaces = new string[] { "Fuddi.Ctrls", "Fuddi.Ctrls.Transport" };
-            string[] apiCtrlNamespaces = new string[] { "Fuddi.Ctrls", "Fuddi.Ctrls.Api" };
+
+            string[] mallCtrlNamespaces = new string[] { BASE_NAMESPACE, BASE_NAMESPACE + ".Mall" };
+            string[] cmsCtrlNamespaces = new string[] { BASE_NAMESPACE, BASE_NAMESPACE + ".CMS" };
+            string[] transportCtrlNamespaces = new string[] { BASE_NAMESPACE, BASE_NAMESPACE + ".Transport" };
+            string[] apiCtrlNamespaces = new string[] { BASE_NAMESPACE, BASE_NAMESPACE + ".Api" };
 
             #region api router
 
@@ -27,6 +37,18 @@ namespace Fuddi.Ctrls
                 new { controller = "Demo", action = "Index", prms = UrlParameter.Optional },
                 null,
                 apiCtrlNamespaces
+                );
+
+            #endregion
+
+            #region cms router
+
+            context.MapRoute(
+                "cms-default",
+                "_CMS/{controller}/{action}/{*prms}",
+                new { controller = "Home", action = "Default", prms = UrlParameter.Optional },
+                null,
+                cmsCtrlNamespaces
                 );
 
             #endregion

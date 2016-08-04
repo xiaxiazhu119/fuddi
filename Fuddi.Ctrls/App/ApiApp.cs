@@ -11,5 +11,12 @@ namespace Fuddi.Ctrls.App
 {
     public class ApiApp : BaseApp
     {
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            GlobalFilters.Filters.Add(new EnableCorsAttribute());
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "http://test.mall.fuddi.jp");
+        }
     }
 }

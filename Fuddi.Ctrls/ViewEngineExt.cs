@@ -13,6 +13,7 @@ namespace Fuddi.Ctrls
         {
             ViewLocationFormats = new[]{
                 "~/Views/{1}/{0}.cshtml",
+                "~/Views/_CMS/{1}/{0}.cshtml",
                 "~/Views/Shared/{0}.cshtml"
             };
         }
