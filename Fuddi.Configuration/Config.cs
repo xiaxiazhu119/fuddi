@@ -14,6 +14,8 @@ namespace Fuddi.Configuration
             {
                 case ConfigEnum.Description:
                     return new DescriptionCfg();
+                case ConfigEnum.Settings:
+                    return new SettingsCfg();
                 default:
                     return new DescriptionCfg();
             }
@@ -21,7 +23,8 @@ namespace Fuddi.Configuration
 
         public enum ConfigEnum
         { 
-            Description
+            Description,
+            Settings
         }
     }
 }

@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0DF94F5C-67DC-43FA-8D13-D0716DD2D5F6}</ProjectGuid>
+    <ProjectGuid>{2551CF61-9582-4C9D-BB97-B4C9AA3BA653}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fuddi.SiteUtils</RootNamespace>
-    <AssemblyName>Fuddi.SiteUtils</AssemblyName>
+    <RootNamespace>X.Common</RootNamespace>
+    <AssemblyName>X.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -41,19 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encrypt.cs" />
+    <Compile Include="Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SiteUtil.cs" />
-    <Compile Include="ThumbnailHelper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Fuddi.Configuration\Fuddi.Configuration.csproj">
-      <Project>{610c5c0a-a191-4a0f-b408-5c79d2d54eba}</Project>
-      <Name>Fuddi.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\X.Common\X.Common.csproj">
-      <Project>{2551cf61-9582-4c9d-bb97-b4c9aa3ba653}</Project>
-      <Name>X.Common</Name>
-    </ProjectReference>
+    <Compile Include="Utils\TypeConverter.cs" />
+    <Compile Include="Utils\Validator.cs" />
+    <Compile Include="XRequest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
