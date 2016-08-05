@@ -1,5 +1,11 @@
 ﻿@{
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @RenderBody()
-@RenderSection("assets", required: false)
+
+
+@section assets{
+  <link rel="stylesheet" href="/assets/css/cms.css">
+  @RenderSection("assets", required: false)
+}

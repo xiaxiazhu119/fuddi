@@ -39,7 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MgrBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fuddi.DAL\Fuddi.DAL.csproj">
+      <Project>{ce0ecbb3-8560-44cd-a31e-affb87cc839d}</Project>
+      <Name>Fuddi.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuddi.Models\Fuddi.Models.csproj">
+      <Project>{b0e367e5-7f2f-42dc-86f2-4cadaa58cd53}</Project>
+      <Name>Fuddi.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

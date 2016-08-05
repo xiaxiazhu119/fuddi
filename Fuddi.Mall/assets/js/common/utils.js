@@ -212,6 +212,63 @@ define([], function () {
       } else {
         return temp;
       }
+    },
+    adjustParentIframeHeight: function (iframeTagId, offset) {
+      offset = offset || 30;
+      var theFrame = $(iframeTagId, parent.document.body);
+      if (AdjustParentIframeHeight.arguments[1])
+        theFrame.height(parseInt(AdjustParentIframeHeight.arguments[1]) + offset);
+      else
+        theFrame.height($(document.body).height() + offset);
+    },
+    getItemIndex: function (elm, item) {
+      return $(elm).index(item);
+    },
+    modelEvent: {
+      show: 'show',
+      hide: 'hide'
+    },
+    showModal: function (modalID, onShowEvent, onHideEvent) {
+      $(modalID).unbind()
+      .on('show.bs.modal', function (e) {
+        var type = typeof onShowEvent;
+        if (type !== 'undefined') {
+          switch (type) {
+            case 'function':
+              onShowEvent();
+              break;
+            case 'string':
+              setModalMsg(modalID, onShowEvent);
+              break;
+          }
+        }
+      })
+      .on('hide.bs.modal', function (e) {
+        if (typeof onHideEvent !== 'undefined')
+          onHideEvent();
+      })
+      .modal(modelEvent.show);
+    },
+    hideModalWithoutEvent: function (modalID) {
+      $(modalID).modal(modelEvent.hide);
+    },
+    bindModalEvent: function (modalID, event, func) {
+      var e = '';
+      switch (event) {
+        case modelEvent.show:
+          e = 'show.bs.modal';
+          break;
+        case modelEvent.hide:
+          e = 'hide.bs.modal';
+          break;
+      }
+      if (e != '' && typeof func !== 'undefined') {
+        $(modalID).off(e)
+        .on(e, func());
+      }
+    },
+    setModalMsg: function (modalID, container, content) {
+      $(modalID).find(container).html(content);
     }
   };
   return Utils;

@@ -12,16 +12,18 @@ namespace Fuddi.SiteUtils
     {
         static SiteUtil _instance;
 
-        public static SiteUtil Instace
+        public static SiteUtil Instance
         {
-            get {
+            get
+            {
                 if (_instance == null)
                     _instance = new SiteUtil();
                 return _instance;
             }
         }
 
-        SettingsCfg _setCfgInstance = (SettingsCfg)Config.GetInstace(Config.ConfigEnum.Settings);
+        SettingsCfg _setCfgInstance = SettingsCfg.Instance;
+        CacheCfg _cacheCfgInstance = CacheCfg.Instance;
 
         public string GetTimeStampRandom()
         {
@@ -44,6 +46,8 @@ namespace Fuddi.SiteUtils
             return compareExt.IndexOf(fileExt) != -1;
         }
 
+        #region cookies
+
         public void WriteCookie(string key, string value)
         {
             WriteCookie(key, value, _setCfgInstance.DEFAULT_EXPIRES_TIME);
@@ -51,12 +55,29 @@ namespace Fuddi.SiteUtils
 
         public void WriteCookie(string key, string value, int expires)
         {
-            Utils.WriteCookie(_setCfgInstance.COOKIE_NAME, key, value, expires);
+            Utils.WriteCookie(_cacheCfgInstance.COOKIE_NAME, key, value, expires);
         }
 
         public string GetCookie(string key)
         {
-            return Utils.GetCookie(_setCfgInstance.COOKIE_NAME, key);
+            return Utils.GetCookie(_cacheCfgInstance.COOKIE_NAME, key);
+        }
+
+        #endregion
+
+        public bool CheckAuthorization()
+        {
+            string currentPath = System.Web.HttpContext.Current.Request.Url.AbsoluteUri.ToLower();
+            bool needAuthorization = false;
+            foreach (var path in _setCfgInstance.NEED_AUTHORIZATION_PATH)
+            {
+                if (currentPath.IndexOf(path) != -1)
+                {
+                    needAuthorization = true;
+                    break;
+                }
+            }
+            return needAuthorization;
         }
     }
 }

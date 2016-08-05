@@ -1,0 +1,43 @@
+﻿@using Fuddi.Models;
+@using Fuddi.Configuration;
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_CMSLayout.cshtml";
+}
+
+@section assets{
+  <script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js" data-main="assets/js/controllers/cms/cms"></script>
+  @if(TempData[SettingsCfg.Instance.RESPONSE_TEMPDATA_KEY] != null){
+  }
+}
+
+<div id="cms-signin-form">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-xs-offset-1 col-lg-6 col-md-6 col-sm-8 col-xs-10">
+        <h3 class="text-center">OneDream Management System</h3>
+        <p>&nbsp;</p>
+        @using (Html.BeginForm())
+        {
+          @Html.AntiForgeryToken();
+
+          <div class="form-group">
+            <label for="UserName">User Name</label>
+            <input type="text" class="form-control" id="UserName" name="UserName" placeholder="User Name">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password</label>
+            <input type="password" class="form-control" id="Pwd" name="Pwd" placeholder="Password">
+          </div>
+          <p class="text-center">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+          </p>
+
+
+        }
+      </div>
+    </div>
+  </div>
+
+</div>

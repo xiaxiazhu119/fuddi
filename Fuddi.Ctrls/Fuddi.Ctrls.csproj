@@ -66,9 +66,29 @@
     <Compile Include="ViewEngineExt.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fuddi.BLL\Fuddi.BLL.csproj">
+      <Project>{8db4a317-0197-4eb0-ab5e-41b2b99f98b1}</Project>
+      <Name>Fuddi.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuddi.Configuration\Fuddi.Configuration.csproj">
+      <Project>{610c5c0a-a191-4a0f-b408-5c79d2d54eba}</Project>
+      <Name>Fuddi.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fuddi.Enum\Fuddi.Enum.csproj">
       <Project>{7b1e5e51-2cfa-4327-877e-9eaeb09a7ee2}</Project>
       <Name>Fuddi.Enum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuddi.Models\Fuddi.Models.csproj">
+      <Project>{b0e367e5-7f2f-42dc-86f2-4cadaa58cd53}</Project>
+      <Name>Fuddi.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuddi.SiteUtils\Fuddi.SiteUtils.csproj">
+      <Project>{0df94f5c-67dc-43fa-8d13-d0716dd2d5f6}</Project>
+      <Name>Fuddi.SiteUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\X.Common\X.Common.csproj">
+      <Project>{2551cf61-9582-4c9d-bb97-b4c9aa3ba653}</Project>
+      <Name>X.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

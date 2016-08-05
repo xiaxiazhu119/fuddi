@@ -204,7 +204,7 @@ namespace Fuddi.SiteUtils
                     HttpPostedFileBase file = request.Files[fileName];
                     string ext = Path.GetExtension(file.FileName).ToLower();
 
-                    bool r = SiteUtil.Instace.VerifyImgFileExt(ext);
+                    bool r = SiteUtil.Instance.VerifyImgFileExt(ext);
                     if (!r)
                     {
                         ue = UploadErrorEnum.InvalidExtension;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Fuddi.Configuration;
+using Fuddi.SiteUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,9 @@ namespace Fuddi.Ctrls
 {
     public class BaseController : Controller
     {
+        protected internal SessionHelper sessionHelperInstance = SessionHelper.Instance;
+        protected internal SettingsCfg setCfgInstance = SettingsCfg.Instance;
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
@@ -20,6 +25,8 @@ namespace Fuddi.Ctrls
             jr.JsonRequestBehavior = JsonRequestBehavior.AllowGet;//允许使用GET方式获取，否则用GET获取是会报错。  
             return jr;
         }
+
+        
 
     }
 }

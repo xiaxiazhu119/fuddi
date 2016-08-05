@@ -24,4 +24,11 @@ namespace Fuddi.Enum
         SignUp,
         SignOut
     }
+
+    public enum ResponseEnum
+    { 
+        ApplicationError = 0x9999999,
+        SignInFailed = 0x9001001,
+    }
+
 }

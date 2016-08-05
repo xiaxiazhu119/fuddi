@@ -12,7 +12,7 @@ namespace Fuddi.Ctrls.Mall
     {
         public ActionResult Index()
         {
-            string a = EnumClass.GetAccountStatusName(AccountStatusEnum.Normal);
+            string a = EnumClass.GetAccountStatusDesc(AccountStatusEnum.Normal);
             return View();
         }
     }

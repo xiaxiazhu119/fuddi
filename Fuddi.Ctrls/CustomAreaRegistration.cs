@@ -46,7 +46,7 @@ namespace Fuddi.Ctrls
             context.MapRoute(
                 "cms-default",
                 "_CMS/{controller}/{action}/{*prms}",
-                new { controller = "Home", action = "Default", prms = UrlParameter.Optional },
+                new { controller = "Home", action = "SignIn", prms = UrlParameter.Optional },
                 null,
                 cmsCtrlNamespaces
                 );
