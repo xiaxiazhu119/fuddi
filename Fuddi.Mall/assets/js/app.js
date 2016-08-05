@@ -19,7 +19,7 @@ var __Config = function () {
 };
 
 var _c = new __Config();
-console.log(_c);
+//console.log(_c);
 
 require.config({
   baseUrl: '/assets/js/',
@@ -50,7 +50,7 @@ require.config({
       exports: 'ajax'
     },
     utils: {
-      deps: ['jquery'],
+      deps: ['bootstrap'],
       exports: 'utils'
     },
     main: {

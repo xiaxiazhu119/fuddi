@@ -1,14 +1,13 @@
 ﻿@using Fuddi.Models;
 @using Fuddi.Configuration;
+@using Fuddi.Enum;
 @{
   ViewBag.Title = "Index";
   Layout = "~/Views/Shared/_CMSLayout.cshtml";
 }
 
 @section assets{
-  <script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js" data-main="assets/js/controllers/cms/cms"></script>
-  @if(TempData[SettingsCfg.Instance.RESPONSE_TEMPDATA_KEY] != null){
-  }
+  <script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js" data-main="/assets/js/controllers/cms/home/signin-controller.js"></script>
 }
 
 <div id="cms-signin-form">
@@ -34,10 +33,10 @@
             <button type="submit" class="btn btn-primary">Sign In</button>
           </p>
 
-
         }
       </div>
     </div>
   </div>
+  <input type="hidden" id="_signin-rsp-msg" value="@(TempData[SettingsCfg.Instance.RESPONSE_TEMPDATA_KEY] != null ? EnumClass.GetResponseDesc((ResponseEnum)TempData[SettingsCfg.Instance.RESPONSE_TEMPDATA_KEY]) : "")" />
 
 </div>

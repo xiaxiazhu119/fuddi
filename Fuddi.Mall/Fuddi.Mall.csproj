@@ -143,6 +143,7 @@
     <Content Include="assets\js\common\config.js" />
     <Content Include="assets\js\common\utils.js" />
     <Content Include="assets\js\controllers\cms\cms.js" />
+    <Content Include="assets\js\controllers\cms\home\signin-controller.js" />
     <Content Include="assets\js\controllers\home\index-controller.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />

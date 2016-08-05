@@ -11,104 +11,39 @@ define([], function () {
     if (repeat)
       for (var i = 0; i < repeatTimes; i++)
         _str += str;
-    return this.substr(0, index) + _str + this.substr(len + repeatTimes, this.length);
+    return _self.substr(0, index) + _str + _self.substr(len + repeatTimes, _self.length);
   };
+  var Utils = function () {
+    var _self = this;
 
-  var Utils = {
-    this: this,
+    var _vTag = '[v]';
 
-    getTimestamp: function () {
+    var _modelEvent = {
+      show: 'show',
+      hide: 'hide',
+      onShow: 'show.bs.modal',
+      onHide: 'hide.bs.modal'
+    };
+
+    var _getTimestamp = function () {
       return (new Date()).getTime();
-    },
-    vTag: '[v]',
-    getSiteProtocol: function () {
+    };
+
+    var _getSiteProtocol = function () {
       return window.location.protocol;
-    },
-    getTs: function (ts, ver) {
+    };
+
+    var _getTs = function (ts, ver) {
       var _ts = '';
       if (typeof ts === 'undefined' || ts === true)
-        _ts = this.getTimestamp();
+        _ts = _self.getTimestamp();
       if (ts === false)
         _ts = ver;
 
-      return ('?' + this.vTag + '=' + _ts);
-    },
-    Svg: function (width, height) {
-      var that = this;
-      this.createSVG = ~function () {
-        var s = document.createElement('svg');
-        s.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-        s.setAttribute("width", width);
-        s.setAttribute("height", height);
-        s.setAttribute("viewBox", "0 0 " + width + " " + height);
-        that.s = s;
-      }();
+      return ('?' + _self.vTag + '=' + _ts);
+    };
 
-      this.appendItem = function (item) {
-        that.s.appendChild(item);
-        return that;
-      };
-      this.appendCircleArc = function (circle, angel, attrs) {
-        circle = circle || { cx: 100, cy: 100, r: 100 },
-          angel = angel || { start: 0, end: 90 };
-        attrs = attrs || { fill: "none" };
-        var largeArcFlag = Number(angel > 180);
-        var circleArc = that.arc({
-          largeArcFlag: largeArcFlag,
-          rx: circle.r,
-          ry: circle.r,
-          startX: circle.cx - circle.r * Math.sin(angel.start / 180 * Math.PI),
-          startY: circle.cy - circle.r * Math.cos(angel.start / 180 * Math.PI),
-          endX: circle.cx - circle.r * Math.sin(angel.end / 180 * Math.PI),
-          endY: circle.cy - circle.r * Math.cos(angel.end / 180 * Math.PI)
-        }, attrs);
-        that.s.appendChild(circleArc);
-        return that;
-      };
-      this.render = function () {
-        return that.s;
-      };
-      this.renderTo = function (DOM) {
-        DOM = DOM || document.body;
-        DOM.innerHTML = that.s.outerHTML;
-        return that;
-      };
-      this.arc = function (config, attrs) {
-        var def = {
-          rx: 50,
-          ry: 50,
-          xAxisRotation: 0,
-          largeArcFlag: 1,
-          sweepFlag: 0,
-          startX: 0,
-          startY: 0,
-          endX: 0,
-          endY: 0
-        }, config = config || {}, attrs = attrs || {};
-        Object.keys(def).forEach(function (k) {
-          config[k] = config[k] || def[k];
-        });
-
-        console.log(config);
-
-        attrs.d = "";
-        ~function calcPath() {
-          var d = "M {{startX}},{{startY}} A {{rx}} {{ry}} {{xAxisRotation}} {{largeArcFlag}} {{sweepFlag}} {{endX}},{{endY}}";
-          attrs.d = d.replace(/{{(.+?)}}/g, function (match, key) {
-            return config[key];
-          })
-        }();
-
-        var path = document.createElement('path');
-        for (var i in attrs) {
-          path.setAttribute(i.replace(/[A-Z]/g, function (o) {
-            return '-' + o
-          }), attrs[i]);
-        }
-        return path;
-      }
-    },
-    formatNumber: function (value, decimal) {
+    var _formatNumber = function (value, decimal) {
       if (typeof decimal === 'undefined')
         decimal = 2;
       //console.log('value:', value);
@@ -125,8 +60,9 @@ define([], function () {
       //}
 
       return value;
-    },
-    validateIDCard: function (value) {
+    };
+
+    var _validateIDCard = function (value) {
       //身份证的地区代码对照
       var aCity = {
         11: "北京",
@@ -200,76 +136,137 @@ define([], function () {
       }
       var dateStr = new Date(birthday.replace(/-/g, "/"));
 
-      if (birthday != (dateStr.getFullYear() + "-" + this.appendZero(dateStr.getMonth() + 1) + "-" + this.appendZero(dateStr.getDate()))) {
+      if (birthday != (dateStr.getFullYear() + "-" + _self.appendZero(dateStr.getMonth() + 1) + "-" + _self.appendZero(dateStr.getDate()))) {
         return false;
       }
 
       return true;
-    },
-    appendZero: function (temp) {
+    };
+
+    var _appendZero = function (temp) {
       if (temp < 10) {
         return "0" + temp;
       } else {
         return temp;
       }
-    },
-    adjustParentIframeHeight: function (iframeTagId, offset) {
+    };
+
+    var _adjustParentIframeHeight = function (iframeTagId, offset) {
       offset = offset || 30;
       var theFrame = $(iframeTagId, parent.document.body);
       if (AdjustParentIframeHeight.arguments[1])
         theFrame.height(parseInt(AdjustParentIframeHeight.arguments[1]) + offset);
       else
         theFrame.height($(document.body).height() + offset);
-    },
-    getItemIndex: function (elm, item) {
+    };
+
+    var _getItemIndex = function (elm, item) {
       return $(elm).index(item);
-    },
-    modelEvent: {
-      show: 'show',
-      hide: 'hide'
-    },
-    showModal: function (modalID, onShowEvent, onHideEvent) {
+    };
+
+    var _setModalContent = function (modalID, container, content) {
+      $(modalID).find(container).html(content);
+    };
+    
+    var _showModal = function (modalID, onShow, onHide) {
       $(modalID).unbind()
-      .on('show.bs.modal', function (e) {
-        var type = typeof onShowEvent;
+      .on(_modelEvent.onShow, function (e) {
+        var type = typeof onShow;
         if (type !== 'undefined') {
           switch (type) {
             case 'function':
-              onShowEvent();
+              onShow();
               break;
             case 'string':
-              setModalMsg(modalID, onShowEvent);
+              this._setModalContent(modalID, onShow);
               break;
           }
         }
       })
-      .on('hide.bs.modal', function (e) {
-        if (typeof onHideEvent !== 'undefined')
-          onHideEvent();
+      .on(_modelEvent.onHide, function (e) {
+        if (typeof onHide !== 'undefined')
+          onHide();
       })
-      .modal(modelEvent.show);
-    },
-    hideModalWithoutEvent: function (modalID) {
-      $(modalID).modal(modelEvent.hide);
-    },
-    bindModalEvent: function (modalID, event, func) {
+      .modal(_modelEvent.show);
+    };
+
+    var _hideModal = function (modalID, onHide) {
+      $(modalID)
+        .on(_modelEvent.onHide, function (e) {
+        if (typeof onHide !== 'undefined')
+          onHide();
+      })
+        .modal(_modelEvent.hide);
+    };
+
+    var _bindModalEvent = function (modalID, event, func) {
       var e = '';
       switch (event) {
         case modelEvent.show:
-          e = 'show.bs.modal';
+          e = _modelEvent.onShow;
           break;
         case modelEvent.hide:
-          e = 'hide.bs.modal';
+          e = _modelEvent.onHide;
           break;
       }
       if (e != '' && typeof func !== 'undefined') {
         $(modalID).off(e)
         .on(e, func());
       }
-    },
-    setModalMsg: function (modalID, container, content) {
-      $(modalID).find(container).html(content);
+    };
+
+    var _showCommonModal = function (content) {
+      var modalID = '#common-modal',
+        container = '.modal-body';
+      _setModalContent(modalID, container, content);
+      _showModal(modalID);
+    };
+
+
+
+    this.vTag = _vTag;
+    this.modelEvent = _modelEvent;
+
+    this.getTimestamp = function () {
+      return _getTimestamp();
+    };
+    this.getSiteProtocol = function () {
+      return _getSiteProtocol();
+    };
+    this.getTs = function (ts, ver) {
+      return _getTs(ts, ver);
+    };
+    this.formatNumber = function (value, decimal) {
+      return _formatNumber(value, decimal);
     }
+    this.validateIDCard = function (value) {
+      return _validateIDCard(value);
+    }
+    this.appendZero = function (temp) {
+      return _appendZero(temp);
+    }
+    this.adjustParentIframeHeight = function (iframeTagId, offset) {
+      return _adjustParentIframeHeight(iframeTagId, offset);
+    }
+    this.getItemIndex = function (elm, item) {
+      return _getItemIndex(elm, item);
+    }
+    this.setModalContent = function (modalID, container, content) {
+      return _setModalContent(modalID, container, content);
+    }
+    this.showModal = function (modalID, onShow, onHide) {
+      return _showModal(modalID, onShow, onHide);
+    }
+    this.hideModal = function (modalID,  onHide) {
+      return _hideModal(modalID,  onHide);
+    }
+    this.bindModalEvent = function (modalID, event, func) {
+      return _bindModalEvent(modalID, event, func);
+    }
+    this.showCommonModal = function (content) {
+      return _showCommonModal(content);
+    }
+
   };
-  return Utils;
+  return new Utils();
 });
