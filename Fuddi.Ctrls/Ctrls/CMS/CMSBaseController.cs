@@ -18,7 +18,7 @@ namespace Fuddi.Ctrls.CMS
             if (needAuthorization) {
                 OD_Manager m = sessionHelperInstance.SessionManager;
                 if (m == null) {
-                    filterContext.Result = new RedirectResult(setCfgInstance.CMS_SIGNIN);
+                    //filterContext.Result = new RedirectResult(setCfgInstance.CMS_SIGNIN);
                 }
             }
             base.OnActionExecuted(filterContext);

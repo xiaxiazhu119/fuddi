@@ -1,5 +1,151 @@
-﻿#cms-signin-form {
+﻿@charset "UTF-8";
+
+
+body {
+  padding-top: 50px;
+  overflow: hidden;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/**********************************************
+* nav overwrite start
+**********************************************/
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  border: none;
+}
+
+/**********************************************
+* nav overwrite end
+**********************************************/
+
+#footer {
+  /*position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;*/
+  height: 50px;
+  background: #3d3d3d;
+  color: #999;
+}
+
+#cms-signin-form {
   position: fixed;
   top: 25%;
   width: 100%;
+}
+
+#top-nav {
+  /*min-height: 80px;*/
+}
+
+#content-body {
+  background: #3d3d3d;
+}
+
+#menu-container {
+  padding: 0;
+}
+
+
+/**********************************************
+* collapse start
+**********************************************/
+
+#menu-container .navbar-toggle {
+  border-color: #333;
+}
+
+#menu-container .navbar-toggle:hover,
+#menu-container .navbar-toggle:focus {
+  background: #333;
+}
+
+#menu-container .navbar-toggle .icon-bar {
+  background: #fff;
+}
+
+#menu-list.navbar-collapse {
+  padding: 0;
+}
+
+/**********************************************
+* collapse end
+**********************************************/
+
+
+/**********************************************
+* menu start
+**********************************************/
+
+#menu-list {
+}
+
+#menu-list ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#menu-list > ul {
+  margin: 20px 0;
+}
+
+#menu-list > ul > li > a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  font-weight: 600;
+}
+
+#menu-list > ul > li > a.active:hover,
+#menu-list > ul > li > a.active {
+  background: #e02222;
+}
+
+#menu-list > ul > li > a:hover {
+  background: #303030;
+}
+
+#menu-list > ul > li > a > .glyphicon {
+  top: 2px;
+  color: #999;
+}
+
+#menu-list > ul > li > ul {
+  display: none;
+}
+
+/**********************************************
+* menu end
+**********************************************/
+
+#content-container {
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 20px;
+  background: #fff;
+}
+
+#content-container > #page-title {
+  height: 60px;
+}
+
+#content-container > #page-title > h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+#content-container > #site-breadcrumb {
+  height: 50px;
+  overflow: hidden;
+}
+
+#content-container > #site-breadcrumb > .breadcrumb {
+  padding: 15px;
+  margin: 0;
+  background: #eee;
+  border-radius: 0;
 }

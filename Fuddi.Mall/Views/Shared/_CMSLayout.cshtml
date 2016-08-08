@@ -1,11 +1,65 @@
 ﻿@{
-  Layout = "~/Views/Shared/_Layout.cshtml";
+  Layout = "~/Views/Shared/_CMSBaseLayout.cshtml";
 }
-
-@RenderBody()
-
 
 @section assets{
-  <link rel="stylesheet" href="/assets/css/cms.css">
+  <script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js" data-main="/assets/js/controllers/cms/frame.js"></script>
   @RenderSection("assets", required: false)
 }
+
+
+
+<nav id="top-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-list" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+  </div>
+</nav>
+
+<div id="content-body" class="container-fluid">
+  <div class="row">
+    <div id="menu-container" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+      <div id="menu-list" class="collapse navbar-collapse">
+        <ul>
+          <li><a class="active" href="#">Dashboard</a></li>
+          <li>
+            <a href="#">Products <i class="glyphicon glyphicon-menu-down pull-right menu-switcher"></i></a>
+            <ul>
+              <li><a class="" href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="content-container" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
+      <div id="page-title">
+        <h1>page title</h1>
+      </div>
+      <div id="site-breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Library</a></li>
+          <li class="active">Data</li>
+        </ol>
+      </div>
+      @RenderBody()
+    </div>
+  </div>
+</div>
+
+<footer id="footer">
+
+</footer>

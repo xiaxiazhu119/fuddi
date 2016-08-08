@@ -1,6 +1,16 @@
 ﻿@charset "UTF-8";
 
 body {
-  font-family: "Microsoft YaHei", Arial, Verdana, arial, serif;
+  font-family: "Microsoft YaHei", Verdana, arial, serif;
   color: #555;
+}
+
+
+a, a:link, a:visited, a:focus, a:hover, a:active {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+  -moz-outline: none;
 }
