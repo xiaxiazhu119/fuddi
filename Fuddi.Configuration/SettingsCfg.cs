@@ -18,6 +18,7 @@ namespace Fuddi.Configuration
                 return _instance;
             }
         }
+
         private const string _cms_signin = "/_cms/home/signin";
         private const string _cms_default = "/_cms/home/default";
 
@@ -30,6 +31,8 @@ namespace Fuddi.Configuration
             _cms_default
         };
         public readonly string RESPONSE_TEMPDATA_KEY = "rsp";
+
+        public readonly string CMS_SITEMAP_CONFIG_FILE_PATH = "/sitemap/cms-sitemap.config";
 
 
     }

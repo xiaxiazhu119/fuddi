@@ -37,6 +37,7 @@ namespace Fuddi.Ctrls.CMS
         }
         public ActionResult Default()
         {
+            CMSSiteMapCfg _ = CMSSiteMapCfg.Instance;
             return View();
         }
     }

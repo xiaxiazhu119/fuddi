@@ -3,13 +3,15 @@
 }
 
 @section assets{
+
+  <link rel="stylesheet" href="/assets/theme/dark-red.css">
   <script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js" data-main="/assets/js/controllers/cms/frame.js"></script>
   @RenderSection("assets", required: false)
 }
 
 
 
-<nav id="top-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav id="top-nav" class="navbar navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-list" aria-expanded="false">
@@ -28,9 +30,9 @@
     <div id="menu-container" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
       <div id="menu-list" class="collapse navbar-collapse">
         <ul>
-          <li><a class="active" href="#">Dashboard</a></li>
+          <li><a class="active" href="#"><i class="icon-fontawesone fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
           <li>
-            <a href="#">Products <i class="glyphicon glyphicon-menu-down pull-right menu-switcher"></i></a>
+            <a href="#"><i class="icon-fontawesone fa fa-shopping-bag" aria-hidden="true"></i>Products <i class="glyphicon glyphicon-menu-down pull-right menu-switcher"></i></a>
             <ul>
               <li><a class="" href="#">Action</a></li>
               <li><a href="#">Another action</a></li>
@@ -61,5 +63,5 @@
 </div>
 
 <footer id="footer">
-
+  footer
 </footer>

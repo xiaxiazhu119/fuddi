@@ -150,6 +150,7 @@
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />
     <Content Include="assets\js\services\ajax-service.js" />
+    <Content Include="assets\theme\dark-red.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -193,6 +194,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_CMS\Home\SignIn.cshtml" />
     <Content Include="Views\Shared\_CMSBaseLayout.cshtml" />
+    <Content Include="sitemap\cms-sitemap.config" />
+    <Content Include="Views\_CMS\Products\ProductList.cshtml" />
+    <Content Include="Views\_CMS\Products\ProductDetail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

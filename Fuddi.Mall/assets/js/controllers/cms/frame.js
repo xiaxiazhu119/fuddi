@@ -11,7 +11,7 @@ require(['/assets/js/app.js'], function () {
       $footerOffset = 40,
       $navHeight = ($('#top-nav').height());
 
-    console.log($windowHeight, $documentHeight, $bodyHeight, $navHeight);
+    console.log('$windowHeight:', $windowHeight, '$documentHeight:', $documentHeight, '$bodyHeight:', $bodyHeight, '$navHeight:', $navHeight);
 
     //$('#menu-container').height($documentHeight - $navHeight);
     $('#content-container').height($windowHeight - ($navHeight + $footerHeight + $footerOffset));

@@ -1,0 +1,121 @@
+﻿/**********************************************
+* navbar start
+**********************************************/
+
+.navbar {
+  background: #222;
+}
+
+.navbar .navbar-brand {
+  color: #9d9d9d;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #fff;
+  background-color: transparent;
+}
+
+/**********************************************
+* navbar end
+**********************************************/
+
+/**********************************************
+* navbar-toggle start
+**********************************************/
+
+.navbar .navbar-toggle {
+  border-color: #333;
+}
+
+.navbar .navbar-toggle .icon-bar {
+  background: #fff;
+}
+
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background: #3d3d3d;
+}
+
+/**********************************************
+* navbar-toggle end
+**********************************************/
+
+/**********************************************
+* content-body start
+**********************************************/
+
+#content-body {
+  background: #3d3d3d;
+}
+
+/**********************************************
+* content-body end
+**********************************************/
+
+/**********************************************
+* menu start
+**********************************************/
+
+#menu-list > ul > li > a {
+  color: #fff;
+}
+
+#menu-list > ul > li > a.active:hover,
+#menu-list > ul > li > a.active {
+  background: #e02222;
+}
+
+#menu-list > ul > li > a:hover {
+  background: #303030;
+}
+
+#menu-list > ul > li > a > .glyphicon {
+  color: #999;
+}
+
+#menu-container .navbar-toggle {
+  border-color: #333;
+}
+
+#menu-container .navbar-toggle:hover,
+#menu-container .navbar-toggle:focus {
+  background: #333;
+}
+
+#menu-container .navbar-toggle .icon-bar {
+  background: #fff;
+}
+
+/**********************************************
+* menu end
+**********************************************/
+
+/**********************************************
+* content-container start
+**********************************************/
+
+#content-container {
+  background: #fff;
+}
+
+#content-container > #site-breadcrumb > .breadcrumb {
+  background: #eee;
+}
+
+/**********************************************
+* content-container end
+**********************************************/
+
+/**********************************************
+* footer start
+**********************************************/
+
+#footer {
+  background: #3d3d3d;
+  color: #999;
+}
+
+/**********************************************
+* footer end
+**********************************************/
