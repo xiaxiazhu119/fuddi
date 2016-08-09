@@ -146,6 +146,7 @@
     <Content Include="assets\js\controllers\cms\frame.js" />
     <Content Include="assets\js\controllers\cms\home\default-controller.js" />
     <Content Include="assets\js\controllers\cms\home\signin-controller.js" />
+    <Content Include="assets\js\controllers\cms\products\productlist-controller.js" />
     <Content Include="assets\js\controllers\home\index-controller.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />
@@ -209,6 +210,7 @@
     <Content Include="sitemap\cms-sitemap.config" />
     <Content Include="Views\_CMS\Products\ProductList.cshtml" />
     <Content Include="Views\_CMS\Products\ProductDetail.cshtml" />
+    <Content Include="Views\_CMS\Products\ProductEdit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

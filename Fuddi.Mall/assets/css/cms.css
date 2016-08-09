@@ -59,7 +59,7 @@ body {
 
 #menu-list .icon-fontawesone {
   /*margin-right: 8px;*/
-  width:24px;
+  width: 24px;
 }
 
 #menu-list.navbar-collapse {
@@ -119,6 +119,7 @@ body {
 }
 
 #content-container > #site-breadcrumb {
+  margin-bottom: 20px;
   height: 50px;
   overflow: hidden;
 }

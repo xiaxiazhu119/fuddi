@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 
 using Fuddi.Models;
@@ -20,8 +21,15 @@ namespace Fuddi.Ctrls.CMS
         {
             return View();
         }
+
         public ActionResult ProductDetail()
         {
+            return View();
+        }
+
+        public ActionResult ProductEdit(int? action, string redirect)
+        {
+            TempData[setCfgInstance.REDIRECT_TEMPDATA_KEY] = HttpUtility.UrlDecode(redirect);
             return View();
         }
     }

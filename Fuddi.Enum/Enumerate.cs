@@ -18,7 +18,7 @@ namespace Fuddi.Enum
         Deleted
     }
 
-    public enum ActionEnum
+    public enum LogActionEnum
     { 
         SignIn,
         SignUp,
@@ -29,6 +29,12 @@ namespace Fuddi.Enum
     { 
         ApplicationError = 0x9999999,
         SignInFailed = 0x9001001,
+    }
+
+    public enum ActionEnum
+    {
+        Add,
+        Edit
     }
 
 }

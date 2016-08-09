@@ -30,9 +30,12 @@ namespace Fuddi.Configuration
         public readonly string[] NEEDLESS_AUTHORIZATION_PATH = new string[]{
             _cms_signin
         };
-        public readonly string RESPONSE_TEMPDATA_KEY = "rsp";
+        public readonly string RESPONSE_TEMPDATA_KEY = "td_rsp";
+        public readonly string REDIRECT_TEMPDATA_KEY = "td_redirect";
         public readonly string CMS_SITEMAP_CONFIG_FILE_PATH = "/sitemap/cms-sitemap.config";
         public readonly string CURRENT_PAGE_MODULE_VIEWDATA_KEY = "vd_current_page_module";
+        public readonly string CURRENT_QUERY_AND_PATH_VIEWDATA_KEY = "vd_current_query_and_path";
+        public readonly string URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY = "vd_url_encode_current_query_and_path";
 
 
     }

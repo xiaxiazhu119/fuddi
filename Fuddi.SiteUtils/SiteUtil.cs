@@ -93,12 +93,22 @@ namespace Fuddi.SiteUtils
             var sm = CacheHelper.Instance.CMSSiteMapList.FirstOrDefault(m => url.IndexOf(m.Action) != -1);
             if (sm.Views.Count > 0)
             {
-                var activeView = sm.Views.Where(m => url.IndexOf(m.Action) != -1).ToList();
-                sm.Views = activeView;
+                var currentView = sm.Views.FirstOrDefault(m => url.IndexOf(m.Action) != -1);
+                sm.CurrentView = currentView;
             }
             if (sm == null)
                 sm = new CMSSiteMapModel();
             return sm;
+        }
+
+        public string GetCurrentQueryAndPath()
+        {
+            return System.Web.HttpContext.Current.Request.Url.PathAndQuery.ToLower();
+        }
+
+        public string GetUrlEncodeCurrentQueryAndPath()
+        {
+            return System.Web.HttpUtility.UrlEncode(GetCurrentQueryAndPath());
         }
     }
 }

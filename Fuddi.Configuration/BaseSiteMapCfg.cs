@@ -17,7 +17,7 @@ namespace Fuddi.Configuration
         public string Action { get; set; }
         public string Icon { get; set; }
         public bool HasViews { get; set; }
-        public bool IsRoot { get; set; }
+        public CMSViewModel CurrentView { get; set; }
         public IList<CMSViewModel> Views { get; set; }
     }
 

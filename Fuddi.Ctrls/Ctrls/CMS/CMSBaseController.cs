@@ -45,6 +45,7 @@ namespace Fuddi.Ctrls.CMS
             }
              * */
             ViewData[setCfgInstance.CURRENT_PAGE_MODULE_VIEWDATA_KEY] = currentModule;
+            ViewData[setCfgInstance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY] = SiteUtil.Instance.GetUrlEncodeCurrentQueryAndPath();
             base.OnActionExecuted(filterContext);
         }
     }

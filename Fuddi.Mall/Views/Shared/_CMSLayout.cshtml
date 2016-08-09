@@ -78,14 +78,15 @@
           @{
             var root = CacheHelper.Instance.CMSSiteMapList[0];
           }
-          @if (currentPageModule.IsRoot)
+          <li><a href="@(root.Action)">Home</a></li>
+          @if (currentPageModule.Views.Count == 0)
           {
-            <li class="active">@(root.Title)</li>}
+            <li class="active">@(currentPageModule.Title)</li>
+          }
           else
           {
-            <li><a href="@(root.Action)">@(root.Title)</a></li>
             <li><a href="@(currentPageModule.Views[0].Action)">@(currentPageModule.Title)</a></li>
-            <li class="active">@(currentPageModule.Views[0].Title)</li>
+            <li class="active">@(currentPageModule.CurrentView.Title)</li>
           }
         </ol>
       </div>
