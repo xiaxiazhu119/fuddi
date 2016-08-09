@@ -25,6 +25,7 @@ namespace Fuddi.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<OD_Category> OD_Category { get; set; }
         public virtual DbSet<OD_Manager> OD_Manager { get; set; }
         public virtual DbSet<OD_MgrLog> OD_MgrLog { get; set; }
         public virtual DbSet<OD_Products> OD_Products { get; set; }

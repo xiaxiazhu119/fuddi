@@ -8,7 +8,6 @@ namespace Fuddi.DAL
 {
     public class BaseDAL
     {
-
         private static OneDreamEntities _entityInstance;
         protected internal static OneDreamEntities entityInstance
         {

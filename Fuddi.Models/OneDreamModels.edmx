@@ -4,7 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OneDreamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="OneDreamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OD_Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lv" Type="int" Nullable="false" />
+          <Property Name="DelFlag" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="OD_Manager">
           <Key>
             <PropertyRef Name="ID" />
@@ -38,15 +49,27 @@
           <Property Name="AddTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="OneDreamModelStoreContainer">
-          <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OD_Products" EntityType="Self.OD_Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OD_Category" EntityType="Self.OD_Category" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_Products" EntityType="Self.OD_Products" Schema="fuddijp_f" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OneDreamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OD_Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lv" Type="Int32" Nullable="false" />
+          <Property Name="DelFlag" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <EntityType Name="OD_Manager">
           <Key>
             <PropertyRef Name="ID" />
@@ -80,6 +103,7 @@
           <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityContainer Name="OneDreamEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OD_Category" EntityType="Self.OD_Category" />
           <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" />
           <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" />
           <EntitySet Name="OD_Products" EntityType="Self.OD_Products" />
@@ -90,6 +114,18 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="OneDreamModelStoreContainer" CdmEntityContainer="OneDreamEntities">
+          <EntitySetMapping Name="OD_Category">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_Category">
+              <MappingFragment StoreEntitySet="OD_Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lv" ColumnName="Lv" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="OD_Manager">
             <EntityTypeMapping TypeName="OneDreamModel.OD_Manager">
               <MappingFragment StoreEntitySet="OD_Manager">
@@ -140,7 +176,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
       </DesignerInfoPropertySet>

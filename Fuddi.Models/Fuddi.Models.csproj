@@ -53,40 +53,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomModels\MgrModel.cs" />
+    <Compile Include="OD_Category.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="OD_Manager.cs">
-      <DependentUpon>OneDream.tt</DependentUpon>
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
     <Compile Include="OD_MgrLog.cs">
-      <DependentUpon>OneDream.tt</DependentUpon>
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
     <Compile Include="OD_Products.cs">
-      <DependentUpon>OneDream.tt</DependentUpon>
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="OneDream.Context.cs">
+    <Compile Include="OneDreamModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OneDream.Context.tt</DependentUpon>
+      <DependentUpon>OneDreamModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="OneDream.cs">
+    <Compile Include="OneDreamModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OneDream.tt</DependentUpon>
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="OneDream.Designer.cs">
+    <Compile Include="OneDreamModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OneDream.edmx</DependentUpon>
+      <DependentUpon>OneDreamModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="OneDream.edmx">
+    <EntityDeploy Include="OneDreamModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OneDream.Designer.cs</LastGenOutput>
+      <LastGenOutput>OneDreamModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="OneDream.edmx.diagram">
-      <DependentUpon>OneDream.edmx</DependentUpon>
+    <None Include="App.Config" />
+    <None Include="OneDreamModels.edmx.diagram">
+      <DependentUpon>OneDreamModels.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -94,15 +97,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="OneDream.Context.tt">
+    <Content Include="OneDreamModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OneDream.edmx</DependentUpon>
-      <LastGenOutput>OneDream.Context.cs</LastGenOutput>
+      <DependentUpon>OneDreamModels.edmx</DependentUpon>
+      <LastGenOutput>OneDreamModels.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="OneDream.tt">
+    <Content Include="OneDreamModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OneDream.edmx</DependentUpon>
-      <LastGenOutput>OneDream.cs</LastGenOutput>
+      <DependentUpon>OneDreamModels.edmx</DependentUpon>
+      <LastGenOutput>OneDreamModels.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
