@@ -13,6 +13,11 @@ namespace Fuddi.Ctrls
         protected internal SessionHelper sessionHelperInstance = SessionHelper.Instance;
         protected internal SettingsCfg setCfgInstance = SettingsCfg.Instance;
 
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+        }
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);

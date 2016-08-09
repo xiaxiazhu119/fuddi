@@ -68,27 +68,37 @@ namespace Fuddi.SiteUtils
         public bool CheckAuthorization()
         {
             string currentPath = System.Web.HttpContext.Current.Request.Url.AbsoluteUri.ToLower();
-            bool needAuthorization = false;
-            foreach (var path in _setCfgInstance.NEED_AUTHORIZATION_PATH)
+            /*
+            bool needAuthorization = true;
+            foreach (var path in _setCfgInstance.NEEDLESS_AUTHORIZATION_PATH)
             {
                 if (currentPath.IndexOf(path) != -1)
                 {
-                    needAuthorization = true;
+                    needAuthorization = false;
                     break;
                 }
             }
+             * */
+            bool needAuthorization = _setCfgInstance.NEEDLESS_AUTHORIZATION_PATH.Count(path => currentPath.IndexOf(path) != -1) == 0;
             return needAuthorization;
         }
 
-        //public bool CheckActiveMenu() { 
-        //    return CheckActiveMenu(System.Web.HttpContext.Current.Request.Url.AbsoluteUri.ToLower());
-        //}
+        public CMSSiteMapModel GetCMSPageModuleInfo()
+        {
+            return GetCMSPageModuleInfo(System.Web.HttpContext.Current.Request.Url.AbsoluteUri.ToLower());
+        }
 
-        //public bool CheckActiveMenu(string url) { 
-
-        //}
-
-        //public CMSSiteMapModel GetCMSSiteMap() { 
-        //}
+        public CMSSiteMapModel GetCMSPageModuleInfo(string url)
+        {
+            var sm = CacheHelper.Instance.CMSSiteMapList.FirstOrDefault(m => url.IndexOf(m.Action) != -1);
+            if (sm.Views.Count > 0)
+            {
+                var activeView = sm.Views.Where(m => url.IndexOf(m.Action) != -1).ToList();
+                sm.Views = activeView;
+            }
+            if (sm == null)
+                sm = new CMSSiteMapModel();
+            return sm;
+        }
     }
 }

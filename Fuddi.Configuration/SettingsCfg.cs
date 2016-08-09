@@ -27,12 +27,12 @@ namespace Fuddi.Configuration
         public readonly string IMG_FILE_EXT_WITH_FIX = ",.gif,.jpg,.jpeg,.png,.bmp,";
         public readonly string CMS_SIGNIN = _cms_signin;
         public readonly string CMS_DEFAULT = _cms_default;
-        public readonly string[] NEED_AUTHORIZATION_PATH = new string[]{
-            _cms_default
+        public readonly string[] NEEDLESS_AUTHORIZATION_PATH = new string[]{
+            _cms_signin
         };
         public readonly string RESPONSE_TEMPDATA_KEY = "rsp";
         public readonly string CMS_SITEMAP_CONFIG_FILE_PATH = "/sitemap/cms-sitemap.config";
-        public readonly string PAGE_TITLE_VIEWDATA_KEY = "vd_page_title";
+        public readonly string CURRENT_PAGE_MODULE_VIEWDATA_KEY = "vd_current_page_module";
 
 
     }

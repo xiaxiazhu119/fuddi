@@ -2,6 +2,7 @@
 @using Fuddi.SiteUtils;
 @{
   Layout = "~/Views/Shared/_CMSBaseLayout.cshtml";
+  CMSSiteMapModel currentPageModule = (CMSSiteMapModel)ViewData[SettingsCfg.Instance.CURRENT_PAGE_MODULE_VIEWDATA_KEY];
 }
 
 @section assets{
@@ -70,13 +71,22 @@
     </div>
     <div id="content-container" class="col-lg-10 col-md-9 col-sm-8 col-xs-12">
       <div id="page-title">
-        <h1>page title</h1>
+        <h1>@(currentPageModule.Title)</h1>
       </div>
       <div id="site-breadcrumb">
         <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Library</a></li>
-          <li class="active">Data</li>
+          @{
+            var root = CacheHelper.Instance.CMSSiteMapList[0];
+          }
+          @if (currentPageModule.IsRoot)
+          {
+            <li class="active">@(root.Title)</li>}
+          else
+          {
+            <li><a href="@(root.Action)">@(root.Title)</a></li>
+            <li><a href="@(currentPageModule.Views[0].Action)">@(currentPageModule.Title)</a></li>
+            <li class="active">@(currentPageModule.Views[0].Title)</li>
+          }
         </ol>
       </div>
       @RenderBody()
