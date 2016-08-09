@@ -31,5 +31,14 @@ namespace Fuddi.Configuration
         public readonly string SESSION_MANAGER_KEY = "fuddi_onedream_session_manager";
 
         #endregion
+
+        #region cache
+
+        public readonly string CACHE_CMS_SITEMAP_KEY = "fuddi_onedream_cache_cms_sitemap";
+
+        #endregion
+
+
+
     }
 }

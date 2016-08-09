@@ -79,5 +79,16 @@ namespace Fuddi.SiteUtils
             }
             return needAuthorization;
         }
+
+        //public bool CheckActiveMenu() { 
+        //    return CheckActiveMenu(System.Web.HttpContext.Current.Request.Url.AbsoluteUri.ToLower());
+        //}
+
+        //public bool CheckActiveMenu(string url) { 
+
+        //}
+
+        //public CMSSiteMapModel GetCMSSiteMap() { 
+        //}
     }
 }

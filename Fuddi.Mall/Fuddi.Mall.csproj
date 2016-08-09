@@ -171,6 +171,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fuddi.Configuration\Fuddi.Configuration.csproj">
+      <Project>{610c5c0a-a191-4a0f-b408-5c79d2d54eba}</Project>
+      <Name>Fuddi.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fuddi.Ctrls\Fuddi.Ctrls.csproj">
       <Project>{1ce9f8cd-63e2-47e3-a35f-1fd1a4b80072}</Project>
       <Name>Fuddi.Ctrls</Name>
@@ -182,6 +186,14 @@
     <ProjectReference Include="..\Fuddi.Models\Fuddi.Models.csproj">
       <Project>{b0e367e5-7f2f-42dc-86f2-4cadaa58cd53}</Project>
       <Name>Fuddi.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuddi.SiteUtils\Fuddi.SiteUtils.csproj">
+      <Project>{0df94f5c-67dc-43fa-8d13-d0716dd2d5f6}</Project>
+      <Name>Fuddi.SiteUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\X.Common\X.Common.csproj">
+      <Project>{2551cf61-9582-4c9d-bb97-b4c9aa3ba653}</Project>
+      <Name>X.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

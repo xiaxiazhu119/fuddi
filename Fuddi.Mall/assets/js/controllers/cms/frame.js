@@ -22,14 +22,16 @@ require(['/assets/js/app.js'], function () {
     };
     $('.menu-switcher').off('click').on('click', function () {
       var $this = $(this);
+      var $switchIcon = $(this).find('.switcher-icon');
       var addCls = menuOpenStatusCls.open, removeCls = menuOpenStatusCls.close;
-      if ($this.hasClass(addCls)) {
+      if ($switchIcon.hasClass(addCls)) {
         var b = addCls;
         addCls = removeCls;
         removeCls = b;
       }
-      $this.parent().nextAll('ul').slideToggle();
-      $this.removeClass(removeCls).addClass(addCls);
+      $this.toggleClass('open');
+      $this.nextAll('ul').slideToggle();
+      $switchIcon.removeClass(removeCls).addClass(addCls);
     })
 
   });

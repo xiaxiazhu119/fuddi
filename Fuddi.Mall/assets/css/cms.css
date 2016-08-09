@@ -58,7 +58,8 @@ body {
 }
 
 #menu-list .icon-fontawesone {
-  margin-right: 8px;
+  /*margin-right: 8px;*/
+  width:24px;
 }
 
 #menu-list.navbar-collapse {
@@ -77,8 +78,8 @@ body {
 
 #menu-list > ul > li > a {
   display: block;
-  padding: 10px;
-  font-weight: 600;
+  padding: 10px 20px;
+  border-bottom: 1px solid #555;
 }
 
 #menu-list > ul > li > a > .glyphicon {
@@ -87,6 +88,15 @@ body {
 
 #menu-list > ul > li > ul {
   display: none;
+}
+
+#menu-list > ul > li > ul.active {
+  display: block;
+}
+
+#menu-list > ul > li > ul > li > a {
+  display: block;
+  padding: 6px 0 6px 44px;
 }
 
 /**********************************************

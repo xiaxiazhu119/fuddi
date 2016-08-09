@@ -10,33 +10,20 @@ namespace Fuddi.Configuration
     {
     }
 
-    [XmlRoot("humanResource")]
-    public class CMSSiteMap
+    public class CMSSiteMapModel
     {
-        //public IList<
+        public string Module { get; set; }
+        public string Title { get; set; }
+        public string Action { get; set; }
+        public string Icon { get; set; }
+        public bool HasViews { get; set; }
+        public IList<CMSViewModel> Views { get; set; }
     }
 
-    //public class ModuleView
-    //{
-    //    public string Title { get; set; }
-    //}
-
-    //public class Breadcrumb
-    //{
-    //    public Router[] Routers { get; set; }
-    //}
-
-    //public class Router
-    //{
-    //    #region private data
-    //    private string m_value = null;
-    //    #endregion
-
-    //    [XmlText]
-    //    public string Value
-    //    {
-    //        get { return m_value; }
-    //        set { m_value = value; }
-    //    }
-    //}
+    public class CMSViewModel
+    {
+        public string Title { get; set; }
+        public bool InMenu { get; set; }
+        public string Action { get; set; }
+    }
 }

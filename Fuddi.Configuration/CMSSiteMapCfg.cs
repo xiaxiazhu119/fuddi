@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Fuddi.Configuration
 {
@@ -23,13 +24,31 @@ namespace Fuddi.Configuration
 
         public CMSSiteMapCfg()
         {
-            GetSiteMapConfig();
+            //GetCMSSiteMapConfig();
         }
 
-        private void GetSiteMapConfig()
+        public IList<CMSSiteMapModel> GetCMSSiteMap()
         {
-            XmlDocument xml = new XmlDocument();
-            xml.Load(System.Web.HttpContext.Current.Server.MapPath(_setCfgInstance.CMS_SITEMAP_CONFIG_FILE_PATH));
+            IList<CMSSiteMapModel> sm = new List<CMSSiteMapModel>();
+            string cfgFilePath = System.Web.HttpContext.Current.Server.MapPath(_setCfgInstance.CMS_SITEMAP_CONFIG_FILE_PATH);
+            try
+            {
+                using (StreamReader sr = new StreamReader(cfgFilePath, Encoding.UTF8))
+                {
+                    string content = sr.ReadToEnd().Replace("\r\n", "");
+                    //sr.Close();
+                    //sr.Dispose();
+                    using (JsonReader jr = new JsonTextReader(new StringReader(content)))
+                    {
+                        JsonSerializer serializer = new JsonSerializer();
+                        sm = (IList<CMSSiteMapModel>)serializer.Deserialize(jr, typeof(IList<CMSSiteMapModel>));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return sm;
         }
     }
 

@@ -14,7 +14,7 @@ using X.Common;
 
 namespace Fuddi.Ctrls.CMS
 {
-    public class ProdcutsController : CMSBaseController
+    public class ProductsController : CMSBaseController
     {
         public ActionResult ProductList()
         {

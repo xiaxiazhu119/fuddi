@@ -12,6 +12,8 @@ namespace Fuddi.Ctrls.CMS
 {
     public class CMSBaseController : BaseController
     {
+        public IList<CMSSiteMapModel> siteMap = CacheHelper.Instance.CMSSiteMapList;        
+
         protected override void OnActionExecuted(System.Web.Mvc.ActionExecutedContext filterContext)
         {
             bool needAuthorization = SiteUtil.Instance.CheckAuthorization();

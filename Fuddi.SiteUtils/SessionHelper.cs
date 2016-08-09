@@ -8,7 +8,7 @@ using Fuddi.Models;
 
 namespace Fuddi.SiteUtils
 {
-    public class SessionHelper : SessionBase
+    public class SessionHelper : BaseSession
     {
         #region manager
         public OD_Manager SessionManager

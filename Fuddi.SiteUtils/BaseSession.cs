@@ -7,7 +7,7 @@ using Fuddi.Configuration;
 
 namespace Fuddi.SiteUtils
 {
-    public class SessionBase
+    public class BaseSession
     {
         protected internal CacheCfg cacheCfgInstance = CacheCfg.Instance;
 

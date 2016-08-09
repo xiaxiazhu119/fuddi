@@ -31,8 +31,8 @@ namespace Fuddi.Configuration
             _cms_default
         };
         public readonly string RESPONSE_TEMPDATA_KEY = "rsp";
-
         public readonly string CMS_SITEMAP_CONFIG_FILE_PATH = "/sitemap/cms-sitemap.config";
+        public readonly string PAGE_TITLE_VIEWDATA_KEY = "vd_page_title";
 
 
     }

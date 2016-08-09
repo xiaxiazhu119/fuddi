@@ -37,6 +37,7 @@ namespace Fuddi.Ctrls.CMS
         }
         public ActionResult Default()
         {
+            //ViewData[setCfgInstance.PAGE_TITLE_VIEWDATA_KEY] = 
             CMSSiteMapCfg _ = CMSSiteMapCfg.Instance;
             return View();
         }

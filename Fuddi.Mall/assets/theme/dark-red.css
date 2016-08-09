@@ -61,17 +61,38 @@
   color: #fff;
 }
 
+#menu-list > ul > li > a.open,
+#menu-list > ul > li > a:hover {
+  background: #303030;
+}
+
+#menu-list > ul > li > a > .icon-fontawesone,
+#menu-list > ul > li > a > .glyphicon {
+  color: #999;
+}
+
 #menu-list > ul > li > a.active:hover,
 #menu-list > ul > li > a.active {
   background: #e02222;
 }
 
-#menu-list > ul > li > a:hover {
-  background: #303030;
+#menu-list > ul > li > a.active > .glyphicon,
+#menu-list > ul > li > a.active > .icon-fontawesone {
+  color: #fff;
 }
 
-#menu-list > ul > li > a > .glyphicon {
-  color: #999;
+#menu-list > ul > li > ul > li > a {
+  color: #bdbdbd;
+}
+
+#menu-list > ul > li > ul {
+  margin: 10px 0;
+}
+
+#menu-list > ul > li > ul > li > a.active,
+#menu-list > ul > li > ul > li > a:hover {
+  color: #fff;
+  background: #575757;
 }
 
 #menu-container .navbar-toggle {

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Fuddi.Configuration;
+@using Fuddi.SiteUtils;
+@{
   Layout = "~/Views/Shared/_CMSBaseLayout.cshtml";
 }
 
@@ -30,19 +32,39 @@
     <div id="menu-container" class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
       <div id="menu-list" class="collapse navbar-collapse">
         <ul>
-          <li><a class="active" href="#"><i class="icon-fontawesone fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
-          <li>
-            <a href="#"><i class="icon-fontawesone fa fa-shopping-bag" aria-hidden="true"></i>Products <i class="glyphicon glyphicon-menu-down pull-right menu-switcher"></i></a>
-            <ul>
-              <li><a class="" href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
+          @{
+            IList<CMSSiteMapModel> siteMap = CacheHelper.Instance.CMSSiteMapList;
+            string url = System.Web.HttpContext.Current.Request.Url.AbsoluteUri.ToLower();
+            foreach (CMSSiteMapModel sm in siteMap)
+            {
+              string activeCls = url.IndexOf(sm.Action) != -1 ? "active" : "";
+              <li>
+                @if (sm.HasViews)
+                {
+                  <a class="@(activeCls) menu-switcher" href="javascript:;"><i class="@(sm.Icon)" aria-hidden="true"></i>@(sm.Title)<i class="glyphicon glyphicon-menu-@(activeCls == "" ? "down" : "up") pull-right switcher-icon"></i></a>
+                }
+                else
+                {
+                  <a class="@(activeCls)" href="@(sm.Action)"><i class="@(sm.Icon)" aria-hidden="true"></i>@(sm.Title)</a>
+                }
+                @{
+              if (sm.HasViews)
+              {
+                var viewList = sm.Views.Where(m => m.InMenu).ToList();
+                <ul class="@(activeCls)">
+                  @{
+                foreach (CMSViewModel view in viewList)
+                {
+                  string activeCls2 = url.IndexOf(view.Action) != -1 ? "active" : "";
+                  <li><a class="@(activeCls2)" href="@(view.Action)">@(view.Title)</a></li>
+                }
+                  }
+                </ul>
+              }
+                }
+              </li>
+            }
+          }
         </ul>
       </div>
     </div>
