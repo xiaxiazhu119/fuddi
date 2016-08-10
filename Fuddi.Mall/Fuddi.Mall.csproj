@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\cms.css" />
+    <Content Include="assets\css\cms\category.css" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\common\config.js" />
     <Content Include="assets\js\common\utils.js" />
@@ -155,6 +156,7 @@
     <Content Include="assets\js\controllers\cms\home\default-controller.js" />
     <Content Include="assets\js\controllers\cms\home\signin-controller.js" />
     <Content Include="assets\js\controllers\cms\products\productlist-controller.js" />
+    <Content Include="assets\js\controllers\cms\category\tree-controller.js" />
     <Content Include="assets\js\controllers\home\index-controller.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />
@@ -222,6 +224,7 @@
     <Content Include="Views\_CMS\Products\ProductEdit.cshtml" />
     <Content Include="Views\_CMS\Category\Edit.cshtml" />
     <Content Include="Views\_CMS\Category\List.cshtml" />
+    <Content Include="Views\_CMS\Category\Tree.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

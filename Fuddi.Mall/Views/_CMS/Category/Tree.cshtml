@@ -1,0 +1,22 @@
+﻿@using Fuddi.Models;
+@using Fuddi.SiteUtils;
+
+@{
+  ViewBag.Title = "Category List";
+  Layout = "~/Views/Shared/_CMSLayout.cshtml";
+}
+
+@section assets{
+  <script src="/assets/js/controllers/cms/category/tree-controller.js"></script>
+  <link rel="stylesheet" href="/assets/css/cms/category.css">
+}
+
+@{
+  IList<CategoryModel> tree = CacheHelper.Instance.CategoryTree;
+}
+
+<div id="tree-container">
+
+      @*<div class="category-tree-item" data-offset-horizontal="@(item.Key)" data-offset-vertical="@(index)">@(c2.Name)</div>*@
+
+</div>

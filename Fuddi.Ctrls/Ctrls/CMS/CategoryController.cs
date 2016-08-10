@@ -27,5 +27,11 @@ namespace Fuddi.Ctrls.CMS
             TempData[setCfgInstance.REDIRECT_TEMPDATA_KEY] = HttpUtility.UrlDecode(redirect);
             return View();
         }
+
+        public ActionResult Tree()
+        {
+            var list = (new CategoryBLL()).GetCategoryGroup();
+            return View();
+        }
     }
 }

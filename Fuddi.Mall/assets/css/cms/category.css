@@ -1,0 +1,11 @@
+﻿@charset "UTF-8";
+
+#tree-container {
+  display: none;
+  position: relative;
+}
+
+.category-tree-item {
+  display: inline-block;
+  position: absolute;
+}

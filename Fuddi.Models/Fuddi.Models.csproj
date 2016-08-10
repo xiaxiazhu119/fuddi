@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModels\CategoryModel.cs" />
     <Compile Include="CustomModels\MgrModel.cs" />
     <Compile Include="OD_Category.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>

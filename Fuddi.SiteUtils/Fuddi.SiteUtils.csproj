@@ -51,6 +51,10 @@
     <Compile Include="ThumbnailHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fuddi.BLL\Fuddi.BLL.csproj">
+      <Project>{8db4a317-0197-4eb0-ab5e-41b2b99f98b1}</Project>
+      <Name>Fuddi.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fuddi.Configuration\Fuddi.Configuration.csproj">
       <Project>{610c5c0a-a191-4a0f-b408-5c79d2d54eba}</Project>
       <Name>Fuddi.Configuration</Name>

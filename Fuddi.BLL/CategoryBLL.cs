@@ -20,5 +20,10 @@ namespace Fuddi.BLL
         {
             return dal.GetCategoryList(pageIndex, pageSize, out total);
         }
+
+        public IDictionary<int, IList<OD_Category>> GetCategoryGroup()
+        {
+            return dal.GetCategoryGroup();
+        }
     }
 }

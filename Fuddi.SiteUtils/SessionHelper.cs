@@ -15,7 +15,7 @@ namespace Fuddi.SiteUtils
         {
             get
             {
-                string _key = cacheCfgInstance.SESSION_MANAGER_KEY;
+                string _key = cacheCfgInstance.MANAGER_SESSION_KEY;
 
                 if (HttpContext.Current.Session != null && HttpContext.Current.Session[_key] != null)
                     return (OD_Manager)HttpContext.Current.Session[_key];
@@ -24,7 +24,7 @@ namespace Fuddi.SiteUtils
             }
             private set
             {
-                HttpContext.Current.Session[cacheCfgInstance.SESSION_MANAGER_KEY] = value;
+                HttpContext.Current.Session[cacheCfgInstance.MANAGER_SESSION_KEY] = value;
             }
         }
 

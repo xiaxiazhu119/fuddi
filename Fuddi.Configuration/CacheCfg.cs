@@ -27,14 +27,16 @@ namespace Fuddi.Configuration
 
         #region session
 
-        public readonly string SESSION_MEMBER_KEY = "fuddi_onedream_session_member";
-        public readonly string SESSION_MANAGER_KEY = "fuddi_onedream_session_manager";
+        public readonly string MEMBER_SESSION_KEY = "fuddi_onedream_session_member";
+        public readonly string MANAGER_SESSION_KEY = "fuddi_onedream_session_manager";
 
         #endregion
 
         #region cache
 
-        public readonly string CACHE_CMS_SITEMAP_KEY = "fuddi_onedream_cache_cms_sitemap";
+        public readonly string CMS_SITEMAP_CACHE_KEY = "fuddi_onedream_cache_cms_sitemap";
+        public readonly string CATEGORY_GROUP_CACHE_KEY = "fuddi_onedream_cache_category_group";
+        public readonly string CATEGORY_TREE_CACHE_KEY = "fuddi_onedream_cache_category_tree";
 
         #endregion
 
