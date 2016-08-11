@@ -17,12 +17,14 @@ namespace Fuddi.Ctrls.CMS
 {
     public class CategoryController : CMSBaseController
     {
-        public ActionResult List()
+
+
+        public ActionResult CategoryList()
         {
             return View();
         }
 
-        public ActionResult Edit(int? action, string redirect)
+        public ActionResult CategoryEdit(int? action, string redirect)
         {
             TempData[setCfgInstance.REDIRECT_TEMPDATA_KEY] = HttpUtility.UrlDecode(redirect);
             return View();
@@ -30,7 +32,6 @@ namespace Fuddi.Ctrls.CMS
 
         public ActionResult Tree()
         {
-            var list = (new CategoryBLL()).GetCategoryGroup();
             return View();
         }
     }

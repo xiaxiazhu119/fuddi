@@ -12,11 +12,9 @@ namespace Fuddi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OD_Products
+    public partial class OD_CategoryGroupRelation
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public bool DelFlag { get; set; }
-        public System.DateTime CreateTime { get; set; }
+        public int GroupID { get; set; }
+        public int CategoryID { get; set; }
     }
 }

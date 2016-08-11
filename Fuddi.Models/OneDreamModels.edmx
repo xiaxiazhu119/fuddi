@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OneDreamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OneDreamModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="OD_Category">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,7 +14,26 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Lv" Type="int" Nullable="false" />
           <Property Name="DelFlag" Type="bit" Nullable="false" />
-          <Property Name="AddTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OD_CategoryGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DelFlag" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“fuddijp.fuddijp_f.OD_CategoryGroupRelation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="OD_CategoryGroupRelation">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OD_Manager">
           <Key>
@@ -25,7 +44,7 @@
           <Property Name="Pwd" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="DelFlag" Type="bit" Nullable="false" />
-          <Property Name="AddTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="OD_MgrLog">
           <Key>
@@ -37,7 +56,17 @@
           <Property Name="Action" Type="int" Nullable="false" />
           <Property Name="Remark" Type="nvarchar" MaxLength="500" />
           <Property Name="DelFlag" Type="bit" Nullable="false" />
-          <Property Name="AddTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“fuddijp.fuddijp_f.OD_ProductCategoryRelation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="OD_ProductCategoryRelation">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OD_Products">
           <Key>
@@ -46,30 +75,51 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DelFlag" Type="bit" Nullable="false" />
-          <Property Name="AddTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“fuddijp.fuddijp_f.v_category_group_relation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_category_group_relation">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="GroupName" />
+          </Key>
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="OneDreamModelStoreContainer">
           <EntitySet Name="OD_Category" EntityType="Self.OD_Category" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_CategoryGroup" EntityType="Self.OD_CategoryGroup" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_Products" EntityType="Self.OD_Products" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_CategoryGroupRelation" EntityType="Self.OD_CategoryGroupRelation" store:Type="Tables" store:Schema="fuddijp_f">
+            <DefiningQuery>SELECT 
+    [OD_CategoryGroupRelation].[GroupID] AS [GroupID], 
+    [OD_CategoryGroupRelation].[CategoryID] AS [CategoryID]
+    FROM [fuddijp_f].[OD_CategoryGroupRelation] AS [OD_CategoryGroupRelation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="OD_ProductCategoryRelation" EntityType="Self.OD_ProductCategoryRelation" store:Type="Tables" store:Schema="fuddijp_f">
+            <DefiningQuery>SELECT 
+    [OD_ProductCategoryRelation].[ProductID] AS [ProductID], 
+    [OD_ProductCategoryRelation].[CategoryID] AS [CategoryID]
+    FROM [fuddijp_f].[OD_ProductCategoryRelation] AS [OD_ProductCategoryRelation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_category_group_relation" EntityType="Self.v_category_group_relation" store:Type="Views" store:Schema="fuddijp_f">
+            <DefiningQuery>SELECT 
+    [v_category_group_relation].[GroupID] AS [GroupID], 
+    [v_category_group_relation].[GroupName] AS [GroupName], 
+    [v_category_group_relation].[CategoryID] AS [CategoryID], 
+    [v_category_group_relation].[CategoryName] AS [CategoryName]
+    FROM [fuddijp_f].[v_category_group_relation] AS [v_category_group_relation]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OneDreamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="OD_Category">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ParentID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Lv" Type="Int32" Nullable="false" />
-          <Property Name="DelFlag" Type="Boolean" Nullable="false" />
-          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="OD_Manager">
           <Key>
             <PropertyRef Name="ID" />
@@ -79,7 +129,7 @@
           <Property Name="Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="DelFlag" Type="Boolean" Nullable="false" />
-          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="OD_MgrLog">
           <Key>
@@ -91,7 +141,7 @@
           <Property Name="Action" Type="Int32" Nullable="false" />
           <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DelFlag" Type="Boolean" Nullable="false" />
-          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="OD_Products">
           <Key>
@@ -100,64 +150,150 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DelFlag" Type="Boolean" Nullable="false" />
-          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityContainer Name="OneDreamEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="OD_Category" EntityType="Self.OD_Category" />
           <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" />
           <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" />
           <EntitySet Name="OD_Products" EntityType="Self.OD_Products" />
+          <EntitySet Name="OD_CategoryGroup" EntityType="OneDreamModel.OD_CategoryGroup" />
+          <EntitySet Name="OD_CategoryGroupRelation" EntityType="OneDreamModel.OD_CategoryGroupRelation" />
+          <EntitySet Name="OD_ProductCategoryRelation" EntityType="OneDreamModel.OD_ProductCategoryRelation" />
+          <EntitySet Name="OD_Category" EntityType="OneDreamModel.OD_Category" />
+          <EntitySet Name="v_category_group_relation" EntityType="OneDreamModel.v_category_group_relation" />
         </EntityContainer>
+        <EntityType Name="OD_CategoryGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DelFlag" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OD_CategoryGroupRelation">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OD_ProductCategoryRelation">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OD_Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lv" Type="Int32" Nullable="false" />
+          <Property Name="DelFlag" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_category_group_relation">
+          <Key>
+            <PropertyRef Name="GroupID" />
+            <PropertyRef Name="GroupName" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="OneDreamModelStoreContainer" CdmEntityContainer="OneDreamEntities">
-          <EntitySetMapping Name="OD_Category">
-            <EntityTypeMapping TypeName="OneDreamModel.OD_Category">
-              <MappingFragment StoreEntitySet="OD_Category">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Lv" ColumnName="Lv" />
-                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OD_Manager">
             <EntityTypeMapping TypeName="OneDreamModel.OD_Manager">
               <MappingFragment StoreEntitySet="OD_Manager">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Pwd" ColumnName="Pwd" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OD_MgrLog">
             <EntityTypeMapping TypeName="OneDreamModel.OD_MgrLog">
               <MappingFragment StoreEntitySet="OD_MgrLog">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="MgrID" ColumnName="MgrID" />
                 <ScalarProperty Name="IP" ColumnName="IP" />
                 <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OD_Products">
             <EntityTypeMapping TypeName="OneDreamModel.OD_Products">
               <MappingFragment StoreEntitySet="OD_Products">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_CategoryGroup">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_CategoryGroup">
+              <MappingFragment StoreEntitySet="OD_CategoryGroup">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_CategoryGroupRelation">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_CategoryGroupRelation">
+              <MappingFragment StoreEntitySet="OD_CategoryGroupRelation">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_ProductCategoryRelation">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_ProductCategoryRelation">
+              <MappingFragment StoreEntitySet="OD_ProductCategoryRelation">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_Category">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_Category">
+              <MappingFragment StoreEntitySet="OD_Category">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="Lv" ColumnName="Lv" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_category_group_relation">
+            <EntityTypeMapping TypeName="OneDreamModel.v_category_group_relation">
+              <MappingFragment StoreEntitySet="v_category_group_relation">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

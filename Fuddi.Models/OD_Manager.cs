@@ -19,6 +19,6 @@ namespace Fuddi.Models
         public string Pwd { get; set; }
         public int Status { get; set; }
         public bool DelFlag { get; set; }
-        public System.DateTime AddTime { get; set; }
+        public System.DateTime CreateTime { get; set; }
     }
 }

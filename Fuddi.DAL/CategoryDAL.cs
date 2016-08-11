@@ -10,28 +10,37 @@ namespace Fuddi.DAL
 {
     public class CategoryDAL : BaseDAL
     {
-        public IList<OD_Category> GetCategoryList(int pageIndex, int pageSize, out int total)
+        public IList<OD_CategoryGroup> GetAllCategoryGroup()
         {
-            var list = entityInstance.OD_Category.ToList();
-            total = list.Count();
-            list = list.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            var list = entityInstance.OD_CategoryGroup.Where(m => !m.DelFlag).ToList();
             return list;
         }
 
-        public IDictionary<int, IList<OD_Category>> GetCategoryGroup()
+        //public IList<OD_CategoryGroupRelation> GetAllCategoryGroupRelation()
+        //{
+        //    var list = entityInstance.OD_CategoryGroupRelation.ToList();
+        //    return list;
+        //}
+
+        public IList<OD_Category> GetAllCategory()
         {
-            var total = entityInstance.OD_Category.Where(m => !m.DelFlag).OrderBy(m => m.Lv).ThenBy(m => m.ID).ToList();
-            int maxLv = total.Select(m => m.Lv).Max();
+            var list = entityInstance.OD_Category.Where(m => !m.DelFlag).OrderByDescending(m => m.ID).ToList();
+            return list;
+        }
 
-            IDictionary<int, IList<OD_Category>> group = new Dictionary<int, IList<OD_Category>>();
+        public IList<OD_Category> GetCategoryByGroupID(int groupid)
+        {
+            var list = from a in entityInstance.OD_CategoryGroupRelation
+                       join b in entityInstance.OD_Category on a.CategoryID equals b.ID
+                       where a.GroupID.Equals(groupid) && !b.DelFlag
+                       select b;
+            return list.ToList();
+        }
 
-            for (int i = 0; i <= maxLv; i++)
-            {
-                var g = total.Where(m => m.Lv.Equals(i)).ToList();
-                group.Add(i, g);
-            }
-
-            return group;
+        public IList<CategoryGroupRelationModel> GetAllCategoryGroupRelationView()
+        {
+            var list = entityInstance.v_category_group_relation.Select(m => new CategoryGroupRelationModel() { GroupID = m.GroupID, GroupName = m.GroupName, CategoryID = (int)m.CategoryID, CategoryName = m.CategoryName }).ToList();
+            return list;
         }
     }
 }

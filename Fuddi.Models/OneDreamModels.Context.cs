@@ -25,9 +25,13 @@ namespace Fuddi.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<OD_Category> OD_Category { get; set; }
         public virtual DbSet<OD_Manager> OD_Manager { get; set; }
         public virtual DbSet<OD_MgrLog> OD_MgrLog { get; set; }
         public virtual DbSet<OD_Products> OD_Products { get; set; }
+        public virtual DbSet<OD_CategoryGroup> OD_CategoryGroup { get; set; }
+        public virtual DbSet<OD_CategoryGroupRelation> OD_CategoryGroupRelation { get; set; }
+        public virtual DbSet<OD_ProductCategoryRelation> OD_ProductCategoryRelation { get; set; }
+        public virtual DbSet<OD_Category> OD_Category { get; set; }
+        public virtual DbSet<v_category_group_relation> v_category_group_relation { get; set; }
     }
 }

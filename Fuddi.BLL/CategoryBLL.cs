@@ -16,14 +16,30 @@ namespace Fuddi.BLL
             dal = new CategoryDAL();
         }
 
-        public IList<OD_Category> GetCategoryList(int pageIndex, int pageSize, out int total)
+        public IList<OD_CategoryGroup> GetAllCategoryGroup()
         {
-            return dal.GetCategoryList(pageIndex, pageSize, out total);
+            return dal.GetAllCategoryGroup();
         }
 
-        public IDictionary<int, IList<OD_Category>> GetCategoryGroup()
+        //public IList<OD_CategoryGroupRelation> GetAllCategoryGroupRelation()
+        //{
+        //    return dal.GetAllCategoryGroupRelation();
+        //}
+
+        public IList<OD_Category> GetAllCategory()
         {
-            return dal.GetCategoryGroup();
+            return dal.GetAllCategory();
         }
+
+        public IList<OD_Category> GetCategoryByGroupID(int groupid)
+        {
+            return dal.GetCategoryByGroupID(groupid);
+        }
+
+        public IList<CategoryGroupRelationModel> GetAllCategoryGroupRelationView()
+        {
+            return dal.GetAllCategoryGroupRelationView();
+        }
+
     }
 }

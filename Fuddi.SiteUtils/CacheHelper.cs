@@ -29,7 +29,7 @@ namespace Fuddi.SiteUtils
             get
             {
                 string key = CacheCfg.Instance.CMS_SITEMAP_CACHE_KEY;
-                RemoveCacheValue(key);
+                //RemoveCacheValue(key);
                 object cacheValue = GetCacheValue(key);
                 if (cacheValue != null)
                     return (IList<CMSSiteMapModel>)cacheValue;
@@ -40,22 +40,39 @@ namespace Fuddi.SiteUtils
             }
         }
 
-        public IDictionary<int, IList<OD_Category>> CategoryGroup
+        public IList<OD_CategoryGroup> CategoryGroup
         {
             get
             {
                 string key = CacheCfg.Instance.CATEGORY_GROUP_CACHE_KEY;
-                RemoveCacheValue(key);
+                //RemoveCacheValue(key);
                 object cacheValue = GetCacheValue(key);
                 if (cacheValue != null)
-                    return (IDictionary<int, IList<OD_Category>>)cacheValue;
+                    return (IList<OD_CategoryGroup>)cacheValue;
 
-                IDictionary<int, IList<OD_Category>> tree = (new CategoryBLL()).GetCategoryGroup();
+                IList<OD_CategoryGroup> tree = (new CategoryBLL()).GetAllCategoryGroup();
                 SetCacheValue(key, tree);
                 return tree;
             }
         }
 
+        public IList<CategoryGroupRelationModel> CategoryGroupRelation
+        {
+            get
+            {
+                string key = CacheCfg.Instance.CATEGORY_GROUP_RELATION_CACHE_KEY;
+                //RemoveCacheValue(key);
+                object cacheValue = GetCacheValue(key);
+                if (cacheValue != null)
+                    return (IList<CategoryGroupRelationModel>)cacheValue;
+
+                IList<CategoryGroupRelationModel> relation = (new CategoryBLL()).GetAllCategoryGroupRelationView();
+                SetCacheValue(key, relation);
+                return relation;
+            }
+        }
+
+        /*
         public IList<CategoryModel> CategoryTree
         {
             get
@@ -90,13 +107,14 @@ namespace Fuddi.SiteUtils
                 return tree;
             }
         }
+         * */
 
         private IList<CategoryModel> GetChildCategoryList(IDictionary<int, IList<OD_Category>> group, OD_Category model, int minLv, int maxLv)
         {
             IList<CategoryModel> list = new List<CategoryModel>();
             if (model.Lv < maxLv)
             {
-                list = (IList<CategoryModel>)group[model.Lv + 1].Where(m => m.ParentID.Equals(model.ID)).Select(m => new CategoryModel() { ID = m.ID, ParentID = m.ParentID, Name = m.Name, Lv = m.Lv, DelFlag = m.DelFlag, AddTime = m.AddTime }).OrderBy(m => m.ID).ToList();
+                list = (IList<CategoryModel>)group[model.Lv + 1].Where(m => m.ParentID.Equals(model.ID)).Select(m => new CategoryModel() { ID = m.ID, ParentID = m.ParentID, Name = m.Name, Lv = m.Lv, DelFlag = m.DelFlag, CreateTime = m.CreateTime }).OrderBy(m => m.ID).ToList();
                 foreach (var c in list)
                 {
                     c.CategoryList = GetChildCategoryList(group, c, minLv, maxLv);

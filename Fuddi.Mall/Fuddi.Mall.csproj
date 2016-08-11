@@ -222,8 +222,8 @@
     <Content Include="Views\_CMS\Products\ProductList.cshtml" />
     <Content Include="Views\_CMS\Products\ProductDetail.cshtml" />
     <Content Include="Views\_CMS\Products\ProductEdit.cshtml" />
-    <Content Include="Views\_CMS\Category\Edit.cshtml" />
-    <Content Include="Views\_CMS\Category\List.cshtml" />
+    <Content Include="Views\_CMS\Category\CategoryEdit.cshtml" />
+    <Content Include="Views\_CMS\Category\CategoryList.cshtml" />
     <Content Include="Views\_CMS\Category\Tree.cshtml" />
   </ItemGroup>
   <PropertyGroup>

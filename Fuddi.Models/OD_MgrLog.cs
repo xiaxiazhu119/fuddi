@@ -20,6 +20,6 @@ namespace Fuddi.Models
         public int Action { get; set; }
         public string Remark { get; set; }
         public bool DelFlag { get; set; }
-        public System.DateTime AddTime { get; set; }
+        public System.DateTime CreateTime { get; set; }
     }
 }
