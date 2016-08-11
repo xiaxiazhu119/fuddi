@@ -32,10 +32,6 @@
   color: #ccc;
 }
 
-#tree-container .edit-container {
-  display: none;
-}
-
 .item-content {
   height: 34px;
   line-height: 34px;
@@ -49,7 +45,12 @@
   margin-left: 0;
 }
 
+.item-content .group-name {
+  font-weight:bolder;
+}
+
 .edit-container {
+  display: none;
   padding-left: 2em;
 }
 

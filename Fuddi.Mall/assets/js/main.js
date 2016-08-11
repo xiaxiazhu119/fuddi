@@ -5,14 +5,18 @@ define([], function () {
   var Main = {
     API: {
       editCategory: '/_cms/api/editcategory',
-      editCategoryGroup: '/_cms/api/editcategorygroup'
+      editCategoryGroup: '/_cms/api/editcategorygroup',
+      clearCategoryCache: '/_cms/api/clearcategorycache'
     },
     request: function (api, data) {
-      var q = $.ajax({
+      var opt = {
         method: 'POST',
-        url: api,
-        data: data
-      });
+        url: api
+      }
+      if (data) {
+        opt.data = data
+      };
+      var q = $.ajax(opt);
       return q;
     }
   };

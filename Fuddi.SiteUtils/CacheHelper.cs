@@ -72,6 +72,12 @@ namespace Fuddi.SiteUtils
             }
         }
 
+        public void ClearCategoryCache()
+        {
+            RemoveCacheValue(CacheCfg.Instance.CATEGORY_GROUP_CACHE_KEY);
+            RemoveCacheValue(CacheCfg.Instance.CATEGORY_GROUP_RELATION_CACHE_KEY);
+        }
+
         /*
         public IList<CategoryModel> CategoryTree
         {

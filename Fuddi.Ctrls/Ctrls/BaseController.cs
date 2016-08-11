@@ -1,4 +1,5 @@
 ﻿using Fuddi.Configuration;
+using Fuddi.Enum;
 using Fuddi.SiteUtils;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,21 @@ namespace Fuddi.Ctrls
             base.OnActionExecuting(filterContext);
         }
 
+        protected internal JsonResult BuildJsonResult(ResponseEnum response)
+        {
+            return BuildJsonResult(response, null);
+        }
+
+        protected internal JsonResult BuildJsonResult(ResponseEnum response, object data)
+        {
+            ResponseModel rspModel = new ResponseModel();
+            rspModel.Code = (int)response;
+            rspModel.Msg = EnumClass.GetResponseDesc(response);
+            if (data != null)
+                rspModel.Data = data;
+            return BuildJsonResult(rspModel);
+        }
+
         protected internal JsonResult BuildJsonResult(object obj)
         {
             var jr = new JsonResult();
@@ -31,7 +47,11 @@ namespace Fuddi.Ctrls
             return jr;
         }
 
-        
-
+    }
+    public class ResponseModel
+    {
+        public int Code { get; set; }
+        public string Msg { get; set; }
+        public object Data { get; set; }
     }
 }

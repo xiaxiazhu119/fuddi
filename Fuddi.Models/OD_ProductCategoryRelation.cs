@@ -14,6 +14,7 @@ namespace Fuddi.Models
     
     public partial class OD_ProductCategoryRelation
     {
+        public int ID { get; set; }
         public int ProductID { get; set; }
         public int CategoryID { get; set; }
     }

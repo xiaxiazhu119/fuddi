@@ -8,11 +8,11 @@
         <EntityTypeShape EntityType="OneDreamModel.OD_Manager" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OneDreamModel.OD_MgrLog" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OneDreamModel.OD_Products" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OneDreamModel.OD_CategoryGroup" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="OneDreamModel.OD_CategoryGroupRelation" Width="1.5" PointX="5.375" PointY="3.75" />
-        <EntityTypeShape EntityType="OneDreamModel.OD_ProductCategoryRelation" Width="1.5" PointX="8" PointY="3.75" />
+        <EntityTypeShape EntityType="OneDreamModel.OD_CategoryGroup" Width="2.625" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="OneDreamModel.OD_Category" Width="1.5" PointX="0.875" PointY="0.875" />
         <EntityTypeShape EntityType="OneDreamModel.v_category_group_relation" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="OneDreamModel.OD_CategoryGroupRelation" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="OneDreamModel.OD_ProductCategoryRelation" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

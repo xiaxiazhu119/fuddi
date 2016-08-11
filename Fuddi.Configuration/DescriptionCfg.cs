@@ -31,7 +31,20 @@ namespace Fuddi.Configuration
         #region response
 
         public readonly string RESPONSE_APPLICATION_ERROR = "应用程序错误";
+        public readonly string RESPONSE_OPERATION_SUCCESS = "操作成功";
+
         public readonly string RESPONSE_SIGNIN_FAILED = "登录失败";
+
+        #region category
+        public readonly string RESPONSE_ADD_CATEGORY_SUCCESS = "添加分类成功";
+        public readonly string RESPONSE_UPDATE_CATEGORY_SUCCESS = "更新分类成功";
+        public readonly string RESPONSE_ADD_CATEGORY_GROUP_SUCCESS = "添加分类组成功";
+        public readonly string RESPONSE_UPDATE_CATEGORY_GROUP_SUCCESS = "更新分类组成功";
+        public readonly string RESPONSE_ADD_CATEGORY_FAILED = "添加分类失败";
+        public readonly string RESPONSE_UPDATE_CATEGORY_FAILED = "更新分类失败";
+        public readonly string RESPONSE_ADD_CATEGORY_GROUP_FAILED = "添加分类组失败";
+        public readonly string RESPONSE_UPDATE_CATEGORY_GROUP_FAILED = "更新分类组失败";
+        #endregion
 
         #endregion
 

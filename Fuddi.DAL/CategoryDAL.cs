@@ -42,5 +42,42 @@ namespace Fuddi.DAL
             var list = entityInstance.v_category_group_relation.Select(m => new CategoryGroupRelationModel() { GroupID = m.GroupID, GroupName = m.GroupName, CategoryID = (int)m.CategoryID, CategoryName = m.CategoryName }).ToList();
             return list;
         }
+
+        public int AddCategory(OD_Category model)
+        {
+            entityInstance.OD_Category.Add(model);
+            entityInstance.SaveChanges();
+            return model.ID;
+        }
+
+        public int UpdateCategory(OD_Category model)
+        {
+            var a = entityInstance.OD_Category.First(m => m.ID.Equals(model.ID));
+            a.Name = model.Name;
+            int rst = entityInstance.SaveChanges();
+            return rst;
+        }
+
+        public int AddCategoryGroup(OD_CategoryGroup model)
+        {
+            entityInstance.OD_CategoryGroup.Add(model);
+            entityInstance.SaveChanges();
+            return model.ID;
+        }
+
+        public int UpdateCategoryGroup(OD_CategoryGroup model)
+        {
+            var a = entityInstance.OD_CategoryGroup.First(m => m.ID.Equals(model.ID));
+            a.Name = model.Name;
+            int rst = entityInstance.SaveChanges();
+            return rst;
+        }
+
+        public int AddCategoryGroupRelation(OD_CategoryGroupRelation model)
+        {
+            entityInstance.OD_CategoryGroupRelation.Add(model);
+            entityInstance.SaveChanges();
+            return model.ID;
+        }
     }
 }

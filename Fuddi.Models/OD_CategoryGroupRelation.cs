@@ -14,6 +14,7 @@ namespace Fuddi.Models
     
     public partial class OD_CategoryGroupRelation
     {
+        public int ID { get; set; }
         public int GroupID { get; set; }
         public int CategoryID { get; set; }
     }

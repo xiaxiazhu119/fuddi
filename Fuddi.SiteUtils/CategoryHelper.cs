@@ -32,5 +32,10 @@ namespace Fuddi.SiteUtils
             var list = reation.Where(m => m.GroupID.Equals(groupid)).ToList();
             return list;
         }
+
+        public void ClearCategoryCache()
+        {
+            CacheHelper.Instance.ClearCategoryCache();
+        }
     }
 }

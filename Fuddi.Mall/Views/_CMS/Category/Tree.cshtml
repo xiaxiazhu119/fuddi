@@ -17,7 +17,7 @@
 }
 
 <p>
-
+  <button id="btn-refresh" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i>&nbsp;&nbsp;Refresh</button>
 </p>
 
 <div id="tree-container" class="form-inline">
@@ -31,9 +31,9 @@
       <li>
         <div class="item-content">
           <a class="category-switcher" href="javascript:;">
-            <i class="glyphicon @(hasCategory ? "glyphicon-plus" : "glyphicon-minus")"></i>
+            <i class="glyphicon glyphicon-plus"></i>
           </a>
-          <span>@(g.Name)&nbsp;&nbsp;</span>
+          <span class="item-txt-container group-name">@(g.Name)&nbsp;&nbsp;</span>
           <a class="edit g-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
           <div class="edit-container">
             <input type="text" class="form-control" data-id="@(g.ID)" value="@(g.Name)" />&nbsp;&nbsp;
@@ -42,18 +42,19 @@
           </div>
         </div>
 
+        <div class="category-container">
 
-        @if (hasCategory)
-        {
-          int index = 0;
-          <div class="category-container">
-            <ul>
-              @foreach (var r in list)
+          <ul>
+            @if (hasCategory)
+            {
+              int index = 0;
+              foreach (var r in list)
               {
                 <li class="category-item">
                   <div><span class="dir-symbol">│</span></div>
                   <div class="item-content">
-                    <span class="dir-symbol">├─&nbsp;&nbsp;&nbsp;</span>@(r.CategoryName)
+                    <span class="dir-symbol">├─&nbsp;&nbsp;&nbsp;</span>
+                    <span class="item-txt-container">@(r.CategoryName)</span>
                     <a class="edit c-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
                     <div class="edit-container">
                       <input type="text" class="form-control" data-gid="@(g.ID)" data-id="@(r.CategoryID)" value="@(r.CategoryName)" />
@@ -64,27 +65,28 @@
                 </li>
                 index++;
               }
-              <li class="category-item">
-                <div><span class="dir-symbol">│</span></div>
-                <div class="item-content">
-                  <span class="dir-symbol">└─&nbsp;&nbsp;</span>
-                  <a class="edit c-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
-                  <div class="edit-container add-container">
-                    <input type="text" class="form-control" data-gid="@(g.ID)" data-id="0" value="" />
-                    <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
-                    <a class="edit-cancel c-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
-                  </div>
+            }
+            <li class="category-item">
+              <div><span class="dir-symbol">│</span></div>
+              <div class="item-content">
+                <span class="dir-symbol">└─&nbsp;&nbsp;</span>
+                <a class="edit c-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
+                <div class="edit-container add-container">
+                  <input type="text" class="form-control" data-gid="@(g.ID)" data-id="0" value="" />
+                  <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+                  <a class="edit-cancel c-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                 </div>
-              </li>
-            </ul>
-          </div>
-        }
+              </div>
+            </li>
+          </ul>
+        </div>
       </li>
     }
     <li>
       <div class="item-content">
         &nbsp;<a class="edit g-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
-        <div class="edit-container add-container">&nbsp;&nbsp;
+        <div class="edit-container add-container">
+          &nbsp;&nbsp;
           <input type="text" class="form-control" data-id="0" value="" />&nbsp;&nbsp;
           <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
           <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>

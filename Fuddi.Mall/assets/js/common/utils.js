@@ -164,10 +164,10 @@ define([], function () {
       return $(elm).index(item);
     };
 
-    var _setModalContent = function (modalID, container, content) {
-      $(modalID).find(container).html(content);
+    var _setModalContent = function (modalID, content) {
+      $(modalID).find('.modal-body').html(content);
     };
-    
+
     var _showModal = function (modalID, onShow, onHide) {
       $(modalID).unbind()
       .on(_modelEvent.onShow, function (e) {
@@ -178,7 +178,7 @@ define([], function () {
               onShow();
               break;
             case 'string':
-              this._setModalContent(modalID, onShow);
+              _setModalContent(modalID, onShow);
               break;
           }
         }
@@ -193,9 +193,9 @@ define([], function () {
     var _hideModal = function (modalID, onHide) {
       $(modalID)
         .on(_modelEvent.onHide, function (e) {
-        if (typeof onHide !== 'undefined')
-          onHide();
-      })
+          if (typeof onHide !== 'undefined')
+            onHide();
+        })
         .modal(_modelEvent.hide);
     };
 
@@ -216,9 +216,8 @@ define([], function () {
     };
 
     var _showCommonModal = function (content) {
-      var modalID = '#common-modal',
-        container = '.modal-body';
-      _setModalContent(modalID, container, content);
+      var modalID = '#common-modal';
+      _setModalContent(modalID, content);
       _showModal(modalID);
     };
 
@@ -251,14 +250,14 @@ define([], function () {
     this.getItemIndex = function (elm, item) {
       return _getItemIndex(elm, item);
     }
-    this.setModalContent = function (modalID, container, content) {
-      return _setModalContent(modalID, container, content);
+    this.setModalContent = function (modalID, content) {
+      return _setModalContent(modalID, content);
     }
     this.showModal = function (modalID, onShow, onHide) {
       return _showModal(modalID, onShow, onHide);
     }
-    this.hideModal = function (modalID,  onHide) {
-      return _hideModal(modalID,  onHide);
+    this.hideModal = function (modalID, onHide) {
+      return _hideModal(modalID, onHide);
     }
     this.bindModalEvent = function (modalID, event, func) {
       return _bindModalEvent(modalID, event, func);

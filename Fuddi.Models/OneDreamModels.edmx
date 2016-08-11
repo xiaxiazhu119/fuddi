@@ -25,13 +25,11 @@
           <Property Name="DelFlag" Type="bit" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“fuddijp.fuddijp_f.OD_CategoryGroupRelation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="OD_CategoryGroupRelation">
           <Key>
-            <PropertyRef Name="GroupID" />
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GroupID" Type="int" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
         </EntityType>
@@ -58,13 +56,11 @@
           <Property Name="DelFlag" Type="bit" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“fuddijp.fuddijp_f.OD_ProductCategoryRelation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="OD_ProductCategoryRelation">
           <Key>
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
         </EntityType>
@@ -92,21 +88,11 @@
         <EntityContainer Name="OneDreamModelStoreContainer">
           <EntitySet Name="OD_Category" EntityType="Self.OD_Category" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_CategoryGroup" EntityType="Self.OD_CategoryGroup" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_CategoryGroupRelation" EntityType="Self.OD_CategoryGroupRelation" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_ProductCategoryRelation" EntityType="Self.OD_ProductCategoryRelation" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_Products" EntityType="Self.OD_Products" Schema="fuddijp_f" store:Type="Tables" />
-          <EntitySet Name="OD_CategoryGroupRelation" EntityType="Self.OD_CategoryGroupRelation" store:Type="Tables" store:Schema="fuddijp_f">
-            <DefiningQuery>SELECT 
-    [OD_CategoryGroupRelation].[GroupID] AS [GroupID], 
-    [OD_CategoryGroupRelation].[CategoryID] AS [CategoryID]
-    FROM [fuddijp_f].[OD_CategoryGroupRelation] AS [OD_CategoryGroupRelation]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="OD_ProductCategoryRelation" EntityType="Self.OD_ProductCategoryRelation" store:Type="Tables" store:Schema="fuddijp_f">
-            <DefiningQuery>SELECT 
-    [OD_ProductCategoryRelation].[ProductID] AS [ProductID], 
-    [OD_ProductCategoryRelation].[CategoryID] AS [CategoryID]
-    FROM [fuddijp_f].[OD_ProductCategoryRelation] AS [OD_ProductCategoryRelation]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="v_category_group_relation" EntityType="Self.v_category_group_relation" store:Type="Views" store:Schema="fuddijp_f">
             <DefiningQuery>SELECT 
     [v_category_group_relation].[GroupID] AS [GroupID], 
@@ -157,10 +143,10 @@
           <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" />
           <EntitySet Name="OD_Products" EntityType="Self.OD_Products" />
           <EntitySet Name="OD_CategoryGroup" EntityType="OneDreamModel.OD_CategoryGroup" />
-          <EntitySet Name="OD_CategoryGroupRelation" EntityType="OneDreamModel.OD_CategoryGroupRelation" />
-          <EntitySet Name="OD_ProductCategoryRelation" EntityType="OneDreamModel.OD_ProductCategoryRelation" />
           <EntitySet Name="OD_Category" EntityType="OneDreamModel.OD_Category" />
           <EntitySet Name="v_category_group_relation" EntityType="OneDreamModel.v_category_group_relation" />
+          <EntitySet Name="OD_CategoryGroupRelation" EntityType="OneDreamModel.OD_CategoryGroupRelation" />
+          <EntitySet Name="OD_ProductCategoryRelation" EntityType="OneDreamModel.OD_ProductCategoryRelation" />
         </EntityContainer>
         <EntityType Name="OD_CategoryGroup">
           <Key>
@@ -170,22 +156,6 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DelFlag" Type="Boolean" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="OD_CategoryGroupRelation">
-          <Key>
-            <PropertyRef Name="GroupID" />
-            <PropertyRef Name="CategoryID" />
-          </Key>
-          <Property Name="GroupID" Type="Int32" Nullable="false" />
-          <Property Name="CategoryID" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="OD_ProductCategoryRelation">
-          <Key>
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="CategoryID" />
-          </Key>
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="CategoryID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="OD_Category">
           <Key>
@@ -207,6 +177,22 @@
           <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CategoryID" Type="Int32" />
           <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OD_CategoryGroupRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OD_ProductCategoryRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -259,22 +245,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OD_CategoryGroupRelation">
-            <EntityTypeMapping TypeName="OneDreamModel.OD_CategoryGroupRelation">
-              <MappingFragment StoreEntitySet="OD_CategoryGroupRelation">
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OD_ProductCategoryRelation">
-            <EntityTypeMapping TypeName="OneDreamModel.OD_ProductCategoryRelation">
-              <MappingFragment StoreEntitySet="OD_ProductCategoryRelation">
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OD_Category">
             <EntityTypeMapping TypeName="OneDreamModel.OD_Category">
               <MappingFragment StoreEntitySet="OD_Category">
@@ -294,6 +264,24 @@
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="GroupName" ColumnName="GroupName" />
                 <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_CategoryGroupRelation">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_CategoryGroupRelation">
+              <MappingFragment StoreEntitySet="OD_CategoryGroupRelation">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_ProductCategoryRelation">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_ProductCategoryRelation">
+              <MappingFragment StoreEntitySet="OD_ProductCategoryRelation">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -33,8 +33,26 @@ namespace Fuddi.Enum
             {
                 case ResponseEnum.ApplicationError:
                     return cfg.RESPONSE_APPLICATION_ERROR;
+                case ResponseEnum.OperationSuccess:
+                    return cfg.RESPONSE_OPERATION_SUCCESS;
                 case ResponseEnum.SignInFailed:
                     return cfg.RESPONSE_SIGNIN_FAILED;
+                case ResponseEnum.AddCategorySuccess:
+                    return cfg.RESPONSE_ADD_CATEGORY_SUCCESS;
+                case ResponseEnum.UpdateCategorySuccess:
+                    return cfg.RESPONSE_UPDATE_CATEGORY_SUCCESS;
+                case ResponseEnum.AddCategoryGroupSuccess:
+                    return cfg.RESPONSE_ADD_CATEGORY_GROUP_SUCCESS;
+                case ResponseEnum.UpdateCategoryGroupSuccess:
+                    return cfg.RESPONSE_UPDATE_CATEGORY_GROUP_SUCCESS;
+                case ResponseEnum.AddCategoryFailed:
+                    return cfg.RESPONSE_ADD_CATEGORY_FAILED;
+                case ResponseEnum.UpdateCategoryFailed:
+                    return cfg.RESPONSE_UPDATE_CATEGORY_FAILED;
+                case ResponseEnum.AddCategoryGroupFailed:
+                    return cfg.RESPONSE_ADD_CATEGORY_GROUP_FAILED;
+                case ResponseEnum.UpdateCategoryGroupFailed:
+                    return cfg.RESPONSE_UPDATE_CATEGORY_GROUP_FAILED;
                 default:
                     return cfg.RESPONSE_APPLICATION_ERROR;
             }

@@ -41,5 +41,30 @@ namespace Fuddi.BLL
             return dal.GetAllCategoryGroupRelationView();
         }
 
+        public int AddCategory(OD_Category model)
+        {
+            return dal.AddCategory(model);
+        }
+
+        public int UpdateCategory(OD_Category model)
+        {
+            return dal.UpdateCategory(model);
+        }
+
+        public int AddCategoryGroup(OD_CategoryGroup model)
+        {
+            return dal.AddCategoryGroup(model);
+        }
+
+        public int UpdateCategoryGroup(OD_CategoryGroup model)
+        {
+            return dal.UpdateCategoryGroup(model);
+        }
+
+        public int AddCategoryGroupRelation(OD_CategoryGroupRelation model)
+        {
+            return dal.AddCategoryGroupRelation(model);
+        }
+
     }
 }
