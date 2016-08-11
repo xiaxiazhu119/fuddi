@@ -2,7 +2,7 @@
 
 require(['/assets/js/app.js'], function () {
 
-  require(['config', 'utils'], function (config, utils) {
+  require(['config', 'utils', 'main'], function (config, utils, Main) {
 
     var categoryOpenStatusCls = {
       close: 'glyphicon-plus',
@@ -31,6 +31,23 @@ require(['/assets/js/app.js'], function () {
     $('.edit-cancel').off('click').on('click', function () {
       $(this).parent().hide();
       $(this).parent().parent().find('.edit').show();
+    });
+
+    $('.edit-confirm').off('click').on('click', function () {
+      var $this = $(this);
+      var type = $this.data('type');
+      var api = Main.API.editCategoryGroup;
+      var v = $this.siblings('input');
+      var data = {
+        id: v.data('id'),
+        name: v.val()
+      };
+      if (type === 'c') {
+        api = Main.API.editCategory;
+        data.gid = v.data('gid');
+      }
+
+      var request = Main.request(api, data);
     });
 
     $('#tree-container').fadeIn();

@@ -90,14 +90,16 @@ namespace Fuddi.SiteUtils
 
         public CMSSiteMapModel GetCMSPageModuleInfo(string url)
         {
+
             var sm = CacheHelper.Instance.CMSSiteMapList.FirstOrDefault(m => url.IndexOf(m.Action) != -1);
-            if (sm.Views.Count > 0)
+            if (sm == null || url.IndexOf("/_cms/api/") != -1)
+                sm = new CMSSiteMapModel();
+
+            if (sm.Views != null && sm.Views.Count > 0)
             {
                 var currentView = sm.Views.FirstOrDefault(m => url.IndexOf(m.Action) != -1);
                 sm.CurrentView = currentView;
             }
-            if (sm == null)
-                sm = new CMSSiteMapModel();
             return sm;
         }
 

@@ -16,6 +16,10 @@
   var group = ch.GetAllCategoryGroup();
 }
 
+<p>
+
+</p>
+
 <div id="tree-container" class="form-inline">
   <ul>
 
@@ -33,7 +37,7 @@
           <a class="edit g-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
           <div class="edit-container">
             <input type="text" class="form-control" data-id="@(g.ID)" value="@(g.Name)" />&nbsp;&nbsp;
-            <a class="edit-confirm g-edit-confirm" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+            <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
             <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
           </div>
         </div>
@@ -52,8 +56,8 @@
                     <span class="dir-symbol">├─&nbsp;&nbsp;&nbsp;</span>@(r.CategoryName)
                     <a class="edit c-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
                     <div class="edit-container">
-                      <input type="text" class="form-control" data-id="@(r.CategoryID)" value="@(r.CategoryName)" />
-                      <a class="edit-confirm c-edit-confirm" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+                      <input type="text" class="form-control" data-gid="@(g.ID)" data-id="@(r.CategoryID)" value="@(r.CategoryName)" />
+                      <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
                       <a class="edit-cancel c-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                     </div>
                   </div>
@@ -64,10 +68,10 @@
                 <div><span class="dir-symbol">│</span></div>
                 <div class="item-content">
                   <span class="dir-symbol">└─&nbsp;&nbsp;</span>
-                  <a class="edit c-edit btn btn-success" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
+                  <a class="edit c-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
                   <div class="edit-container add-container">
-                    <input type="text" class="form-control" data-id="0" value="" />
-                    <a class="edit-confirm c-edit-confirm" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+                    <input type="text" class="form-control" data-gid="@(g.ID)" data-id="0" value="" />
+                    <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
                     <a class="edit-cancel c-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                   </div>
                 </div>
@@ -79,15 +83,14 @@
     }
     <li>
       <div class="item-content">
-        &nbsp;<a class="edit g-edit btn btn-success" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
+        &nbsp;<a class="edit g-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
         <div class="edit-container add-container">&nbsp;&nbsp;
           <input type="text" class="form-control" data-id="0" value="" />&nbsp;&nbsp;
-          <a class="edit-confirm g-edit-confirm" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+          <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
           <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
         </div>
       </div>
     </li>
   </ul>
-  @*<div class="category-tree-item" data-offset-horizontal="@(item.Key)" data-offset-vertical="@(index)">@(c2.Name)</div>*@
 
 </div>

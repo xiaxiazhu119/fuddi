@@ -52,6 +52,7 @@
     <Compile Include="App\TransportApp.cs" />
     <Compile Include="App\MallApp.cs" />
     <Compile Include="Ctrls\Api\ApiBaseController.cs" />
+    <Compile Include="Ctrls\CMS\ApiController.cs" />
     <Compile Include="Ctrls\Api\DemoController.cs" />
     <Compile Include="Ctrls\BaseController.cs" />
     <Compile Include="Ctrls\CMS\CategoryController.cs" />
