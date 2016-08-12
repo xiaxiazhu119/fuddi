@@ -46,6 +46,7 @@ namespace Fuddi.Ctrls.CMS
             }
             return BuildJsonResult(rsp);
         }
+
         public JsonResult EditCategoryGroup(int id, string name)
         {
             OD_CategoryGroup model = new OD_CategoryGroup();
@@ -67,6 +68,20 @@ namespace Fuddi.Ctrls.CMS
                 rst = bll.UpdateCategoryGroup(model);
                 rsp = rst > 0 ? ResponseEnum.UpdateCategoryGroupSuccess : ResponseEnum.UpdateCategoryGroupFailed;
             }
+            return BuildJsonResult(rsp);
+        }
+
+        public JsonResult DeleteCategory(int id)
+        {
+            int rst = (new CategoryBLL()).DeleteCategory(id);
+            ResponseEnum rsp = rst > 0 ? ResponseEnum.DeleteCategorySuccess : ResponseEnum.DeleteCategoryFailed;
+            return BuildJsonResult(rsp);
+        }
+
+        public JsonResult DeleteCategoryGroup(int id)
+        {
+            int rst = (new CategoryBLL()).DeleteCategoryGroup(id);
+            ResponseEnum rsp = rst > 0 ? ResponseEnum.DeleteCategoryGroupSuccess : ResponseEnum.DeleteCategoryGroupFailed;
             return BuildJsonResult(rsp);
         }
 

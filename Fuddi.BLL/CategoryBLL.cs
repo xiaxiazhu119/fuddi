@@ -51,6 +51,11 @@ namespace Fuddi.BLL
             return dal.UpdateCategory(model);
         }
 
+        public int DeleteCategory(int id)
+        {
+            return dal.DeleteCategory(id);
+        }
+
         public int AddCategoryGroup(OD_CategoryGroup model)
         {
             return dal.AddCategoryGroup(model);
@@ -59,6 +64,11 @@ namespace Fuddi.BLL
         public int UpdateCategoryGroup(OD_CategoryGroup model)
         {
             return dal.UpdateCategoryGroup(model);
+        }
+
+        public int DeleteCategoryGroup(int gid)
+        {
+            return dal.DeleteCategoryGroup(gid);
         }
 
         public int AddCategoryGroupRelation(OD_CategoryGroupRelation model)

@@ -41,20 +41,28 @@ namespace Fuddi.Enum
                     return cfg.RESPONSE_ADD_CATEGORY_SUCCESS;
                 case ResponseEnum.UpdateCategorySuccess:
                     return cfg.RESPONSE_UPDATE_CATEGORY_SUCCESS;
+                case ResponseEnum.DeleteCategorySuccess:
+                    return cfg.RESPONSE_DELETE_CATEGORY_SUCCESS;
                 case ResponseEnum.AddCategoryGroupSuccess:
                     return cfg.RESPONSE_ADD_CATEGORY_GROUP_SUCCESS;
                 case ResponseEnum.UpdateCategoryGroupSuccess:
                     return cfg.RESPONSE_UPDATE_CATEGORY_GROUP_SUCCESS;
+                case ResponseEnum.DeleteCategoryGroupSuccess:
+                    return cfg.RESPONSE_DELETE_CATEGORY_GROUP_SUCCESS;
                 case ResponseEnum.AddCategoryFailed:
                     return cfg.RESPONSE_ADD_CATEGORY_FAILED;
                 case ResponseEnum.UpdateCategoryFailed:
                     return cfg.RESPONSE_UPDATE_CATEGORY_FAILED;
+                case ResponseEnum.DeleteCategoryFailed:
+                    return cfg.RESPONSE_DELETE_CATEGORY_FAILED;
                 case ResponseEnum.AddCategoryGroupFailed:
                     return cfg.RESPONSE_ADD_CATEGORY_GROUP_FAILED;
                 case ResponseEnum.UpdateCategoryGroupFailed:
                     return cfg.RESPONSE_UPDATE_CATEGORY_GROUP_FAILED;
+                case ResponseEnum.DeleteCategoryGroupFailed:
+                    return cfg.RESPONSE_DELETE_CATEGORY_GROUP_FAILED;
                 default:
-                    return cfg.RESPONSE_APPLICATION_ERROR;
+                    return cfg.RESPONSE_OPERATION_SUCCESS;
             }
         }
     }

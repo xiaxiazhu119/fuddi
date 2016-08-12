@@ -38,12 +38,16 @@ namespace Fuddi.Configuration
         #region category
         public readonly string RESPONSE_ADD_CATEGORY_SUCCESS = "添加分类成功";
         public readonly string RESPONSE_UPDATE_CATEGORY_SUCCESS = "更新分类成功";
+        public readonly string RESPONSE_DELETE_CATEGORY_SUCCESS = "删除分类成功";
         public readonly string RESPONSE_ADD_CATEGORY_GROUP_SUCCESS = "添加分类组成功";
         public readonly string RESPONSE_UPDATE_CATEGORY_GROUP_SUCCESS = "更新分类组成功";
+        public readonly string RESPONSE_DELETE_CATEGORY_GROUP_SUCCESS = "删除分类组成功";
         public readonly string RESPONSE_ADD_CATEGORY_FAILED = "添加分类失败";
         public readonly string RESPONSE_UPDATE_CATEGORY_FAILED = "更新分类失败";
+        public readonly string RESPONSE_DELETE_CATEGORY_FAILED = "删除分类失败";
         public readonly string RESPONSE_ADD_CATEGORY_GROUP_FAILED = "添加分类组失败";
         public readonly string RESPONSE_UPDATE_CATEGORY_GROUP_FAILED = "更新分类组失败";
+        public readonly string RESPONSE_DELETE_CATEGORY_GROUP_FAILED = "删除分类组失败";
         #endregion
 
         #endregion

@@ -28,18 +28,19 @@
       var list = ch.GetCategoryByGroupID(g.ID);
       var cnt = list.Count;
       bool hasCategory = cnt > 0;
-      <li>
+      <li class="group-item">
         <div class="item-content">
           <a class="category-switcher" href="javascript:;">
             <i class="glyphicon glyphicon-plus"></i>
           </a>
           <span class="item-txt-container group-name">@(g.Name)&nbsp;&nbsp;</span>
-          <a class="edit g-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
+          <a class="edit-btn g-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
           <div class="edit-container">
             <input type="text" class="form-control" data-id="@(g.ID)" value="@(g.Name)" />&nbsp;&nbsp;
             <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
             <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
           </div>
+          <a class="remove-btn c-remove text-danger" data-type="g" data-id="@(g.ID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
         </div>
 
         <div class="category-container">
@@ -55,12 +56,13 @@
                   <div class="item-content">
                     <span class="dir-symbol">├─&nbsp;&nbsp;&nbsp;</span>
                     <span class="item-txt-container">@(r.CategoryName)</span>
-                    <a class="edit c-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="edit-btn c-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
                     <div class="edit-container">
                       <input type="text" class="form-control" data-gid="@(g.ID)" data-id="@(r.CategoryID)" value="@(r.CategoryName)" />
                       <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
                       <a class="edit-cancel c-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                     </div>
+                    <a class="remove-btn c-remove text-danger" data-type="c" data-id="@(r.CategoryID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
                   </div>
                 </li>
                 index++;
@@ -70,7 +72,7 @@
               <div><span class="dir-symbol">│</span></div>
               <div class="item-content">
                 <span class="dir-symbol">└─&nbsp;&nbsp;</span>
-                <a class="edit c-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
+                <a class="edit-btn c-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
                 <div class="edit-container add-container">
                   <input type="text" class="form-control" data-gid="@(g.ID)" data-id="0" value="" />
                   <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
@@ -84,7 +86,7 @@
     }
     <li>
       <div class="item-content">
-        &nbsp;<a class="edit g-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
+        &nbsp;<a class="edit-btn g-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
         <div class="edit-container add-container">
           &nbsp;&nbsp;
           <input type="text" class="form-control" data-id="0" value="" />&nbsp;&nbsp;

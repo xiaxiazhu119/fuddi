@@ -58,6 +58,19 @@ namespace Fuddi.DAL
             return rst;
         }
 
+        public int DeleteCategory(int id)
+        {
+            var a = entityInstance.OD_Category.First(m => m.ID.Equals(id));
+            a.DelFlag = true;
+            int rst = entityInstance.SaveChanges();
+            if (rst > 0)
+            {
+                entityInstance.OD_CategoryGroupRelation.RemoveRange(entityInstance.OD_CategoryGroupRelation.Where(m => m.CategoryID.Equals(id)));
+                rst += entityInstance.SaveChanges();
+            }
+            return rst;
+        }
+
         public int AddCategoryGroup(OD_CategoryGroup model)
         {
             entityInstance.OD_CategoryGroup.Add(model);
@@ -70,6 +83,19 @@ namespace Fuddi.DAL
             var a = entityInstance.OD_CategoryGroup.First(m => m.ID.Equals(model.ID));
             a.Name = model.Name;
             int rst = entityInstance.SaveChanges();
+            return rst;
+        }
+
+        public int DeleteCategoryGroup(int gid)
+        {
+            var a = entityInstance.OD_CategoryGroup.First(m => m.ID.Equals(gid));
+            a.DelFlag = true;
+            int rst = entityInstance.SaveChanges();
+            if (rst > 0)
+            {
+                entityInstance.OD_CategoryGroupRelation.RemoveRange(entityInstance.OD_CategoryGroupRelation.Where(m => m.GroupID.Equals(gid)));
+                rst += entityInstance.SaveChanges();
+            }
             return rst;
         }
 

@@ -23,7 +23,7 @@ require(['/assets/js/app.js'], function () {
       $icon.removeClass(removeCls).addClass(addCls);
     });
 
-    $('.edit').off('click').on('click', function () {
+    $('.edit-btn').off('click').on('click', function () {
       var $this = $(this);
       $this.hide();
       $this.nextAll('.edit-container').css('display', 'inline-block');
@@ -31,7 +31,7 @@ require(['/assets/js/app.js'], function () {
 
     $('.edit-cancel').off('click').on('click', function () {
       $(this).parent().hide();
-      $(this).parent().parent().find('.edit').show();
+      $(this).parent().parent().find('.edit-btn').show();
     });
 
     $('.edit-confirm').off('click').on('click', function () {
@@ -57,6 +57,29 @@ require(['/assets/js/app.js'], function () {
           $this.parent().siblings('.item-txt-container').html(data.name + '&nbsp;&nbsp;');
         }
       });
+    });
+
+    $('.remove-btn').off('click').on('click', function () {
+      if (confirm('确定要删除该数据吗？')) {
+        var $this = $(this);
+        var type = $this.data('type');
+        var api = Main.API.deleteCategoryGroup;
+        var $container = $this.closest('li.group-item');
+        var data = {
+          id: $this.data('id')
+        };
+        if (type === 'c') {
+          api = Main.API.deleteCategory;
+          $container = $this.closest('li.category-item');
+        }
+
+        var request = Main.request(api, data);
+        request.then(function (rst) {
+          var content = '<p></p><p class="text-center text-success"><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;' + rst.Msg + '</p>';
+          Utils.showModal('#common-modal', content);
+          $container.remove();
+        });
+      }
     });
 
     $('#btn-refresh').off('click').on('click', function () {

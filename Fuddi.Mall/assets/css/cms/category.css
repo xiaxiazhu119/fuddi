@@ -37,7 +37,8 @@
   line-height: 34px;
 }
 
-.item-content .edit {
+.item-content .edit-btn,
+.item-content .remove-btn {
   margin-left: 1em;
 }
 
@@ -46,7 +47,7 @@
 }
 
 .item-content .group-name {
-  font-weight:bolder;
+  font-weight: bolder;
 }
 
 .edit-container {
