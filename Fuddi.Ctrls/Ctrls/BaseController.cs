@@ -14,6 +14,9 @@ namespace Fuddi.Ctrls
         protected internal SessionHelper sessionHelperInstance = SessionHelper.Instance;
         protected internal SettingsCfg setCfgInstance = SettingsCfg.Instance;
 
+        protected internal int defaultPageSize = SettingsCfg.Instance.DEFAULT_PAGE_SIZE;
+        protected internal int defaultPageIndex = SettingsCfg.Instance.DEFAULT_PAGE_INDEX;
+
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);

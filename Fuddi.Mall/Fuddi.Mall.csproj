@@ -151,6 +151,7 @@
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\common\config.js" />
     <Content Include="assets\js\common\utils.js" />
+    <Content Include="assets\js\controllers\cms\category\category-list-controller.js" />
     <Content Include="assets\js\controllers\cms\cms.js" />
     <Content Include="assets\js\controllers\cms\frame.js" />
     <Content Include="assets\js\controllers\cms\home\default-controller.js" />

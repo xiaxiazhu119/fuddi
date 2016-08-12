@@ -71,6 +71,21 @@ namespace Fuddi.DAL
             return rst;
         }
 
+        public IList<OD_Category> GetCategoryListByCondition(string name, int pageIndex, int pageSize, out int total)
+        {
+            var entity = entityInstance.OD_Category.Where(m => !m.DelFlag);
+            if (!string.IsNullOrEmpty(name))
+            {
+                entity = entity.Where(m => m.Name.Contains(name));
+            }
+            total = entity.Count();
+            if (total > 0)
+            {
+                entity = entity.OrderByDescending(m => m.ID).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            }
+            return entity.ToList();
+        }
+
         public int AddCategoryGroup(OD_CategoryGroup model)
         {
             entityInstance.OD_CategoryGroup.Add(model);

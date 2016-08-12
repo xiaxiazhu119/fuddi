@@ -55,6 +55,10 @@ namespace Fuddi.BLL
         {
             return dal.DeleteCategory(id);
         }
+        public IList<OD_Category> GetCategoryListByCondition(string name, int pageIndex, int pageSize, out int total)
+        {
+            return dal.GetCategoryListByCondition(name, pageIndex, pageSize, out total);
+        }
 
         public int AddCategoryGroup(OD_CategoryGroup model)
         {
