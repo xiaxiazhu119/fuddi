@@ -1,0 +1,60 @@
+﻿@using Fuddi.Models;
+@using PagedList;
+@using PagedList.Mvc
+@{
+  ViewBag.Title = "Category List";
+  Layout = "~/Views/Shared/_CMSLayout.cshtml";
+}
+
+@model StaticPagedList<OD_CategoryGroup>
+
+@section assets{
+  <link rel="stylesheet" href="/assets/css/cms/category.css">
+  <script src="/assets/js/controllers/cms/category/group-list-controller.js"></script>
+}
+<h2 class="page-title">Group List</h2>
+
+<div class="condition-container form-inline">
+  <input type="text" id="name" name="name" value="@(TempData["name"])" class="form-control" />&nbsp;&nbsp;
+  <a href="javascript:;" class="search-btn"><i class="glyphicon glyphicon-search"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button id="btn-refresh" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i>&nbsp;&nbsp;Refresh</button>&nbsp;&nbsp;
+  <a id="quick-add-btn" href="javascript:;" class="btn btn-success" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
+  <div class="condition-container hidden">
+    <input type="text" id="g-name" class="form-control" data-id="0" />&nbsp;&nbsp;
+    <a class="edit-confirm g-edit-confirm" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+    <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+  </div>
+</div>
+
+<table class="table table-striped form-inline group-data-tbl">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>@(item.ID)</td>
+        <td class="edit-td">
+          <span class="value-elm">@(item.Name)</span>
+          <input type="text" id="g-name" class="form-control edit-elm" value="@(item.Name)" data-id="@(item.ID)" />&nbsp;&nbsp;
+          <a class="edit-confirm g-edit-confirm edit-elm" data-type="dr" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+          <a class="edit-cancel-dr g-edit-cancel edit-elm" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+        </td>
+        <td class="op-td">
+          <a href="javascript:;" class="edit-dr"><i class="glyphicon glyphicon-edit"></i></a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<div class="text-center">
+  @Html.PagedListPager((IPagedList)Model, page => Url.Action("grouplist", new { pageIndex = page, name = HttpUtility.UrlEncode(TempData["name"].ToString()) }))
+</div>

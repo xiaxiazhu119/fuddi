@@ -95,5 +95,21 @@ namespace Fuddi.Ctrls.CMS
         {
             return View();
         }
+
+        public ActionResult GroupList(int? pageIndex, string name)
+        {
+            int pi = TypeConverter.ObjectToInt(pageIndex, defaultPageIndex);
+            ViewData[setCfgInstance.PAGE_INDEX_VIEWDATA_KEY] = pi;
+            int total = 0;
+            name = string.IsNullOrEmpty(name) ? "" : Utils.UrlDecode(name);
+            var list = bll.GetCategoryGroupListByCondition(name, pi, defaultPageSize, out total);
+
+            var pagedList = new StaticPagedList<OD_CategoryGroup>(list, pi, defaultPageSize, total);
+
+            ViewData[setCfgInstance.TOTAL_ITEM_VIEWDATA_KEY] = total;
+            TempData["name"] = name;
+
+            return View(pagedList);
+        }
     }
 }

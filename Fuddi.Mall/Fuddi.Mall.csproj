@@ -152,6 +152,7 @@
     <Content Include="assets\js\common\config.js" />
     <Content Include="assets\js\common\utils.js" />
     <Content Include="assets\js\controllers\cms\category\category-edit-controller.js" />
+    <Content Include="assets\js\controllers\cms\category\group-list-controller.js" />
     <Content Include="assets\js\controllers\cms\category\category-list-controller.js" />
     <Content Include="assets\js\controllers\cms\cms.js" />
     <Content Include="assets\js\controllers\cms\frame.js" />
@@ -226,6 +227,7 @@
     <Content Include="Views\_CMS\Category\CategoryEdit.cshtml" />
     <Content Include="Views\_CMS\Category\CategoryList.cshtml" />
     <Content Include="Views\_CMS\Category\Tree.cshtml" />
+    <Content Include="Views\_CMS\Category\GroupList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

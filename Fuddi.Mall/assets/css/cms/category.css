@@ -64,9 +64,28 @@
 }
 
 #ce-g-list li {
-  line-height:200%;
+  line-height: 200%;
 }
+
 #ce-g-list li > input[type=checkbox] {
-  position:relative;
-  top:3px;
+  position: relative;
+  top: 3px;
+}
+
+.group-data-tbl > thead > tr > th,
+.group-data-tbl-data-tbl > tbody > tr > th,
+.group-data-tbl > tfoot > tr > th,
+.group-data-tbl > thead > tr > td,
+.group-data-tbl > tbody > tr > td,
+.group-data-tbl > tfoot > tr > td {
+  height: 52px;
+  line-height: 34px;
+}
+
+.group-data-tbl th:nth-child(2) {
+  width: 70%;
+}
+
+.edit-td > .edit-elm {
+  display: none;
 }
