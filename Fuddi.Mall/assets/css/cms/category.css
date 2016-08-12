@@ -62,3 +62,11 @@
 .edit-container .edit-confirm {
   margin-left: 1em;
 }
+
+#ce-g-list li {
+  line-height:200%;
+}
+#ce-g-list li > input[type=checkbox] {
+  position:relative;
+  top:3px;
+}

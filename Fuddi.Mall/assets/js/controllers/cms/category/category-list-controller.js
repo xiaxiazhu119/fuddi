@@ -14,10 +14,7 @@ require(['/assets/js/app.js'], function () {
 
         var content = '<p></p><p class="text-center text-warning"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;处理中，请稍后。请勿关闭窗口。</p>';
         Utils.showModal('#common-modal', content, function () {
-          var request = Main.request(Main.API.clearCategoryCache);
-          request.then(function (rst) {
-            window.location.reload();
-          });
+          $('#btn-refresh').click();
         });
 
         var request = Main.request(api, data);
@@ -34,6 +31,17 @@ require(['/assets/js/app.js'], function () {
     });
 
     $('#btn-refresh').off('click').on('click', function () {
+      var request = Main.request(Main.API.clearCategoryCache);
+      request.then(function (rst) {
+        window.location.reload();
+      });
+    });
+
+    $('.search-btn').off('click').on('click', function () {
+      var v = $.trim($('#name').val());
+      if (v !== '') {
+        window.location = '/_cms/category/categorylist?name=' + encodeURIComponent(v);
+      }
     });
 
 

@@ -2,14 +2,14 @@
 
 require(['/assets/js/app.js'], function () {
 
-  require(['config', 'utils'], function (config, utils) {
+  require(['config', 'utils'], function (config, Itils) {
 
     var signinRspMsg = $('#_signin-rsp-msg').val();
-    console.log('signinRspMsg', signinRspMsg);
-    console.log('utils', utils);
+    //console.log('signinRspMsg', signinRspMsg);
+    //console.log('utils', utils);
 
     if (signinRspMsg !== '') {
-      utils.showCommonModal(signinRspMsg);
+      Utils.showCommonModal(signinRspMsg);
     }
 
   });

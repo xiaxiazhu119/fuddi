@@ -34,7 +34,8 @@ namespace Fuddi.Configuration
         public readonly int DEFAULT_PAGE_INDEX = 1;
         public readonly int DEFAULT_PAGE_SIZE = 10;
 
-        public readonly string RESPONSE_TEMPDATA_KEY = "td_rsp";
+        public readonly string RESPONSE_MSG_TEMPDATA_KEY = "td_rsp_msg";
+        public readonly string RESPONSE_CODE_TEMPDATA_KEY = "td_rsp_code";
         public readonly string REDIRECT_TEMPDATA_KEY = "td_redirect";
         public readonly string CMS_SITEMAP_CONFIG_FILE_PATH = "/sitemap/cms-sitemap.config";
         public readonly string CURRENT_PAGE_MODULE_VIEWDATA_KEY = "vd_current_page_module";

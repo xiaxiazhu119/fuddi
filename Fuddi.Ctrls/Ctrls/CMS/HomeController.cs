@@ -32,7 +32,7 @@ namespace Fuddi.Ctrls.CMS
                 return Redirect(setCfgInstance.CMS_DEFAULT);
             }
             mgr.Pwd = "";
-            TempData[setCfgInstance.RESPONSE_TEMPDATA_KEY] = ResponseEnum.SignInFailed;
+            TempData[setCfgInstance.RESPONSE_MSG_TEMPDATA_KEY] = ResponseEnum.SignInFailed;
             return View(mgr);
         }
         public ActionResult Default()

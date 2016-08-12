@@ -11,11 +11,14 @@
 @section assets{
   <script src="/assets/js/controllers/cms/category/category-list-controller.js"></script>
 }
-
-<p class="text-right">
-  <a href="/_cms/category/edit?action=@((int)Fuddi.Enum.ActionEnum.Add)&redirect=@(ViewData[Fuddi.Configuration.SettingsCfg.Instance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY])" class="btn btn-success" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
-</p>
 <h1>Category List</h1>
+
+<div class="condition-container form-inline">
+  <input type="text" id="name" name="name" value="@(TempData["name"])" class="form-control" />&nbsp;&nbsp;
+  <a href="javascript:;" class="search-btn"><i class="glyphicon glyphicon-search"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button id="btn-refresh" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i>&nbsp;&nbsp;Refresh</button>&nbsp;&nbsp;
+  <a href="/_cms/category/categoryedit?act=@((int)Fuddi.Enum.ActionEnum.Add)&id=0&redirect=@(ViewData[Fuddi.Configuration.SettingsCfg.Instance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY])" class="btn btn-success" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -32,7 +35,7 @@
         <td>@(item.ID)</td>
         <td>@(item.Name)</td>
         <td>
-          <a href="/_cms/category/edit?id=@(item.ID)"><i class="glyphicon glyphicon-edit"></i></a>
+          <a href="/_cms/category/categoryedit?act=@((int)Fuddi.Enum.ActionEnum.Edit)&id=@(item.ID)&redirect=@(ViewData[Fuddi.Configuration.SettingsCfg.Instance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY])"><i class="glyphicon glyphicon-edit"></i></a>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
         </td>
@@ -42,5 +45,5 @@
 </table>
 
 <div class="text-center">
-  @Html.PagedListPager((IPagedList)Model, page => Url.Action("CategoryList", new { pageIndex = page }))
+  @Html.PagedListPager((IPagedList)Model, page => Url.Action("categorylist", new { pageIndex = page, name = HttpUtility.UrlEncode(TempData["name"].ToString()) }))
 </div>

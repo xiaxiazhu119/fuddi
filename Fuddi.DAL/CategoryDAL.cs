@@ -10,11 +10,6 @@ namespace Fuddi.DAL
 {
     public class CategoryDAL : BaseDAL
     {
-        public IList<OD_CategoryGroup> GetAllCategoryGroup()
-        {
-            var list = entityInstance.OD_CategoryGroup.Where(m => !m.DelFlag).ToList();
-            return list;
-        }
 
         //public IList<OD_CategoryGroupRelation> GetAllCategoryGroupRelation()
         //{
@@ -43,6 +38,12 @@ namespace Fuddi.DAL
             return list;
         }
 
+        public OD_Category GetCategoryByID(int id)
+        {
+            var a = entityInstance.OD_Category.FirstOrDefault(m => m.ID.Equals(id) && !m.DelFlag);
+            return a;
+        }
+
         public int AddCategory(OD_Category model)
         {
             entityInstance.OD_Category.Add(model);
@@ -65,8 +66,7 @@ namespace Fuddi.DAL
             int rst = entityInstance.SaveChanges();
             if (rst > 0)
             {
-                entityInstance.OD_CategoryGroupRelation.RemoveRange(entityInstance.OD_CategoryGroupRelation.Where(m => m.CategoryID.Equals(id)));
-                rst += entityInstance.SaveChanges();
+                rst += DeleteCategoryGroupByCategoryID(id);
             }
             return rst;
         }
@@ -84,6 +84,21 @@ namespace Fuddi.DAL
                 entity = entity.OrderByDescending(m => m.ID).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             }
             return entity.ToList();
+        }
+
+        public IList<OD_CategoryGroup> GetCategoryGroupByCategoryID(int id)
+        {
+            var list = from a in entityInstance.OD_CategoryGroup
+                       join b in entityInstance.OD_CategoryGroupRelation on a.ID equals b.GroupID
+                       where !a.DelFlag && b.CategoryID.Equals(id)
+                       select a;
+            return list.ToList();
+        }
+
+        public IList<OD_CategoryGroup> GetAllCategoryGroup()
+        {
+            var list = entityInstance.OD_CategoryGroup.Where(m => !m.DelFlag).ToList();
+            return list;
         }
 
         public int AddCategoryGroup(OD_CategoryGroup model)
@@ -114,11 +129,40 @@ namespace Fuddi.DAL
             return rst;
         }
 
+        public int DeleteCategoryGroupByCategoryID(int id)
+        {
+            int rst = 0;
+            entityInstance.OD_CategoryGroupRelation.RemoveRange(entityInstance.OD_CategoryGroupRelation.Where(m => m.CategoryID.Equals(id)));
+            rst = entityInstance.SaveChanges();
+            return rst;
+        }
+
         public int AddCategoryGroupRelation(OD_CategoryGroupRelation model)
         {
             entityInstance.OD_CategoryGroupRelation.Add(model);
             entityInstance.SaveChanges();
             return model.ID;
         }
+
+        public int AddMultipleCategoryGroupRelation(IList<int> gids, int cid)
+        {
+            entityInstance.Configuration.AutoDetectChangesEnabled = false;
+            entityInstance.Configuration.ValidateOnSaveEnabled = false;
+            OD_CategoryGroupRelation r;
+            int rst = 0;
+            rst += DeleteCategoryGroupByCategoryID(cid);
+            foreach (int gid in gids)
+            {
+                r = new OD_CategoryGroupRelation();
+                r.GroupID = gid;
+                r.CategoryID = cid;
+                entityInstance.OD_CategoryGroupRelation.Add(r);
+            }
+            rst = entityInstance.SaveChanges();
+            entityInstance.Configuration.AutoDetectChangesEnabled = true;
+            entityInstance.Configuration.ValidateOnSaveEnabled = true;
+            return rst;
+        }
+
     }
 }

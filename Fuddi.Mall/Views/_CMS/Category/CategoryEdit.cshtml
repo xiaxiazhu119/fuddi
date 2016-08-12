@@ -1,28 +1,62 @@
 ﻿@using Fuddi.Models;
+@using Fuddi.Enum;
+@using Fuddi.Configuration;
 @{
   ViewBag.Title = "Category Edit";
   Layout = "~/Views/Shared/_CMSLayout.cshtml";
 }
 
 @section assets{
+  <link rel="stylesheet" href="/assets/css/cms/category.css">
+  <script src="/assets/js/controllers/cms/category/category-edit-controller.js"></script>
 }
 
-<p class="text-right">
-  <a href="@(TempData[Fuddi.Configuration.SettingsCfg.Instance.REDIRECT_TEMPDATA_KEY])" class="btn btn-primary" role="button"><i class="fa fa-reply" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
-</p>
+@model OD_Category
 
 <h1>Category Edit</h1>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
-<p>1</p>
+
+<div class="condition-container text-right">
+
+</div>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      @using (Html.BeginForm())
+      {
+        @Html.AntiForgeryToken();
+
+        <div class="form-group">
+          <label for="name">Category Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Category Name" value="@(Model.Name)" required />
+        </div>
+        <div class="form-group">
+          <label for="">Category Group</label>
+          <ul id="ce-g-list">
+            @{
+        var group = Fuddi.SiteUtils.CategoryHelper.Instance.GetAllCategoryGroup();
+            }
+            @foreach (var g in group)
+            {
+              var id = "cb-" + g.ID;
+              <li><input type="checkbox" id="@(id)" class="g-cb" value="@(g.ID)" /><label for="@(id)">&nbsp;&nbsp;@(g.Name)</label></li>
+            }
+          </ul>
+        </div>
+        <p class="text-center">
+          <input type="hidden" id="id" name="id" value="@(Model.ID)" />
+          <input type="hidden" id="gs" name="gs" value="@(ViewData["gs"])" />
+          <button type="button" id="submit-btn" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;Submit</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="@(TempData[SettingsCfg.Instance.REDIRECT_TEMPDATA_KEY])" class="btn btn-primary" role="button"><i class="fa fa-reply" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
+        </p>
+
+      }
+    </div>
+  </div>
+
+</div>
+
+<input type="hidden" id="rsp-msg" value="@(TempData[SettingsCfg.Instance.RESPONSE_MSG_TEMPDATA_KEY] != null ? EnumClass.GetResponseDesc((ResponseEnum)TempData[SettingsCfg.Instance.RESPONSE_MSG_TEMPDATA_KEY]) : "")" />
+<input type="hidden" id="rsp-code" value="@(TempData[SettingsCfg.Instance.RESPONSE_CODE_TEMPDATA_KEY] != null ? EnumClass.GetResponseDesc((ResponseEnum)TempData[SettingsCfg.Instance.RESPONSE_CODE_TEMPDATA_KEY]) : "")" />

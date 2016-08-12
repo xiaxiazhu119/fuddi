@@ -16,11 +16,6 @@ namespace Fuddi.BLL
             dal = new CategoryDAL();
         }
 
-        public IList<OD_CategoryGroup> GetAllCategoryGroup()
-        {
-            return dal.GetAllCategoryGroup();
-        }
-
         //public IList<OD_CategoryGroupRelation> GetAllCategoryGroupRelation()
         //{
         //    return dal.GetAllCategoryGroupRelation();
@@ -39,6 +34,11 @@ namespace Fuddi.BLL
         public IList<CategoryGroupRelationModel> GetAllCategoryGroupRelationView()
         {
             return dal.GetAllCategoryGroupRelationView();
+        }
+
+        public OD_Category GetCategoryByID(int id)
+        {
+            return dal.GetCategoryByID(id);
         }
 
         public int AddCategory(OD_Category model)
@@ -60,6 +60,16 @@ namespace Fuddi.BLL
             return dal.GetCategoryListByCondition(name, pageIndex, pageSize, out total);
         }
 
+        public IList<OD_CategoryGroup> GetCategoryGroupByCategoryID(int id)
+        {
+            return dal.GetCategoryGroupByCategoryID(id);
+        }
+
+        public IList<OD_CategoryGroup> GetAllCategoryGroup()
+        {
+            return dal.GetAllCategoryGroup();
+        }
+
         public int AddCategoryGroup(OD_CategoryGroup model)
         {
             return dal.AddCategoryGroup(model);
@@ -75,9 +85,19 @@ namespace Fuddi.BLL
             return dal.DeleteCategoryGroup(gid);
         }
 
+        public int DeleteCategoryGroupByCategoryID(int id)
+        {
+            return dal.DeleteCategoryGroupByCategoryID(id);
+        }
+
         public int AddCategoryGroupRelation(OD_CategoryGroupRelation model)
         {
             return dal.AddCategoryGroupRelation(model);
+        }
+
+        public int AddMultipleCategoryGroupRelation(IList<int> gids, int cid)
+        {
+            return dal.AddMultipleCategoryGroupRelation(gids, cid);
         }
 
     }
