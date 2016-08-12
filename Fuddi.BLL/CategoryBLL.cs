@@ -43,6 +43,10 @@ namespace Fuddi.BLL
 
         public int AddCategory(OD_Category model)
         {
+            model.ParentID = 0;
+            model.Lv = 0;
+            model.DelFlag = false;
+            model.CreateTime = DateTime.Now;
             return dal.AddCategory(model);
         }
 
@@ -72,6 +76,8 @@ namespace Fuddi.BLL
 
         public int AddCategoryGroup(OD_CategoryGroup model)
         {
+            model.DelFlag = false;
+            model.CreateTime = DateTime.Now;
             return dal.AddCategoryGroup(model);
         }
 

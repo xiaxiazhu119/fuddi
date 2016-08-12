@@ -23,10 +23,6 @@ namespace Fuddi.Ctrls.CMS
             CategoryBLL bll = new CategoryBLL();
             if (id == 0)
             {
-                model.ParentID = 0;
-                model.Lv = 0;
-                model.DelFlag = false;
-                model.CreateTime = DateTime.Now;
                 rst = bll.AddCategory(model);
                 if (rst > 0)
                 {
@@ -57,8 +53,6 @@ namespace Fuddi.Ctrls.CMS
 
             if (id == 0)
             {
-                model.DelFlag = false;
-                model.CreateTime = DateTime.Now;
                 rst = bll.AddCategoryGroup(model);
                 rsp = rst > 0 ? ResponseEnum.AddCategoryGroupSuccess : ResponseEnum.AddCategoryGroupFailed;
             }

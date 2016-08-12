@@ -109,11 +109,11 @@ body {
   padding: 20px;
 }
 
-#content-container > #page-title {
+#content-container > #module-title {
   height: 60px;
 }
 
-#content-container > #page-title > h1 {
+#content-container > #module-title > h1 {
   margin: 0;
   font-size: 32px;
 }
@@ -132,6 +132,10 @@ body {
 
 .condition-container {
   padding: 20px 0;
+}
+
+h2.page-title {
+  font-size: 24px;
 }
 
 /**********************************************

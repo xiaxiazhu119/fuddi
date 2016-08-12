@@ -30,3 +30,7 @@ a:focus {
 .pagination > li:last-child > span {
   border-radius: 0;
 }
+
+.modal-dialog {
+  margin-top: 100px;
+}
