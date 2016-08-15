@@ -35,9 +35,8 @@
         <td>@(item.ID)</td>
         <td>@(item.Name)</td>
         <td>
-          <a href="/_cms/category/categoryedit?act=@((int)Fuddi.Enum.ActionEnum.Edit)&id=@(item.ID)&redirect=@(ViewData[Fuddi.Configuration.SettingsCfg.Instance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY])"><i class="glyphicon glyphicon-edit"></i></a>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
+          <a href="/_cms/category/categoryedit?act=@((int)Fuddi.Enum.ActionEnum.Edit)&id=@(item.ID)&redirect=@(ViewData[Fuddi.Configuration.SettingsCfg.Instance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY])" title="edit"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
+          <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;" title="delete"><i class="glyphicon glyphicon-trash"></i></a>
         </td>
       </tr>
     }

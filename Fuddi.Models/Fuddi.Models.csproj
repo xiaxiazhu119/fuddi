@@ -69,10 +69,16 @@
     <Compile Include="OD_MgrLog.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="OD_Product.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="OD_ProductCategoryRelation.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="OD_Products.cs">
+    <Compile Include="OD_ValueProductRelation.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OD_ValueType.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
     <Compile Include="OneDreamModels.Context.cs">

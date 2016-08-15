@@ -1,6 +1,5 @@
 ﻿'use strict';
 
-
 define([], function () {
   String.prototype.customReplace = function (index, len, str, repeat, repeatTimes) {
     var _defaultStr = '*';
@@ -221,10 +220,34 @@ define([], function () {
       _showModal(modalID);
     };
 
+    var _opTipsContent = '<p></p><p class="text-center text-warning"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;处理中，请稍后。请勿关闭窗口。</p>';
 
+    var _queryRst = {
+      icon: {
+        success: 'glyphicon-ok',
+        failed: 'glyphicon-remove'
+      },
+      style: {
+        success: 'text-success',
+        failed: 'text-danger'
+      },
+      tmpl: {
+        icon: '{{icon}}',
+        style: '{{style}}',
+        msg: '{{msg}}',
+        getTmpl: function () {
+          return '<p></p><p class="text-center ' + this.style + '"><i class="glyphicon ' + this.icon + '"></i>&nbsp;&nbsp;' + this.msg + '</p>';
+        }
+      }
+    };
+
+    var _commonModalID = '#common-modal';
 
     this.vTag = _vTag;
     this.modelEvent = _modelEvent;
+    this.opTipsContent = _opTipsContent;
+    this.queryRst = _queryRst;
+    this.commonModalID = _commonModalID;
 
     this.getTimestamp = function () {
       return _getTimestamp();
@@ -237,35 +260,51 @@ define([], function () {
     };
     this.formatNumber = function (value, decimal) {
       return _formatNumber(value, decimal);
-    }
+    };
     this.validateIDCard = function (value) {
       return _validateIDCard(value);
-    }
+    };
     this.appendZero = function (temp) {
       return _appendZero(temp);
-    }
+    };
     this.adjustParentIframeHeight = function (iframeTagId, offset) {
       return _adjustParentIframeHeight(iframeTagId, offset);
-    }
+    };
     this.getItemIndex = function (elm, item) {
       return _getItemIndex(elm, item);
-    }
+    };
     this.setModalContent = function (modalID, content) {
       return _setModalContent(modalID, content);
-    }
+    };
     this.showModal = function (modalID, onShow, onHide) {
       return _showModal(modalID, onShow, onHide);
-    }
+    };
     this.hideModal = function (modalID, onHide) {
       return _hideModal(modalID, onHide);
-    }
+    };
     this.bindModalEvent = function (modalID, event, func) {
       return _bindModalEvent(modalID, event, func);
-    }
+    };
     this.showCommonModal = function (content) {
       return _showCommonModal(content);
-    }
+    };
+
+    this.buildQueryRstMsg = function (rst) {
+      var style = this.queryRst.style,
+        icon = this.queryRst.icon,
+        tmpl = this.queryRst.tmpl;
+
+      var cls1 = style.success, cls2 = icon.success;
+      if (rst.Code < 0) {
+        cls1 = style.failed;
+        cls2 = icon.failed;
+      }
+      var _t = tmpl.getTmpl();
+      var content = _t.replace(tmpl.style, cls1).replace(tmpl.icon, cls2).replace(tmpl.msg, rst.Msg);
+      return content;
+    };
 
   };
+
   return new Utils();
 });

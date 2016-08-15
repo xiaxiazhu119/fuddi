@@ -13,6 +13,8 @@ namespace Fuddi.Ctrls.CMS
 {
     public class ApiController : CMSBaseController
     {
+        #region category & group
+
         public JsonResult EditCategory(int gid, int id, string name)
         {
             OD_Category model = new OD_Category();
@@ -84,5 +86,41 @@ namespace Fuddi.Ctrls.CMS
             CategoryHelper.Instance.ClearCategoryCache();
             return BuildJsonResult(ResponseEnum.OperationSuccess);
         }
+
+        #endregion
+
+        #region value type
+
+        public JsonResult EditValueType(int id, string name, decimal value)
+        {
+            OD_ValueType model = new OD_ValueType();
+            model.Name = name;
+            model.Value = value;
+            int rst = 0;
+            ResponseEnum rsp;
+
+            ValueBLL bll = new ValueBLL();
+            if (id == 0)
+            {
+                rst = bll.AddValueType(model);
+                rsp = rst > 0 ? ResponseEnum.AddValueTypeSuccess : ResponseEnum.AddValueTypeFailed;
+            }
+            else
+            {
+                model.ID = id;
+                rst = bll.UpdateValueType(model);
+                rsp = rst > 0 ? ResponseEnum.UpdateValueTypeSuccess : ResponseEnum.UpdateValueTypeFailed;
+            }
+            return BuildJsonResult(rsp);
+        }
+
+        public JsonResult DeleteValueType(int id)
+        {
+            int rst = (new ValueBLL()).DeleteValueType(id);
+            ResponseEnum rsp = rst > 0 ? ResponseEnum.DeleteValueTypeSuccess : ResponseEnum.DeleteValueTypeFailed;
+            return BuildJsonResult(rsp);
+        }
+
+        #endregion
     }
 }

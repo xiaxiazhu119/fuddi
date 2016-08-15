@@ -4,11 +4,19 @@
 define([], function () {
   var Main = {
     API: {
-      editCategory: '/_cms/api/editcategory',
-      editCategoryGroup: '/_cms/api/editcategorygroup',
-      deleteCategory: '/_cms/api/deletecategory',
-      deleteCategoryGroup: '/_cms/api/deletecategorygroup',
-      clearCategoryCache: '/_cms/api/clearcategorycache'
+      category: {
+        edit: '/_cms/api/editcategory',
+        delete: '/_cms/api/deletecategory',
+        clearCache: '/_cms/api/clearcategorycache'
+      },
+      categoryGroup: {
+        edit: '/_cms/api/editcategorygroup',
+        delete: '/_cms/api/deletecategorygroup'
+      },
+      valuetype: {
+        edit: '/_cms/api/editvaluetype',
+        delete: '/_cms/api/deletevaluetype'
+      }
     },
     request: function (api, data) {
       var opt = {

@@ -7,12 +7,12 @@ require(['/assets/js/app.js'], function () {
     $('.remove-btn').off('click').on('click', function () {
       if (confirm('确定要删除该数据吗？')) {
         var $this = $(this);
-        var api = Main.API.deleteCategory;
+        var api = Main.API.category.delete;
         var data = {
           id: $this.data('id')
         };
 
-        var content = '<p></p><p class="text-center text-warning"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;处理中，请稍后。请勿关闭窗口。</p>';
+        var content = Utils.opTipsContent;
         Utils.showModal('#common-modal', content, function () {
           $('#btn-refresh').click();
         });
@@ -31,7 +31,7 @@ require(['/assets/js/app.js'], function () {
     });
 
     $('#btn-refresh').off('click').on('click', function () {
-      var request = Main.request(Main.API.clearCategoryCache);
+      var request = Main.request(Main.API.category.clearCache);
       request.then(function (rst) {
         window.location.reload();
       });

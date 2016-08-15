@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ValueBLL.cs" />
     <Compile Include="CategoryBLL.cs" />
     <Compile Include="MgrBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

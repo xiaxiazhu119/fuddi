@@ -37,14 +37,14 @@ require(['/assets/js/app.js'], function () {
     $('.edit-confirm').off('click').on('click', function () {
       var $this = $(this);
       var type = $this.data('type');
-      var api = Main.API.editCategoryGroup;
+      var api = Main.API.categoryGroup.edit;
       var v = $this.siblings('input');
       var data = {
         id: v.data('id'),
         name: v.val()
       };
       if (type === 'c') {
-        api = Main.API.editCategory;
+        api = Main.API.category.edit;
         data.gid = v.data('gid');
       }
 
@@ -63,13 +63,13 @@ require(['/assets/js/app.js'], function () {
       if (confirm('确定要删除该数据吗？')) {
         var $this = $(this);
         var type = $this.data('type');
-        var api = Main.API.deleteCategoryGroup;
+        var api = Main.API.categoryGroup.delete;
         var $container = $this.closest('li.group-item');
         var data = {
           id: $this.data('id')
         };
         if (type === 'c') {
-          api = Main.API.deleteCategory;
+          api = Main.API.category.delete;
           $container = $this.closest('li.category-item');
         }
 
@@ -83,7 +83,7 @@ require(['/assets/js/app.js'], function () {
     });
 
     $('#btn-refresh').off('click').on('click', function () {
-      var request = Main.request(Main.API.clearCategoryCache);
+      var request = Main.request(Main.API.category.clearCache);
       request.then(function (rst) {
         //var content = '<p></p><p class="text-center text-success"><i class="glyphicon glyphicon-ok"></i>  ' + rst.Msg + '</p>';
         //Utils.showModal('#common-modal', content, function () {

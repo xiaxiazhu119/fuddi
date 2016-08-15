@@ -32,17 +32,15 @@
       bool hasCategory = cnt > 0;
       <li class="group-item">
         <div class="item-content">
-          <a class="category-switcher" href="javascript:;">
-            <i class="glyphicon glyphicon-plus"></i>
-          </a>
+          <a class="category-switcher" href="javascript:;" title="collapse / uncollapse"><i class="glyphicon glyphicon-plus"></i></a>
           <span class="item-txt-container group-name">@(g.Name)&nbsp;&nbsp;</span>
-          <a class="edit-btn g-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
+          <a class="edit-btn g-edit" href="javascript:;" title="edit"><i class="glyphicon glyphicon-edit"></i></a>
           <div class="edit-container">
             <input type="text" class="form-control" data-id="@(g.ID)" value="@(g.Name)" />&nbsp;&nbsp;
-            <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
-            <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+            <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;" title="confirm"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+            <a class="edit-cancel g-edit-cancel" href="javascript:;" title="cancel"><i class="glyphicon glyphicon-remove text-danger"></i></a>
           </div>
-          <a class="remove-btn c-remove text-danger" data-type="g" data-id="@(g.ID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
+          <a class="remove-btn c-remove text-danger" data-type="g" data-id="@(g.ID)" href="javascript:;" title="delete"><i class="glyphicon glyphicon-trash"></i></a>
         </div>
 
         <div class="category-container">
@@ -61,10 +59,10 @@
                     <a class="edit-btn c-edit" href="javascript:;"><i class="glyphicon glyphicon-edit"></i></a>
                     <div class="edit-container">
                       <input type="text" class="form-control" data-gid="@(g.ID)" data-id="@(r.CategoryID)" value="@(r.CategoryName)" />
-                      <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
-                      <a class="edit-cancel c-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+                      <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;" title="confirm"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+                      <a class="edit-cancel c-edit-cancel" href="javascript:;" title="cancel"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                     </div>
-                    <a class="remove-btn c-remove text-danger" data-type="c" data-id="@(r.CategoryID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a class="remove-btn c-remove text-danger" data-type="c" data-id="@(r.CategoryID)" href="javascript:;" title="delete"><i class="glyphicon glyphicon-trash"></i></a>
                   </div>
                 </li>
                 index++;
@@ -77,8 +75,8 @@
                 <a class="edit-btn c-edit btn btn-success" role="button" href="javascript:;"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
                 <div class="edit-container add-container">
                   <input type="text" class="form-control" data-gid="@(g.ID)" data-id="0" value="" />
-                  <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
-                  <a class="edit-cancel c-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+                  <a class="edit-confirm c-edit-confirm" data-type="c" href="javascript:;" title="confirm"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+                  <a class="edit-cancel c-edit-cancel" href="javascript:;" title="cancel"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                 </div>
               </div>
             </li>
@@ -92,8 +90,8 @@
         <div class="edit-container add-container">
           &nbsp;&nbsp;
           <input type="text" class="form-control" data-id="0" value="" />&nbsp;&nbsp;
-          <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
-          <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+          <a class="edit-confirm g-edit-confirm" data-type="g" href="javascript:;" title="confirm"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+          <a class="edit-cancel g-edit-cancel" href="javascript:;" title="cancel"><i class="glyphicon glyphicon-remove text-danger"></i></a>
         </div>
       </div>
     </li>

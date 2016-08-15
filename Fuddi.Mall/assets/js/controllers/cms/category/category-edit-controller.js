@@ -37,7 +37,7 @@ require(['/assets/js/app.js'], function () {
         return $(this).val();
       }).get().join(',');
 
-      console.log(gs);
+      //console.log(gs);
 
       $('#gs').val(gs);
 

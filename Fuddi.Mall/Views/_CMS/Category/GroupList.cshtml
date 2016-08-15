@@ -20,9 +20,9 @@
   <button id="btn-refresh" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i>&nbsp;&nbsp;Refresh</button>&nbsp;&nbsp;
   <a id="quick-add-btn" href="javascript:;" class="btn btn-success" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
   <div class="condition-container hidden">
-    <input type="text" id="g-name" class="form-control" data-id="0" />&nbsp;&nbsp;
-    <a class="edit-confirm g-edit-confirm" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
-    <a class="edit-cancel g-edit-cancel" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+    <label>名称：</label><input type="text" id="g-name" class="form-control" data-id="0" />&nbsp;&nbsp;
+    <a class="edit-confirm g-edit-confirm" href="javascript:;" title="confirm"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+    <a class="edit-cancel g-edit-cancel" href="javascript:;" title="cancel"><i class="glyphicon glyphicon-remove text-danger"></i></a>
   </div>
 </div>
 
@@ -41,14 +41,13 @@
         <td>@(item.ID)</td>
         <td class="edit-td">
           <span class="value-elm">@(item.Name)</span>
-          <input type="text" id="g-name" class="form-control edit-elm" value="@(item.Name)" data-id="@(item.ID)" />&nbsp;&nbsp;
-          <a class="edit-confirm g-edit-confirm edit-elm" data-type="dr" href="javascript:;"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
-          <a class="edit-cancel-dr g-edit-cancel edit-elm" href="javascript:;"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+          <input type="text" id="g-name-@(item.ID)" class="form-control edit-elm" value="@(item.Name)" data-id="@(item.ID)" />&nbsp;&nbsp;
+          <a class="edit-confirm g-edit-confirm edit-elm" data-type="dr" href="javascript:;" title="confirm"><i class="glyphicon glyphicon-ok text-success"></i></a>&nbsp;&nbsp;
+          <a class="edit-cancel-dr g-edit-cancel edit-elm" href="javascript:;" title="cancel"><i class="glyphicon glyphicon-remove text-danger"></i></a>
         </td>
         <td class="op-td">
-          <a href="javascript:;" class="edit-dr"><i class="glyphicon glyphicon-edit"></i></a>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;"><i class="glyphicon glyphicon-trash"></i></a>
+          <a href="javascript:;" class="edit-dr"><i class="glyphicon glyphicon-edit" title="edit"></i></a>&nbsp;&nbsp;
+          <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;" title="delete"><i class="glyphicon glyphicon-trash"></i></a>
         </td>
       </tr>
     }

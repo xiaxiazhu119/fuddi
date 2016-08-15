@@ -56,6 +56,17 @@
           <Property Name="DelFlag" Type="bit" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="OD_Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SimpleDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="DetailDesc" Type="text" />
+          <Property Name="DelFlag" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="OD_ProductCategoryRelation">
           <Key>
             <PropertyRef Name="ID" />
@@ -64,12 +75,21 @@
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="OD_Products">
+        <EntityType Name="OD_ValueProductRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValueID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OD_ValueType">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="DelFlag" Type="bit" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
         </EntityType>
@@ -91,8 +111,10 @@
           <EntitySet Name="OD_CategoryGroupRelation" EntityType="Self.OD_CategoryGroupRelation" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_Product" EntityType="Self.OD_Product" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_ProductCategoryRelation" EntityType="Self.OD_ProductCategoryRelation" Schema="fuddijp_f" store:Type="Tables" />
-          <EntitySet Name="OD_Products" EntityType="Self.OD_Products" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_ValueProductRelation" EntityType="Self.OD_ValueProductRelation" Schema="fuddijp_f" store:Type="Tables" />
+          <EntitySet Name="OD_ValueType" EntityType="Self.OD_ValueType" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="v_category_group_relation" EntityType="Self.v_category_group_relation" store:Type="Views" store:Schema="fuddijp_f">
             <DefiningQuery>SELECT 
     [v_category_group_relation].[GroupID] AS [GroupID], 
@@ -129,24 +151,17 @@
           <Property Name="DelFlag" Type="Boolean" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="OD_Products">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DelFlag" Type="Boolean" Nullable="false" />
-          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityContainer Name="OneDreamEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" />
           <EntitySet Name="OD_MgrLog" EntityType="Self.OD_MgrLog" />
-          <EntitySet Name="OD_Products" EntityType="Self.OD_Products" />
           <EntitySet Name="OD_CategoryGroup" EntityType="OneDreamModel.OD_CategoryGroup" />
           <EntitySet Name="OD_Category" EntityType="OneDreamModel.OD_Category" />
           <EntitySet Name="v_category_group_relation" EntityType="OneDreamModel.v_category_group_relation" />
           <EntitySet Name="OD_CategoryGroupRelation" EntityType="OneDreamModel.OD_CategoryGroupRelation" />
           <EntitySet Name="OD_ProductCategoryRelation" EntityType="OneDreamModel.OD_ProductCategoryRelation" />
+          <EntitySet Name="OD_Product" EntityType="OneDreamModel.OD_Product" />
+          <EntitySet Name="OD_ValueProductRelation" EntityType="OneDreamModel.OD_ValueProductRelation" />
+          <EntitySet Name="OD_ValueType" EntityType="OneDreamModel.OD_ValueType" />
         </EntityContainer>
         <EntityType Name="OD_CategoryGroup">
           <Key>
@@ -194,6 +209,35 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="OD_Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SimpleDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DetailDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DelFlag" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OD_ValueProductRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValueID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OD_ValueType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+          <Property Name="DelFlag" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -221,16 +265,6 @@
                 <ScalarProperty Name="IP" ColumnName="IP" />
                 <ScalarProperty Name="Action" ColumnName="Action" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OD_Products">
-            <EntityTypeMapping TypeName="OneDreamModel.OD_Products">
-              <MappingFragment StoreEntitySet="OD_Products">
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -281,6 +315,38 @@
               <MappingFragment StoreEntitySet="OD_ProductCategoryRelation">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_Product">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_Product">
+              <MappingFragment StoreEntitySet="OD_Product">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="DetailDesc" ColumnName="DetailDesc" />
+                <ScalarProperty Name="SimpleDesc" ColumnName="SimpleDesc" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_ValueProductRelation">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_ValueProductRelation">
+              <MappingFragment StoreEntitySet="OD_ValueProductRelation">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ValueID" ColumnName="ValueID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OD_ValueType">
+            <EntityTypeMapping TypeName="OneDreamModel.OD_ValueType">
+              <MappingFragment StoreEntitySet="OD_ValueType">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
