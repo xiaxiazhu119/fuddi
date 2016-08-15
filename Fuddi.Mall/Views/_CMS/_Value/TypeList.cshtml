@@ -35,7 +35,7 @@
   <tbody>
     @foreach (var item in Model)
     {
-      <tr>
+      <tr class="data-row">
         <td>@(item.ID)</td>
         <td class="edit-td">
           <span class="value-elm">@(item.Name)</span>
@@ -53,6 +53,32 @@
           <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;" title="delete"><i class="glyphicon glyphicon-trash"></i></a>
         </td>
       </tr>
+      <tr id="relation-row-@(item.ID)" class="hidden">
+        <td colspan="4"></td>
+      </tr>
     }
   </tbody>
 </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="relation-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="slt-product-container">
+
+</div>

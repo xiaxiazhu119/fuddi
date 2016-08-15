@@ -9,7 +9,7 @@ require(['/assets/js/app.js'], function () {
     $('.remove-btn').off('click').on('click', function () {
       if (confirm('删除该类型会同时删除与之相对应的商品关联信息，确定要删除该数据吗？')) {
         var $this = $(this);
-        var api = Main.API.valuetype.delete;
+        var api = Main.API.valueType.delete;
         var data = {
           id: $this.data('id')
         };
@@ -47,12 +47,12 @@ require(['/assets/js/app.js'], function () {
 
     $('.edit-confirm').off('click').on('click', function () {
       var $this = $(this);
-      var api = Main.API.valuetype.edit;
+      var api = Main.API.valueType.edit;
       var id = Number($this.data('id'));
-      var $container = id === 0 ? $this.closest('.condition-container') : $this.closest('tr');
+      var $container = id === 0 ? $this.closest('.condition-container') : $this.closest('tr.data-row');
       var $cancelBtn = $this.siblings('.edit-cancel');
       if (id > 0) {
-        $container = $this.closest('tr');
+        $container = $this.closest('tr.data-row');
         $cancelBtn = $container.find('.edit-cancel-dr');
       }
       var data = {
@@ -77,13 +77,21 @@ require(['/assets/js/app.js'], function () {
 
     $('.edit-dr').off('click').on('click', function () {
       $(this).hide();
-      $(this).closest('tr').find('.edit-elm').show();
-      $(this).closest('tr').find('.value-elm').hide();
+      $dataRow = $(this).closest('tr.data-row');
+      $dataRow.find('.edit-elm').show();
+      $dataRow.find('.value-elm').hide();
     });
 
     $('.edit-cancel-dr').off('click').on('click', function () {
-      $(this).closest('tr').find('.edit-elm').hide();
-      $(this).closest('tr').find('.value-elm,.edit-dr').show();
+      $dataRow = $(this).closest('tr.data-row');
+      $dataRow.find('.edit-elm').hide();
+      $dataRow.find('.value-elm,.edit-dr').show();
+    });
+
+    $('.relation-edit').off('click').on('click', function () {
+
+      Utils.showModal('#relation-modal');
+
     });
 
   });

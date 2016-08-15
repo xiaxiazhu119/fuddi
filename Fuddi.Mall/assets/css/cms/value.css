@@ -22,3 +22,11 @@
 .value-list-tbl .edit-elm {
   display: none;
 }
+
+.value-list-tbl.table-striped > tbody > tr:nth-of-type(odd) {
+  background: none;
+}
+
+.value-list-tbl.table-striped > tbody > tr:nth-child(4n+1) {
+  background: #f8f8f8;
+}
