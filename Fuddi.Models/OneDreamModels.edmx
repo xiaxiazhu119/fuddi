@@ -105,6 +105,22 @@
           <Property Name="CategoryID" Type="int" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“fuddijp.fuddijp_f.v_value_product_relation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="v_value_product_relation">
+          <Key>
+            <PropertyRef Name="ValueTypeName" />
+            <PropertyRef Name="RelationID" />
+            <PropertyRef Name="ValueID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductName" />
+          </Key>
+          <Property Name="ValueTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RelationID" Type="int" Nullable="false" />
+          <Property Name="ValueID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="OneDreamModelStoreContainer">
           <EntitySet Name="OD_Category" EntityType="Self.OD_Category" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_CategoryGroup" EntityType="Self.OD_CategoryGroup" Schema="fuddijp_f" store:Type="Tables" />
@@ -122,6 +138,15 @@
     [v_category_group_relation].[CategoryID] AS [CategoryID], 
     [v_category_group_relation].[CategoryName] AS [CategoryName]
     FROM [fuddijp_f].[v_category_group_relation] AS [v_category_group_relation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_value_product_relation" EntityType="Self.v_value_product_relation" store:Type="Views" store:Schema="fuddijp_f">
+            <DefiningQuery>SELECT 
+    [v_value_product_relation].[ValueTypeName] AS [ValueTypeName], 
+    [v_value_product_relation].[RelationID] AS [RelationID], 
+    [v_value_product_relation].[ValueID] AS [ValueID], 
+    [v_value_product_relation].[ProductID] AS [ProductID], 
+    [v_value_product_relation].[ProductName] AS [ProductName]
+    FROM [fuddijp_f].[v_value_product_relation] AS [v_value_product_relation]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -162,6 +187,7 @@
           <EntitySet Name="OD_Product" EntityType="OneDreamModel.OD_Product" />
           <EntitySet Name="OD_ValueProductRelation" EntityType="OneDreamModel.OD_ValueProductRelation" />
           <EntitySet Name="OD_ValueType" EntityType="OneDreamModel.OD_ValueType" />
+          <EntitySet Name="v_value_product_relation" EntityType="OneDreamModel.v_value_product_relation" />
         </EntityContainer>
         <EntityType Name="OD_CategoryGroup">
           <Key>
@@ -237,6 +263,20 @@
           <Property Name="Value" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
           <Property Name="DelFlag" Type="Boolean" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_value_product_relation">
+          <Key>
+            <PropertyRef Name="ValueTypeName" />
+            <PropertyRef Name="RelationID" />
+            <PropertyRef Name="ValueID" />
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="ProductName" />
+          </Key>
+          <Property Name="ValueTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RelationID" Type="Int32" Nullable="false" />
+          <Property Name="ValueID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -348,6 +388,17 @@
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_value_product_relation">
+            <EntityTypeMapping TypeName="OneDreamModel.v_value_product_relation">
+              <MappingFragment StoreEntitySet="v_value_product_relation">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ValueID" ColumnName="ValueID" />
+                <ScalarProperty Name="RelationID" ColumnName="RelationID" />
+                <ScalarProperty Name="ValueTypeName" ColumnName="ValueTypeName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

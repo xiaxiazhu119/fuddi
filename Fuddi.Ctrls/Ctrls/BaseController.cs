@@ -16,6 +16,7 @@ namespace Fuddi.Ctrls
 
         protected internal int defaultPageSize = SettingsCfg.Instance.DEFAULT_PAGE_SIZE;
         protected internal int defaultPageIndex = SettingsCfg.Instance.DEFAULT_PAGE_INDEX;
+        protected internal int defaultIntValue = SettingsCfg.Instance.DEFAULT_INT_VALUE;
 
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {

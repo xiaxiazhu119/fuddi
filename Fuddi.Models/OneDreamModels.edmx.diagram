@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="OneDreamModel.OD_Product" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="OneDreamModel.OD_ValueProductRelation" Width="1.5" PointX="7.75" PointY="3.75" />
         <EntityTypeShape EntityType="OneDreamModel.OD_ValueType" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="OneDreamModel.v_value_product_relation" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

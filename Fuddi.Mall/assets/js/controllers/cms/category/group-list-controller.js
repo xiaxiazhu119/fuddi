@@ -19,13 +19,10 @@ require(['/assets/js/app.js'], function () {
 
         var request = Main.request(api, data);
         request.then(function (rst) {
-          var cls1 = 'text-success', cls2 = 'glyphicon-ok';
-          if (rst.Code < 0) {
-            cls1 = 'text-danger';
-            cls2 = 'glyphicon-remove';
-          }
-          var c2 = '<p></p><p class="text-center ' + cls1 + '"><i class="glyphicon ' + cls2 + '"></i>&nbsp;&nbsp;' + rst.Msg + '</p>';
-          Utils.setModalContent('#common-modal', c2);
+
+          var content = Utils.buildQueryRstMsg(rst);
+
+          Utils.setModalContent('#common-modal', content);
         });
       }
     });
@@ -69,7 +66,9 @@ require(['/assets/js/app.js'], function () {
 
       var request = Main.request(api, data);
       request.then(function (rst) {
-        var content = '<p></p><p class="text-center text-success"><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;' + rst.Msg + '</p>';
+
+        var content = Utils.buildQueryRstMsg(rst);
+
         Utils.showModal('#common-modal', content);
         $this.siblings(cancelElm).click();
         if (typeof type !== 'undefined') {

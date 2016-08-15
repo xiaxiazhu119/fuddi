@@ -121,6 +121,13 @@ namespace Fuddi.Ctrls.CMS
             return BuildJsonResult(rsp);
         }
 
+        public JsonResult DeleteValueProductRelation(int rid)
+        {
+            int rst = (new ValueBLL()).DeleteValueProductRelationByRelationID(rid);
+            ResponseEnum rsp = rst > 0 ? ResponseEnum.DeleteValueProductRelationSuccess : ResponseEnum.DeleteValueProductRelationFailed;
+            return BuildJsonResult(rsp);
+        }
+
         #endregion
     }
 }

@@ -4,16 +4,25 @@ require(['/assets/js/app.js'], function () {
 
   require(['config', 'utils', 'main'], function (Config, Utils, Main) {
 
+    $('.search-btn').off('click').on('click', function () {
+      var v = $('#v-t-list').val();
+      if (v != '0') {
+        window.location = '/_cms/_value/relationlist?vid=' + v;
+      }
+    });
+
+    var _queryRst = Utils.queryRst;
+
     $('.remove-btn').off('click').on('click', function () {
       if (confirm('确定要删除该数据吗？')) {
         var $this = $(this);
-        var api = Main.API.category.delete;
+        var api = Main.API.valueType.deleteRelation;
         var data = {
           id: $this.data('id')
         };
 
         var content = Utils.opTipsContent;
-        Utils.showModal('#common-modal', content, function () {
+        Utils.showModal(Utils.commonModalID, content, function () {
           $('#btn-refresh').click();
         });
 
@@ -22,25 +31,14 @@ require(['/assets/js/app.js'], function () {
 
           var content = Utils.buildQueryRstMsg(rst);
 
-          Utils.setModalContent('#common-modal', c2);
+          Utils.setModalContent(Utils.commonModalID, content);
         });
       }
     });
 
     $('#btn-refresh').off('click').on('click', function () {
-      var request = Main.request(Main.API.category.clearCache);
-      request.then(function (rst) {
-        window.location.reload();
-      });
+      window.location.reload();
     });
-
-    $('.search-btn').off('click').on('click', function () {
-      var v = $.trim($('#name').val());
-      if (v !== '') {
-        window.location = '/_cms/category/categorylist?name=' + encodeURIComponent(v);
-      }
-    });
-
 
   });
 

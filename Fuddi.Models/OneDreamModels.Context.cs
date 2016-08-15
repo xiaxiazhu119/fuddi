@@ -35,5 +35,6 @@ namespace Fuddi.Models
         public virtual DbSet<OD_Product> OD_Product { get; set; }
         public virtual DbSet<OD_ValueProductRelation> OD_ValueProductRelation { get; set; }
         public virtual DbSet<OD_ValueType> OD_ValueType { get; set; }
+        public virtual DbSet<v_value_product_relation> v_value_product_relation { get; set; }
     }
 }

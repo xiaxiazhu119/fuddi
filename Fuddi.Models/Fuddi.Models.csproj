@@ -100,6 +100,9 @@
     <Compile Include="v_category_group_relation.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_value_product_relation.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="OneDreamModels.edmx">

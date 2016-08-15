@@ -128,5 +128,20 @@ namespace Fuddi.SiteUtils
             }
             return list;
         }
+
+        public IList<OD_ValueType> ValueTypeList
+        {
+            get
+            {
+                string key = CacheCfg.Instance.VALUE_TYPE_CACHE_KEY;
+                object cacheValue = GetCacheValue(key);
+                if (cacheValue != null)
+                    return (IList<OD_ValueType>)cacheValue;
+
+                IList<OD_ValueType> relation = (new ValueBLL()).GetAllValueType();
+                SetCacheValue(key, relation);
+                return relation;
+            }
+        }
     }
 }

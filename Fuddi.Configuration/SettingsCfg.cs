@@ -34,6 +34,8 @@ namespace Fuddi.Configuration
         public readonly int DEFAULT_PAGE_INDEX = 1;
         public readonly int DEFAULT_PAGE_SIZE = 10;
 
+        public readonly int DEFAULT_INT_VALUE = 0;
+
         public readonly string RESPONSE_MSG_TEMPDATA_KEY = "td_rsp_msg";
         public readonly string RESPONSE_CODE_TEMPDATA_KEY = "td_rsp_code";
         public readonly string REDIRECT_TEMPDATA_KEY = "td_redirect";

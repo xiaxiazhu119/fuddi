@@ -50,7 +50,7 @@ require(['/assets/js/app.js'], function () {
 
       var request = Main.request(api, data);
       request.then(function (rst) {
-        var content = '<p></p><p class="text-center text-success"><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;' + rst.Msg + '</p>';
+        var content = Utils.buildQueryRstMsg(rst);
         Utils.showModal('#common-modal', content);
         $this.siblings('.edit-cancel').click();
         if (data.id != 0) {
@@ -75,7 +75,8 @@ require(['/assets/js/app.js'], function () {
 
         var request = Main.request(api, data);
         request.then(function (rst) {
-          var content = '<p></p><p class="text-center text-success"><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;' + rst.Msg + '</p>';
+
+          var content = Utils.buildQueryRstMsg(rst);
           Utils.showModal('#common-modal', content);
           $container.remove();
         });

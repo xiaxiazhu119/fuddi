@@ -70,12 +70,16 @@ namespace Fuddi.Enum
                     return cfg.RESPONSE_UPDATE_VALUE_TYPE_SUCCESS;
                 case ResponseEnum.DeleteValueTypeSuccess:
                     return cfg.RESPONSE_DELETE_VALUE_TYPE_SUCCESS;
+                case ResponseEnum.DeleteValueProductRelationSuccess:
+                    return cfg.RESPONSE_DELETE_VALUE_PRODUCT_RELATION_SUCCESS;
                 case ResponseEnum.AddValueTypeFailed:
                     return cfg.RESPONSE_ADD_VALUE_TYPE_FAILED;
                 case ResponseEnum.UpdateValueTypeFailed:
                     return cfg.RESPONSE_UPDATE_VALUE_TYPE_FAILED;
                 case ResponseEnum.DeleteValueTypeFailed:
                     return cfg.RESPONSE_DELETE_VALUE_TYPE_FAILED;
+                case ResponseEnum.DeleteValueProductRelationFailed:
+                    return cfg.RESPONSE_DELETE_VALUE_PRODUCT_RELATION_FAILED;
 
                 default:
                     return cfg.RESPONSE_OPERATION_SUCCESS;

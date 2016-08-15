@@ -1,0 +1,55 @@
+﻿@using Fuddi.Models;
+@using PagedList;
+@using PagedList.Mvc
+@{
+  ViewBag.Title = "Relation List";
+  Layout = "~/Views/Shared/_CMSLayout.cshtml";
+}
+
+@model StaticPagedList<v_value_product_relation>
+
+@section assets{
+  <link rel="stylesheet" href="/assets/css/cms/value.css">
+  <script src="/assets/js/controllers/cms/value/relation-list-controller.js"></script>
+}
+<h2 class="page-title">Relation List</h2>
+
+<div class="condition-container form-inline">
+  <select id="v-t-list" class="form-control">
+    <option value="@(Fuddi.Configuration.SettingsCfg.Instance.DEFAULT_INT_VALUE)" @(Fuddi.Configuration.SettingsCfg.Instance.DEFAULT_INT_VALUE == (int)TempData["vid"] ? "seleted" : "")>value type</option>
+    @foreach (var item in Fuddi.SiteUtils.CacheHelper.Instance.ValueTypeList)
+    {
+      <option value="@(item.ID)" @(item.ID == (int)TempData["vid"] ? "seleted" : "")>@(item.Name)</option>
+    }
+  </select>&nbsp;&nbsp;
+  <a href="javascript:;" class="search-btn"><i class="glyphicon glyphicon-search"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button id="btn-refresh" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i>&nbsp;&nbsp;Refresh</button>&nbsp;&nbsp;
+</div>
+
+<table class="table table-striped form-inline relation-data-tbl">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Type Name</th>
+      <th>Product Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>@(item.RelationID)</td>
+        <td>@(item.ValueTypeName)</td>
+        <td>@(item.ProductName)</td>
+        <td class="op-td">
+          <a class="remove-btn text-danger" data-id="@(item.RelationID)" href="javascript:;" title="delete"><i class="glyphicon glyphicon-trash"></i></a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<div class="text-center">
+  @Html.PagedListPager((IPagedList)Model, page => Url.Action("relationlist", new { pageIndex = page, vid = HttpUtility.UrlEncode(TempData["vid"].ToString()) }))
+</div>

@@ -304,6 +304,13 @@ define([], function () {
       return content;
     };
 
+    this.showCommonQueryRstModal = function (rst, callback) {
+      var content = this.buildQueryRstMsg(rst);
+      this.showModal(this.commonModalID, content);
+      if (typeof callback === 'function')
+        callback();
+    };
+
   };
 
   return new Utils();

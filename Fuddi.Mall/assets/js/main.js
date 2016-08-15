@@ -2,20 +2,22 @@
 
 
 define([], function () {
+  var _apiBasePath = '/_cms/api/';
   var Main = {
     API: {
       category: {
-        edit: '/_cms/api/editcategory',
-        delete: '/_cms/api/deletecategory',
-        clearCache: '/_cms/api/clearcategorycache'
+        edit: _apiBasePath + 'editcategory',
+        delete: _apiBasePath + 'deletecategory',
+        clearCache: _apiBasePath + 'clearcategorycache'
       },
       categoryGroup: {
-        edit: '/_cms/api/editcategorygroup',
-        delete: '/_cms/api/deletecategorygroup'
+        edit: _apiBasePath + 'editcategorygroup',
+        delete: _apiBasePath + 'deletecategorygroup'
       },
-      valuetype: {
-        edit: '/_cms/api/editvaluetype',
-        delete: '/_cms/api/deletevaluetype'
+      valueType: {
+        edit: _apiBasePath + 'editvaluetype',
+        delete: _apiBasePath + 'deletevaluetype',
+        deleteRelation: _apiBasePath + 'deletevalueproductrelation'
       }
     },
     request: function (api, data) {

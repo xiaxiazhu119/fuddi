@@ -7,13 +7,22 @@ require(['/assets/js/app.js'], function () {
     var rspMsg = $('#rsp-msg').val();
 
     if (rspMsg !== '') {
-      var cls1 = 'text-success', cls2 = 'glyphicon-ok';
-      var rst = parseInt($('#rst-code').val());
-      if (rst < 0) {
-        cls1 = 'text-danger';
-        cls2 = 'glyphicon-remove';
-      }
-      var content = '<p></p><p class="text-center ' + cls1 + '"><i class="glyphicon ' + cls2 + '"></i>&nbsp;&nbsp;' + rspMsg + '</p>';
+
+      var _a = {
+        Code: parseInt($('#rst-code').val()),
+        Msg: rspMsg
+      };
+
+      var content = Utils.buildQueryRstMsg(_a);
+
+      //var cls1 = 'text-success', cls2 = 'glyphicon-ok';
+      //var rst = parseInt($('#rst-code').val());
+      //if (rst < 0) {
+      //  cls1 = 'text-danger';
+      //  cls2 = 'glyphicon-remove';
+      //}
+      //var content = '<p></p><p class="text-center ' + cls1 + '"><i class="glyphicon ' + cls2 + '"></i>&nbsp;&nbsp;' + rspMsg + '</p>';
+
       Utils.showCommonModal(content);
     }
 

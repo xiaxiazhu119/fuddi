@@ -20,9 +20,9 @@ namespace Fuddi.BLL
         /// 获取所有价值类型
         /// </summary>
         /// <returns></returns>
-        public IList<OD_ValueType> GetAllValueTypeList()
+        public IList<OD_ValueType> GetAllValueType()
         {
-            return dal.GetAllValueTypeList();
+            return dal.GetAllValueType();
         }
 
         /// <summary>
@@ -58,13 +58,36 @@ namespace Fuddi.BLL
         }
 
         /// <summary>
+        /// 根据条件获取价值商品关联列表
+        /// </summary>
+        /// <param name="vid"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="total"></param>
+        /// <returns></returns>
+        public IList<v_value_product_relation> GetValueProductRelationListByCondition(int vid, int pageIndex, int pageSize, out int total)
+        {
+            return dal.GetValueProductRelationListByCondition(vid, pageIndex, pageSize, out total);
+        }
+
+        /// <summary>
         /// 根据价值类型ID删除与之相关联商品关联信息
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int DeleteValueRelationByValueID(int id)
+        public int DeleteValueProductRelationByValueID(int id)
         {
-            return dal.DeleteValueRelationByValueID(id);
+            return dal.DeleteValueProductRelationByValueID(id);
+        }
+
+        /// <summary>
+        /// 删除价值商品对应信息
+        /// </summary>
+        /// <param name="relationid"></param>
+        /// <returns></returns>
+        public int DeleteValueProductRelationByRelationID(int relationid)
+        {
+            return dal.DeleteValueProductRelationByRelationID(relationid);
         }
 
     }
