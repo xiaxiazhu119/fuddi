@@ -40,42 +40,24 @@ namespace Fuddi.SiteUtils
             }
         }
 
-        public IList<OD_CategoryGroup> CategoryGroup
+        public IList<OD_Category> CategoryList
         {
             get
             {
-                string key = CacheCfg.Instance.CATEGORY_GROUP_CACHE_KEY;
-                //RemoveCacheValue(key);
+                string key = CacheCfg.Instance.CATEGORY_LIST_CACHE_KEY;
                 object cacheValue = GetCacheValue(key);
                 if (cacheValue != null)
-                    return (IList<OD_CategoryGroup>)cacheValue;
+                    return (IList<OD_Category>)cacheValue;
 
-                IList<OD_CategoryGroup> tree = (new CategoryBLL()).GetAllCategoryGroup();
-                SetCacheValue(key, tree);
-                return tree;
-            }
-        }
-
-        public IList<CategoryGroupRelationModel> CategoryGroupRelation
-        {
-            get
-            {
-                string key = CacheCfg.Instance.CATEGORY_GROUP_RELATION_CACHE_KEY;
-                //RemoveCacheValue(key);
-                object cacheValue = GetCacheValue(key);
-                if (cacheValue != null)
-                    return (IList<CategoryGroupRelationModel>)cacheValue;
-
-                IList<CategoryGroupRelationModel> relation = (new CategoryBLL()).GetAllCategoryGroupRelationView();
-                SetCacheValue(key, relation);
-                return relation;
+                IList<OD_Category> list = (new CategoryBLL()).GetAllCategory();
+                SetCacheValue(key, list);
+                return list;
             }
         }
 
         public void ClearCategoryCache()
         {
-            RemoveCacheValue(CacheCfg.Instance.CATEGORY_GROUP_CACHE_KEY);
-            RemoveCacheValue(CacheCfg.Instance.CATEGORY_GROUP_RELATION_CACHE_KEY);
+            RemoveCacheValue(CacheCfg.Instance.CATEGORY_LIST_CACHE_KEY);
         }
 
         /*
@@ -127,21 +109,6 @@ namespace Fuddi.SiteUtils
                 }
             }
             return list;
-        }
-
-        public IList<OD_ValueType> ValueTypeList
-        {
-            get
-            {
-                string key = CacheCfg.Instance.VALUE_TYPE_CACHE_KEY;
-                object cacheValue = GetCacheValue(key);
-                if (cacheValue != null)
-                    return (IList<OD_ValueType>)cacheValue;
-
-                IList<OD_ValueType> relation = (new ValueBLL()).GetAllValueType();
-                SetCacheValue(key, relation);
-                return relation;
-            }
         }
     }
 }

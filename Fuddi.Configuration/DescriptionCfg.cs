@@ -42,24 +42,6 @@ namespace Fuddi.Configuration
         public readonly string RESPONSE_ADD_CATEGORY_FAILED = "添加分类失败";
         public readonly string RESPONSE_UPDATE_CATEGORY_FAILED = "更新分类失败";
         public readonly string RESPONSE_DELETE_CATEGORY_FAILED = "删除分类失败";
-
-        public readonly string RESPONSE_ADD_CATEGORY_GROUP_SUCCESS = "添加分类组成功";
-        public readonly string RESPONSE_UPDATE_CATEGORY_GROUP_SUCCESS = "更新分类组成功";
-        public readonly string RESPONSE_DELETE_CATEGORY_GROUP_SUCCESS = "删除分类组成功";
-        public readonly string RESPONSE_ADD_CATEGORY_GROUP_FAILED = "添加分类组失败";
-        public readonly string RESPONSE_UPDATE_CATEGORY_GROUP_FAILED = "更新分类组失败";
-        public readonly string RESPONSE_DELETE_CATEGORY_GROUP_FAILED = "删除分类组失败";
-        #endregion
-
-        #region value type
-        public readonly string RESPONSE_ADD_VALUE_TYPE_SUCCESS = "添加价值类型成功";
-        public readonly string RESPONSE_UPDATE_VALUE_TYPE_SUCCESS = "更新价值类型成功";
-        public readonly string RESPONSE_DELETE_VALUE_TYPE_SUCCESS = "删除价值类型成功";
-        public readonly string RESPONSE_DELETE_VALUE_PRODUCT_RELATION_SUCCESS = "删除价值商品关联成功";
-        public readonly string RESPONSE_ADD_VALUE_TYPE_FAILED = "添加价值类型失败";
-        public readonly string RESPONSE_UPDATE_VALUE_TYPE_FAILED = "更新价值类型失败";
-        public readonly string RESPONSE_DELETE_VALUE_TYPE_FAILED = "删除价值类型失败";
-        public readonly string RESPONSE_DELETE_VALUE_PRODUCT_RELATION_FAILED = "删除价值商品关联失败";
         #endregion
 
         #endregion

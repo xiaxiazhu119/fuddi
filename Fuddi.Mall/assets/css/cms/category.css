@@ -1,91 +1,12 @@
 ﻿@charset "UTF-8";
 
-#tree-container {
-  display: none;
-  position: relative;
-}
 
-#tree-container ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.category-container {
-  display: none;
-  margin-left: 40px;
-}
-
-#tree-container > ul > li {
-  margin: 20px 0;
-}
-
-#tree-container > ul > li > i.glyphicon {
-  top: 2px;
-}
-
-#tree-container > ul > li > i.glyphicon:hover {
-  /*cursor: pointer;*/
-}
-
-.dir-symbol {
-  color: #ccc;
-}
-
-.item-content {
-  height: 34px;
-  line-height: 34px;
-}
-
-.item-content .edit-btn,
-.item-content .remove-btn {
-  margin-left: 1em;
-}
-
-.item-content .c-edit.btn {
-  margin-left: 0;
-}
-
-.item-content .group-name {
-  font-weight: bolder;
-}
-
-.edit-container {
-  display: none;
-  padding-left: 2em;
-}
-
-.edit-container.add-container {
-  padding-left: 0;
-}
-
-.edit-container .edit-confirm {
-  margin-left: 1em;
-}
-
-#ce-g-list li {
-  line-height: 200%;
-}
-
-#ce-g-list li > input[type=checkbox] {
-  position: relative;
-  top: 3px;
-}
-
-.group-data-tbl > thead > tr > th,
-.group-data-tbl > tbody > tr > th,
-.group-data-tbl > tfoot > tr > th,
-.group-data-tbl > thead > tr > td,
-.group-data-tbl > tbody > tr > td,
-.group-data-tbl > tfoot > tr > td {
+.category-list-tbl > thead > tr > th,
+.category-list-tbl > tbody > tr > th,
+.category-list-tbl > tfoot > tr > th,
+.category-list-tbl > thead > tr > td,
+.category-list-tbl > tbody > tr > td,
+.category-list-tbl > tfoot > tr > td {
   height: 52px;
   line-height: 34px;
-}
-
-.group-data-tbl th:nth-child(2) {
-  width: 70%;
-}
-
-.edit-td > .edit-elm {
-  display: none;
 }

@@ -41,26 +41,6 @@ namespace Fuddi.Enum
         UpdateCategoryFailed = -1002098,
         DeleteCategoryFailed = -1002097,
 
-        AddCategoryGroupSuccess = 1003001,
-        UpdateCategoryGroupSuccess = 1003002,
-        DeleteCategoryGroupSuccess = 1003003,
-        AddCategoryGroupFailed = -1003099,
-        UpdateCategoryGroupFailed = -1003098,
-        DeleteCategoryGroupFailed = -1003097,
-
-        #endregion
-
-        #region value type
-
-        AddValueTypeSuccess = 1004001,
-        UpdateValueTypeSuccess = 1004002,
-        DeleteValueTypeSuccess = 1004003,
-        DeleteValueProductRelationSuccess = 1004004,
-        AddValueTypeFailed = -1004099,
-        UpdateValueTypeFailed = -1004098,
-        DeleteValueTypeFailed = -1004097,
-        DeleteValueProductRelationFailed = -1004096,
-
         #endregion
 
         AAA = 99999999

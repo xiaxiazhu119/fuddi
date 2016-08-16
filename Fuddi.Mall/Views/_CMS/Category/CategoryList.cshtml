@@ -6,9 +6,10 @@
   Layout = "~/Views/Shared/_CMSLayout.cshtml";
 }
 
-@model StaticPagedList<OD_Category>
+@model IList<OD_Category>
 
 @section assets{
+<link rel="stylesheet" href="/assets/css/cms/category.css">
   <script src="/assets/js/controllers/cms/category/category-list-controller.js"></script>
 }
 <h2 class="page-title">Category List</h2>
@@ -20,7 +21,7 @@
   <a href="/_cms/category/categoryedit?act=@((int)Fuddi.Enum.ActionEnum.Add)&id=0&redirect=@(ViewData[Fuddi.Configuration.SettingsCfg.Instance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY])" class="btn btn-success" role="button"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add</a>
 </div>
 
-<table class="table table-striped">
+<table class="table table-striped category-list-tbl">
   <thead>
     <tr>
       <th>ID</th>
@@ -33,9 +34,11 @@
     {
       <tr>
         <td>@(item.ID)</td>
-        <td>@(item.Name)</td>
         <td>
-          <a href="/_cms/category/categoryedit?act=@((int)Fuddi.Enum.ActionEnum.Edit)&id=@(item.ID)&redirect=@(ViewData[Fuddi.Configuration.SettingsCfg.Instance.URL_ENCODE_CURRENT_QUERY_AND_PATH_VIEWDATA_KEY])" title="edit"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
+          <span class="value-elm">@(item.Name)</span>
+        </td>
+        <td>
+          <a href="javascript:;" title="edit"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
           <a class="remove-btn text-danger" data-id="@(item.ID)" href="javascript:;" title="delete"><i class="glyphicon glyphicon-trash"></i></a>
         </td>
       </tr>
@@ -43,6 +46,3 @@
   </tbody>
 </table>
 
-<div class="text-center">
-  @Html.PagedListPager((IPagedList)Model, page => Url.Action("categorylist", new { pageIndex = page, name = HttpUtility.UrlEncode(TempData["name"].ToString()) }))
-</div>

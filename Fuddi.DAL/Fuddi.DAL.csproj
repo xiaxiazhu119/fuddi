@@ -54,7 +54,6 @@
     <Compile Include="CategoryDAL.cs" />
     <Compile Include="MgrDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fuddi.Enum\Fuddi.Enum.csproj">

@@ -152,17 +152,13 @@
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\common\config.js" />
     <Content Include="assets\js\common\utils.js" />
-    <Content Include="assets\js\controllers\cms\value\relation-list-controller.js" />
-    <Content Include="assets\js\controllers\cms\value\type-list-controller.js" />
     <Content Include="assets\js\controllers\cms\category\category-edit-controller.js" />
-    <Content Include="assets\js\controllers\cms\category\group-list-controller.js" />
     <Content Include="assets\js\controllers\cms\category\category-list-controller.js" />
     <Content Include="assets\js\controllers\cms\cms.js" />
     <Content Include="assets\js\controllers\cms\frame.js" />
     <Content Include="assets\js\controllers\cms\home\default-controller.js" />
     <Content Include="assets\js\controllers\cms\home\signin-controller.js" />
     <Content Include="assets\js\controllers\cms\product\productlist-controller.js" />
-    <Content Include="assets\js\controllers\cms\category\tree-controller.js" />
     <Content Include="assets\js\controllers\home\index-controller.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />
@@ -229,10 +225,6 @@
     <Content Include="Views\_CMS\Product\ProductEdit.cshtml" />
     <Content Include="Views\_CMS\Category\CategoryEdit.cshtml" />
     <Content Include="Views\_CMS\Category\CategoryList.cshtml" />
-    <Content Include="Views\_CMS\Category\Tree.cshtml" />
-    <Content Include="Views\_CMS\Category\GroupList.cshtml" />
-    <Content Include="Views\_CMS\_Value\TypeList.cshtml" />
-    <Content Include="Views\_CMS\_Value\RelationList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

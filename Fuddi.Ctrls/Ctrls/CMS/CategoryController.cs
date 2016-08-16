@@ -20,8 +20,9 @@ namespace Fuddi.Ctrls.CMS
     {
         CategoryBLL bll = new CategoryBLL();
 
-        public ActionResult CategoryList(int? pageIndex, string name)
+        public ActionResult CategoryList(string name)
         {
+            /*
             int pi = TypeConverter.ObjectToInt(pageIndex, defaultPageIndex);
             ViewData[setCfgInstance.PAGE_INDEX_VIEWDATA_KEY] = pi;
             int total = 0;
@@ -31,9 +32,13 @@ namespace Fuddi.Ctrls.CMS
             var pagedList = new StaticPagedList<OD_Category>(list, pi, defaultPageSize, total);
 
             ViewData[setCfgInstance.TOTAL_ITEM_VIEWDATA_KEY] = total;
+             * */
+            var list = CacheHelper.Instance.CategoryList;
+            if (!string.IsNullOrEmpty(name))
+                list = list.Where(m => m.Name.Contains(name)).ToList();
             TempData["name"] = name;
 
-            return View(pagedList);
+            return View(list);
         }
 
         public ActionResult CategoryEdit(int? act, int? id, string redirect)
@@ -50,9 +55,6 @@ namespace Fuddi.Ctrls.CMS
                     m = bll.GetCategoryByID((int)id);
                     if (m == null)
                         return Redirect(r);
-
-                    var gs = bll.GetCategoryGroupByCategoryID(m.ID);
-                    ViewData["gs"] = string.Join(",", gs.Select(z => z.ID).ToList());
                 }
             }
             TempData[setCfgInstance.REDIRECT_TEMPDATA_KEY] = r;
@@ -72,44 +74,13 @@ namespace Fuddi.Ctrls.CMS
                 rst = bll.AddCategory(m);
                 m.ID = rst;
             }
-            if (!string.IsNullOrEmpty(gs))
-            {
-                IList<int> gids = gs.Split(',').Select(Int32.Parse).ToList();
-                rst += bll.AddMultipleCategoryGroupRelation(gids, m.ID);
-            }
-            else
-            {
-                rst += bll.DeleteCategoryGroupByCategoryID(m.ID);
-            }
-            ViewData["gs"] = gs;
             TempData[setCfgInstance.REDIRECT_TEMPDATA_KEY] = redirect;
             TempData[setCfgInstance.RESPONSE_MSG_TEMPDATA_KEY] = rst > 0 ? ResponseEnum.UpdateCategorySuccess : ResponseEnum.UpdateCategoryFailed;
             TempData[setCfgInstance.RESPONSE_CODE_TEMPDATA_KEY] = rst;
 
-            CategoryHelper.Instance.ClearCategoryCache();
+            CacheHelper.Instance.ClearCategoryCache();
 
             return View(m);
-        }
-
-        public ActionResult Tree()
-        {
-            return View();
-        }
-
-        public ActionResult GroupList(int? pageIndex, string name)
-        {
-            int pi = TypeConverter.ObjectToInt(pageIndex, defaultPageIndex);
-            ViewData[setCfgInstance.PAGE_INDEX_VIEWDATA_KEY] = pi;
-            int total = 0;
-            name = string.IsNullOrEmpty(name) ? "" : Utils.UrlDecode(name);
-            var list = bll.GetCategoryGroupListByCondition(name, pi, defaultPageSize, out total);
-
-            var pagedList = new StaticPagedList<OD_CategoryGroup>(list, pi, defaultPageSize, total);
-
-            ViewData[setCfgInstance.TOTAL_ITEM_VIEWDATA_KEY] = total;
-            TempData["name"] = name;
-
-            return View(pagedList);
         }
     }
 }

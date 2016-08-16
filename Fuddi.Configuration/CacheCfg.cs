@@ -35,10 +35,7 @@ namespace Fuddi.Configuration
         #region cache
 
         public readonly string CMS_SITEMAP_CACHE_KEY = "fuddi_onedream_cache_cms_sitemap";
-        public readonly string CATEGORY_GROUP_CACHE_KEY = "fuddi_onedream_cache_category_group";
-        public readonly string CATEGORY_TREE_CACHE_KEY = "fuddi_onedream_cache_category_tree";
-        public readonly string CATEGORY_GROUP_RELATION_CACHE_KEY = "fuddi_onedream_cache_category_group_relation";
-        public readonly string VALUE_TYPE_CACHE_KEY = "fuddi_onedream_cache_value_type";
+        public readonly string CATEGORY_LIST_CACHE_KEY = "fuddi_onedream_cache_category_list";
 
         #endregion
 

@@ -26,13 +26,6 @@ namespace Fuddi.Ctrls.CMS
             if (id == 0)
             {
                 rst = bll.AddCategory(model);
-                if (rst > 0)
-                {
-                    OD_CategoryGroupRelation gr = new OD_CategoryGroupRelation();
-                    gr.GroupID = gid;
-                    gr.CategoryID = rst;
-                    rst = bll.AddCategoryGroupRelation(gr);
-                }
 
                 rsp = rst > 0 ? ResponseEnum.AddCategorySuccess : ResponseEnum.AddCategoryFailed;
             }
@@ -45,28 +38,6 @@ namespace Fuddi.Ctrls.CMS
             return BuildJsonResult(rsp);
         }
 
-        public JsonResult EditCategoryGroup(int id, string name)
-        {
-            OD_CategoryGroup model = new OD_CategoryGroup();
-            model.Name = name;
-            int rst = 0;
-            ResponseEnum rsp;
-            CategoryBLL bll = new CategoryBLL();
-
-            if (id == 0)
-            {
-                rst = bll.AddCategoryGroup(model);
-                rsp = rst > 0 ? ResponseEnum.AddCategoryGroupSuccess : ResponseEnum.AddCategoryGroupFailed;
-            }
-            else
-            {
-                model.ID = id;
-                rst = bll.UpdateCategoryGroup(model);
-                rsp = rst > 0 ? ResponseEnum.UpdateCategoryGroupSuccess : ResponseEnum.UpdateCategoryGroupFailed;
-            }
-            return BuildJsonResult(rsp);
-        }
-
         public JsonResult DeleteCategory(int id)
         {
             int rst = (new CategoryBLL()).DeleteCategory(id);
@@ -74,58 +45,10 @@ namespace Fuddi.Ctrls.CMS
             return BuildJsonResult(rsp);
         }
 
-        public JsonResult DeleteCategoryGroup(int id)
-        {
-            int rst = (new CategoryBLL()).DeleteCategoryGroup(id);
-            ResponseEnum rsp = rst > 0 ? ResponseEnum.DeleteCategoryGroupSuccess : ResponseEnum.DeleteCategoryGroupFailed;
-            return BuildJsonResult(rsp);
-        }
-
         public JsonResult ClearCategoryCache()
         {
-            CategoryHelper.Instance.ClearCategoryCache();
+            CacheHelper.Instance.ClearCategoryCache();
             return BuildJsonResult(ResponseEnum.OperationSuccess);
-        }
-
-        #endregion
-
-        #region value type
-
-        public JsonResult EditValueType(int id, string name, decimal value)
-        {
-            OD_ValueType model = new OD_ValueType();
-            model.Name = name;
-            model.Value = value;
-            int rst = 0;
-            ResponseEnum rsp;
-
-            ValueBLL bll = new ValueBLL();
-            if (id == 0)
-            {
-                rst = bll.AddValueType(model);
-                rsp = rst > 0 ? ResponseEnum.AddValueTypeSuccess : ResponseEnum.AddValueTypeFailed;
-            }
-            else
-            {
-                model.ID = id;
-                rst = bll.UpdateValueType(model);
-                rsp = rst > 0 ? ResponseEnum.UpdateValueTypeSuccess : ResponseEnum.UpdateValueTypeFailed;
-            }
-            return BuildJsonResult(rsp);
-        }
-
-        public JsonResult DeleteValueType(int id)
-        {
-            int rst = (new ValueBLL()).DeleteValueType(id);
-            ResponseEnum rsp = rst > 0 ? ResponseEnum.DeleteValueTypeSuccess : ResponseEnum.DeleteValueTypeFailed;
-            return BuildJsonResult(rsp);
-        }
-
-        public JsonResult DeleteValueProductRelation(int rid)
-        {
-            int rst = (new ValueBLL()).DeleteValueProductRelationByRelationID(rid);
-            ResponseEnum rsp = rst > 0 ? ResponseEnum.DeleteValueProductRelationSuccess : ResponseEnum.DeleteValueProductRelationFailed;
-            return BuildJsonResult(rsp);
         }
 
         #endregion

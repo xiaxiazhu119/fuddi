@@ -57,12 +57,6 @@
     <Compile Include="OD_Category.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="OD_CategoryGroup.cs">
-      <DependentUpon>OneDreamModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OD_CategoryGroupRelation.cs">
-      <DependentUpon>OneDreamModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="OD_Manager.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
@@ -73,12 +67,6 @@
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
     <Compile Include="OD_ProductCategoryRelation.cs">
-      <DependentUpon>OneDreamModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OD_ValueProductRelation.cs">
-      <DependentUpon>OneDreamModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OD_ValueType.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
     <Compile Include="OneDreamModels.Context.cs">
@@ -97,12 +85,6 @@
       <DependentUpon>OneDreamModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="v_category_group_relation.cs">
-      <DependentUpon>OneDreamModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_value_product_relation.cs">
-      <DependentUpon>OneDreamModels.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="OneDreamModels.edmx">

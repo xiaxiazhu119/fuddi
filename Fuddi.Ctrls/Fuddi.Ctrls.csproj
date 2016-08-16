@@ -65,7 +65,6 @@
     <Compile Include="Ctrls\CMS\ApiController.cs" />
     <Compile Include="Ctrls\Api\DemoController.cs" />
     <Compile Include="Ctrls\BaseController.cs" />
-    <Compile Include="Ctrls\CMS\_ValueController.cs" />
     <Compile Include="Ctrls\CMS\CategoryController.cs" />
     <Compile Include="Ctrls\CMS\ProductController.cs" />
     <Compile Include="Ctrls\CMS\HomeController.cs" />

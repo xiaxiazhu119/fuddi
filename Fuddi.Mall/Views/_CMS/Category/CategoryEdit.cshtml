@@ -31,22 +31,8 @@
           <label for="name">Category Name</label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Category Name" value="@(Model.Name)" required />
         </div>
-        <div class="form-group">
-          <label for="">Category Group</label>
-          <ul id="ce-g-list">
-            @{
-        var group = Fuddi.SiteUtils.CategoryHelper.Instance.GetAllCategoryGroup();
-            }
-            @foreach (var g in group)
-            {
-              var id = "cb-" + g.ID;
-              <li><input type="checkbox" id="@(id)" class="g-cb" value="@(g.ID)" /><label for="@(id)">&nbsp;&nbsp;@(g.Name)</label></li>
-            }
-          </ul>
-        </div>
         <p class="text-center">
           <input type="hidden" id="id" name="id" value="@(Model.ID)" />
-          <input type="hidden" id="gs" name="gs" value="@(ViewData["gs"])" />
           <button type="button" id="submit-btn" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;Submit</button>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <a href="@(TempData[SettingsCfg.Instance.REDIRECT_TEMPDATA_KEY])" class="btn btn-primary" role="button" title="back"><i class="fa fa-reply" aria-hidden="true"></i>&nbsp;&nbsp;Back</a>
