@@ -1,1 +1,222 @@
 ﻿@charset "UTF-8";
+
+.part {
+  margin-bottom: 1em;
+}
+
+#part-1 {
+  height: 571px;
+  border-bottom: 1px solid #ddd;
+}
+
+#part-1 > div {
+  float: left;
+  height: 100%;
+}
+
+/****************************************************************************
+* announcement container start
+****************************************************************************/
+
+#announcement-container {
+  width: 240px;
+  padding: 356px 10px 10px 10px;
+  background: #ebe1b0;
+  color: #663;
+}
+
+#announcement-container > h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#announcement-container > .more {
+  position: absolute;
+  top: 366px;
+  right: 10px;
+}
+
+#announcement-container > .divider {
+  height: 1px;
+  overflow: hidden;
+  margin: 9px 0;
+  background: #663;
+}
+
+#announcement-container a {
+  color: #663;
+}
+
+#announcement-container a:hover {
+  color: #252500;
+}
+
+#announcement-container > ul {
+  margin-left: 2em;
+}
+
+#announcement-container > ul > li {
+  /*list-style-type: decimal;*/
+  list-style-type: disc;
+  margin-bottom: 4px;
+  /*color: #db3652;*/
+  /*font-size: 14px;*/
+  /*font-style: italic;*/
+}
+
+#announcement-container > ul > li > a {
+  /*font-size: 12px;*/
+  /*font-style: normal;*/
+}
+
+/****************************************************************************
+* announcement container end
+****************************************************************************/
+
+#banner-n-new-reveal-container {
+  width: 730px;
+}
+
+/****************************************************************************
+* banner container start
+****************************************************************************/
+
+#banner-container {
+  height: 350px;
+}
+
+#banner-container .swiper-slide {
+  overflow: hidden;
+}
+
+#banner-container .swiper-slide > img {
+  width: 100%;
+}
+
+#banner-container > .swiper-container > .swiper-button {
+  top: 155px;
+}
+
+/****************************************************************************
+* banner container end
+****************************************************************************/
+
+/****************************************************************************
+* new-reveal container start
+****************************************************************************/
+
+#new-reveal-container {
+  height: 220px;
+}
+
+#new-reveal-container .swiper-slide {
+  overflow: hidden;
+}
+
+.new-reveal-item {
+  float: left;
+  width: 355px;
+  height: 170px;
+  margin: 10px 0 0 10px;
+  padding: 0 10px;
+}
+
+.new-reveal-item:nth-child(odd) {
+  border-right: 1px solid #ddd;
+}
+
+.new-reveal-item > .product-name {
+  width: 220px;
+  margin: 4px 0 6px 0;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.new-reveal-item > div {
+  margin-bottom: 6px;
+  line-height: 150%;
+}
+
+.new-reveal-item .award-winner {
+  font-weight: 600;
+}
+
+.new-reveal-item ._icon-new-reveal {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.new-reveal-item .product-preview {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+}
+
+#new-reveal-container > .swiper-container > .swiper-button {
+  top: 80px;
+}
+
+/****************************************************************************
+* new-reveal container end
+****************************************************************************/
+
+/****************************************************************************
+* swiper container style override start
+****************************************************************************/
+
+#banner-n-new-reveal-container .swiper-container {
+  height: 100%;
+}
+
+#banner-n-new-reveal-container .swiper-container > .swiper-button {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+}
+
+#banner-n-new-reveal-container .swiper-container > .swiper-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#banner-n-new-reveal-container .swiper-container > .swiper-button > i {
+  top: 2px;
+}
+
+#banner-n-new-reveal-container .swiper-container > .swiper-button.prev {
+  left: 0;
+}
+
+#banner-n-new-reveal-container .swiper-container > .swiper-button.next {
+  right: 0;
+}
+
+#banner-n-new-reveal-container .swiper-container > .swiper-pagination > .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+
+#banner-n-new-reveal-container .swiper-container > .swiper-pagination > .swiper-pagination-bullet-active {
+  background: #db3652;
+}
+
+#banner-n-new-reveal-container .swiper-container:hover > .swiper-button {
+  display: block;
+}
+
+/****************************************************************************
+* swiper container style override end
+****************************************************************************/
+
+#recommend-sidebar {
+  width: 230px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}

@@ -4,10 +4,81 @@
 }
 
 @section assets{
+  <link rel="stylesheet" href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css">
   <link rel="stylesheet" href="/assets/css/web/home/index.css">
-  <script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js" data-main="/assets/js/controllers/web/home/index-controller.js"></script>
+  <script src="/assets/js/controllers/web/home/index-controller.js"></script>
 }
 
-<h2>Index</h2>
-
-<a href="/_cms/home/default">cms</a>
+<div id="part-1" class="part">
+  <div id="announcement-container">
+    <a href="/announcement/list" class="more">查看更多 &gt;&gt;</a>
+    <h4>系统公告</h4>
+    <div class="divider"></div>
+    <ul>
+      <li><a href="/announcement/detail?id=">公告1</a></li>
+      <li><a href="/announcement/detail?id=">公告2</a></li>
+    </ul>
+  </div>
+  <div id="banner-n-new-reveal-container">
+    <div id="banner-container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="http://www.sonystyle.com.cn/images/kv_50f142.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="http://www.sonystyle.com.cn/images/kv_z9dx.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="http://www.sonystyle.com.cn/images/kv_hytb.jpg" alt="" />
+          </div>
+        </div>
+        <div id="banner-swiper-pagination" class="swiper-pagination"></div>
+        <a id="banner-swiper-button-prev" href="javascript:;" class="swiper-button prev">
+          <i class="glyphicon glyphicon-menu-left"></i>
+        </a>
+        <a id="banner-swiper-button-next" href="javascript:;" class="swiper-button next">
+          <i class="glyphicon glyphicon-menu-right"></i>
+        </a>
+      </div>
+    </div>
+    <div id="new-reveal-container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="new-reveal-item">
+              <i class="_icon _icon-new-reveal"></i>
+              <a href="/product/detail?pid=" class="product-preview">
+                <img src="//onegoods.nosdn.127.net/goods/218/e78c8f30c0200590d2f8e70db2d698bf.png" alt="" />
+              </a>
+              <h1 class="product-name"><a href="/product/detail?pid=">三只松鼠 夏威夷果 澳洲坚果特产 奶油味</a></h1>
+              <div>总需：35人次<br />期号：308162045</div>
+              <div>
+                获奖者：<a href="#" class="award-winner">123123213</a>
+                <br />
+                本期参与：30人次<br />幸运号码：10000027
+              </div>
+            </div>
+            <div class="new-reveal-item">2</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="new-reveal-item">3</div>
+            <div class="new-reveal-item">4</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="new-reveal-item">5</div>
+            <div class="new-reveal-item">6</div>
+          </div>
+        </div>
+        <div id="new-reveal-swiper-pagination" class="swiper-pagination"></div>
+        <a id="new-reveal-swiper-button-prev" href="javascript:;" class="swiper-button prev">
+          <i class="glyphicon glyphicon-menu-left"></i>
+        </a>
+        <a id="new-reveal-swiper-button-next" href="javascript:;" class="swiper-button next">
+          <i class="glyphicon glyphicon-menu-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="recommend-sidebar">2</div>
+</div>

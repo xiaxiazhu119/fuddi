@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 var __Config = function () {
-  var c = this;
+  var c   = this;
   var __c = {
     release: false,
     ver: '0.0.1',
@@ -13,9 +13,9 @@ var __Config = function () {
   };
   __c.init();
   this.release = __c.release;
-  this.ver = __c.ver;
-  this.cdn = __c.cdn;
-  this.minify = __c.minify;
+  this.ver     = __c.ver;
+  this.cdn     = __c.cdn;
+  this.minify  = __c.minify;
 };
 
 var _c = new __Config();
@@ -31,6 +31,7 @@ require.config({
     jquery: _c.cdn + 'jquery/3.1.0/jquery' + _c.minify,
     jquery_cookie: _c.cdn + 'jquery-cookie/1.4.1/jquery.cookie' + _c.minify,
     bootstrap: _c.cdn + 'bootstrap/3.3.7/js/bootstrap' + _c.minify,
+    swiper: _c.cdn + 'Swiper/3.3.1/js/swiper.jquery' + _c.minify,
 
     app: 'app',
     main: 'main',
@@ -43,6 +44,9 @@ require.config({
   },
   shim: {
     bootstrap: {
+      deps: ['jquery']
+    },
+    swiper: {
       deps: ['jquery']
     },
     ajax: {

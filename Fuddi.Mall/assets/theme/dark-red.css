@@ -12,8 +12,8 @@
 
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #fff;
   background-color: transparent;
+  color: #fff;
 }
 
 /**********************************************
@@ -85,14 +85,10 @@
   color: #bdbdbd;
 }
 
-#menu-list > ul > li > ul {
-  margin: 10px 0;
-}
-
 #menu-list > ul > li > ul > li > a.active,
 #menu-list > ul > li > ul > li > a:hover {
-  color: #fff;
   background: #575757;
+  color: #fff;
 }
 
 #menu-container .navbar-toggle {

@@ -1,20 +1,40 @@
 ﻿'use strict';
 require(['/assets/js/app.js'], function () {
 
-  require(['config', 'ajax'], function (config, ajaxService) {
+  require(['config', 'ajax', 'swiper'], function (config, ajaxService, swiper) {
 
-    /*
-    console.log(ajaxService);
-    console.log(config);
-
-    var rst = ajaxService.getApi(config.API.apis.demo.index);
-
-    rst.done(function (data) {
-      console.log(data);
+    var bannerSwiper = new swiper('#banner-container>.swiper-container', {
+      autoplay: 5000,
+      loop: true,
+      autoplayDisableOnInteraction: false,
+      pagination: '#banner-swiper-pagination',
+      prevButton: '#banner-swiper-button-prev',
+      nextButton: '#banner-swiper-button-next',
+      paginationClickable: true
     });
 
-    console.log(rst);
-    */
+    var latestSwiper = new swiper('#new-reveal-container>.swiper-container', {
+      autoplay: 0,
+      loop: true,
+      autoplayDisableOnInteraction: false,
+      pagination: '#new-reveal-swiper-pagination',
+      prevButton: '#new-reveal-swiper-button-prev',
+      nextButton: '#new-reveal-swiper-button-next',
+      paginationClickable: true
+    });
+
+    /*
+     console.log(ajaxService);
+     console.log(config);
+
+     var rst = ajaxService.getApi(config.API.apis.demo.index);
+
+     rst.done(function (data) {
+     console.log(data);
+     });
+
+     console.log(rst);
+     */
 
   });
 

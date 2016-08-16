@@ -5,7 +5,11 @@ body {
   color: #555;
 }
 
-a, a:link, a:visited, a:focus, a:hover, a:active {
+a, a:link,
+a:visited,
+a:focus,
+a:hover,
+a:active {
   text-decoration: none;
 }
 
@@ -42,4 +46,8 @@ ul {
 
 ul > li {
   list-style-type: none;
+}
+
+div {
+  position: relative;
 }
