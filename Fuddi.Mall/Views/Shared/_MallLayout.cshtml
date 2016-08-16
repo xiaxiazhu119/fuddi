@@ -1,3 +1,107 @@
-﻿@{
+﻿@using Fuddi.SiteUtils
+@{
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@section assets{
+  <link rel="stylesheet" href="/assets/css/web.css">
+  <script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js" data-main="/assets/js/controllers/web/web.js"></script>
+  @RenderSection("assets", required: false)
+}
+
+<div id="site-top-nav" class="navbar" role="navigation">
+  <div class="container">
+    欢迎来到网易一元夺宝！
+    <ul id="top-nav-side-nav" class="pull-right">
+      <li>
+        <a href="/passport/signin">请登录</a>
+      </li>
+      <li>
+        <a href="/passport/signup">免费注册</a>
+      </li>
+      <li>
+        <div id="top-nav-dropdown">
+          <span>我的&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-menu-down"></i></span>
+          <div>
+            <ul>
+              <li><a href="">我的XXX</a></li>
+              <li><a href="">我的XXX</a></li>
+              <li><a href="">我的XXX</a></li>
+              <li><a href="">我的XXX</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="header">
+  <div class="container">
+    <div id="header-cart-container" class="pull-right">
+      <div id="cart-container">
+        <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;&nbsp;清单&nbsp;&nbsp;<span class="badge">42</span>
+        <div>
+          <div id="cart-content-container"></div>
+        </div>
+      </div>
+    </div>
+    <div id="header-search-container" class="pull-right">
+
+      <div id="search-container">
+        <input type="text" value="" />
+        <span class="tags-container">
+          <a href="" class="tag-item">苹果</a>
+          <a href="" class="tag-item">苹果</a>
+        </span>
+        <a href="javascript:;">
+          <i class="glyphicon glyphicon-search"></i>
+        </a>
+      </div>
+
+    </div>
+    <div id="header-logo-container" class="pull-left"></div>
+  </div>
+  <div id="header-nav">
+    <div class="container">
+      <div id="main-category-nav-container">
+        <div id="cate-all" class="category-nav-item">
+          <span>商品分类</span>
+          <i>
+            <i>
+              <i class="glyphicon glyphicon-menu-up"></i>
+              <i class="glyphicon glyphicon-menu-down"></i>
+            </i>
+          </i>
+          
+        </div>
+        <div id="main-list">
+          <div>
+            <div class="category-nav-item">
+              <a href="/product/list">全部商品</a>
+            </div>
+            @foreach (var item in CacheHelper.Instance.CategoryList)
+            {
+              <div class="category-nav-item">
+                <a href="/product/list?cid=@(item.ID)">@(item.Name)</a>
+              </div>
+            }
+          </div>
+          <div id="category-nav-footer"></div>
+        </div>
+      </div>
+      <ul>
+        <li><a class="active" href="/">首页</a></li>
+        <li class="header-nav-divider">|</li>
+        <li><a href="/">10元区</a></li>
+        <li class="header-nav-divider">|</li>
+        <li><a href="/">最新揭晓</a></li>
+        <li class="header-nav-divider">|</li>
+        <li><a href="/">晒单分享</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+@RenderBody()

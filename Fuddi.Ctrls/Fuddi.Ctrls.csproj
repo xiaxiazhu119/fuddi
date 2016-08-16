@@ -69,6 +69,8 @@
     <Compile Include="Ctrls\CMS\ProductController.cs" />
     <Compile Include="Ctrls\CMS\HomeController.cs" />
     <Compile Include="Ctrls\CMS\CMSBaseController.cs" />
+    <Compile Include="Ctrls\Mall\PassportController.cs" />
+    <Compile Include="Ctrls\Mall\ProductController.cs" />
     <Compile Include="Ctrls\Transport\HomeController.cs" />
     <Compile Include="Ctrls\Transport\TransportBaseController.cs" />
     <Compile Include="CustomAreaRegistration.cs" />

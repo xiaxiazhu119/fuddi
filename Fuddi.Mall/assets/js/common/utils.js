@@ -311,6 +311,13 @@ define([], function () {
         callback();
     };
 
+    this.animate = function (elm, opt, duration, callback) {
+      elm.animate(opt, duration, function () {
+        if (callback)
+          callback();
+      });
+    }
+
   };
 
   return new Utils();

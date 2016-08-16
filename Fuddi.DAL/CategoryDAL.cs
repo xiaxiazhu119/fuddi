@@ -23,7 +23,7 @@ namespace Fuddi.DAL
         /// <returns></returns>
         public IList<OD_Category> GetAllCategory()
         {
-            var list = entityInstance.OD_Category.Where(m => !m.DelFlag).OrderByDescending(m => m.ID).ToList();
+            var list = entityInstance.OD_Category.Where(m => !m.DelFlag).ToList();
             return list;
         }
 

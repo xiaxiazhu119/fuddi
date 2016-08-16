@@ -149,6 +149,9 @@
     <Content Include="assets\css\cms.css" />
     <Content Include="assets\css\cms\value.css" />
     <Content Include="assets\css\cms\category.css" />
+    <Content Include="assets\css\web.css" />
+    <Content Include="assets\css\web\home\index.css" />
+    <Content Include="assets\images\icon.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\common\config.js" />
     <Content Include="assets\js\common\utils.js" />
@@ -159,7 +162,8 @@
     <Content Include="assets\js\controllers\cms\home\default-controller.js" />
     <Content Include="assets\js\controllers\cms\home\signin-controller.js" />
     <Content Include="assets\js\controllers\cms\product\productlist-controller.js" />
-    <Content Include="assets\js\controllers\home\index-controller.js" />
+    <Content Include="assets\js\controllers\web\home\index-controller.js" />
+    <Content Include="assets\js\controllers\web\web.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />
     <Content Include="assets\js\services\ajax-service.js" />
@@ -225,6 +229,9 @@
     <Content Include="Views\_CMS\Product\ProductEdit.cshtml" />
     <Content Include="Views\_CMS\Category\CategoryEdit.cshtml" />
     <Content Include="Views\_CMS\Category\CategoryList.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Passport\SignIn.cshtml" />
+    <Content Include="Views\Passport\SignUp.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

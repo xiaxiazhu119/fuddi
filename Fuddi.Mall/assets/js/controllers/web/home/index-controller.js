@@ -3,6 +3,7 @@ require(['/assets/js/app.js'], function () {
 
   require(['config', 'ajax'], function (config, ajaxService) {
 
+    /*
     console.log(ajaxService);
     console.log(config);
 
@@ -13,6 +14,7 @@ require(['/assets/js/app.js'], function () {
     });
 
     console.log(rst);
+    */
 
   });
 
