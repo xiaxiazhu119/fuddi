@@ -167,6 +167,9 @@
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />
     <Content Include="assets\js\services\ajax-service.js" />
+    <Content Include="assets\js\services\jquery.jcarousellite.js" />
+    <Content Include="assets\js\services\jquery.jcarousellite.min.js" />
+    <Content Include="assets\js\services\vertical-carousel-service.js" />
     <Content Include="assets\theme\dark-red.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -217,6 +220,9 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\js\services\jquery.jcarousellite.min.js.map">
+      <DependentUpon>jquery.jcarousellite.min.js</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\fuddi.mall.pubxml" />
     <Content Include="Views\_CMS\Home\Default.cshtml" />
     <Content Include="Views\Shared\_CMSLayout.cshtml" />

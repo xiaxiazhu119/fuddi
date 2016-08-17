@@ -1,7 +1,7 @@
 ﻿'use strict';
 require(['/assets/js/app.js'], function () {
 
-  require(['config', 'ajax', 'swiper'], function (config, ajaxService, swiper) {
+  require(['config', 'ajax', 'swiper', 'jcarousellite'], function (config, ajaxService, swiper) {
 
     var bannerSwiper = new swiper('#banner-container>.swiper-container', {
       autoplay: 5000,
@@ -30,6 +30,35 @@ require(['/assets/js/app.js'], function () {
       prevButton: '#recommend-2-swiper-button-prev',
       nextButton: '#recommend-2-swiper-button-next'
     });
+
+    $("#legend-slide").jCarouselLite({
+      vertical: true
+    });
+
+    // $('#legend-slide').jcarousel({
+    //   animation: 'fast',
+    //   list: '.jcarousel',
+    //   items: '.slide-item',
+    //   vertical: true
+    // });
+
+    // $('#legend-slide').slick({
+    //   infinite: true,
+    //   speed: 300,
+    //   vertical: true,
+    //   autoplay: true,
+    //   autoplaySpeed: 2000,
+    //   slidesToScroll:1
+    // });
+    // $('#legend-slide').bxSlider({
+    //   mode: 'vertical',
+    //   auto: true,
+    //   pause: 1000,
+    //   slideWidth: 228,
+    //   moveSlides: 1,
+    //   maxSlides: 12,
+    //   slideMargin: 0
+    // });
 
     /*
      console.log(ajaxService);

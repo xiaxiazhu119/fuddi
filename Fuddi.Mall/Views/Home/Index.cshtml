@@ -5,6 +5,7 @@
 
 @section assets{
   <link rel="stylesheet" href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/slick-carousel/1.6.0/slick.min.css">
   <link rel="stylesheet" href="/assets/css/web/home/index.css">
   <script src="/assets/js/controllers/web/home/index-controller.js"></script>
 }
@@ -132,7 +133,43 @@
         </a>
       </div>
 
-      
+    </div>
+  </div>
+</div>
+
+<div id="part-2" class="part">
+  <div id="hot-part">
+    <h2 class="part-title">最热商品</h2>
+    <a href="/" class="more">更多商品，点击查看 &gt;&gt;</a>
+    <ul>
+      @for (int i = 0; i < 8; i++)
+      {
+        <li class="hot-item"></li>
+      }
+    </ul>
+  </div>
+  <div id="legend">
+    <div class="title">一元传奇</div>
+    <div class="content">
+      <div class="swiper">
+
+        <div id="legend-slide" class="">
+          <div class="jcarousel">
+            <ul>
+
+              @for (int i = 0; i < 12; i++)
+              {
+                <li>
+                  <div class="slide-item">@(i)</div>
+                </li>
+              }
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="btm">看看谁的狗屎运最好！</div>
     </div>
   </div>
 </div>
