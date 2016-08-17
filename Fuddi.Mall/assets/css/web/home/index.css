@@ -137,6 +137,10 @@
   line-height: 150%;
 }
 
+.new-reveal-item .award-info {
+  display: none;
+}
+
 .new-reveal-item .award-winner {
   font-weight: 600;
 }
@@ -158,61 +162,7 @@
 }
 
 /****************************************************************************
-* new-reveal container end
-****************************************************************************/
-
-/****************************************************************************
-* swiper container style override start
-****************************************************************************/
-
-#banner-n-new-reveal-container .swiper-container {
-  height: 100%;
-}
-
-#banner-n-new-reveal-container .swiper-container > .swiper-button {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  font-size: 24px;
-  text-align: center;
-  line-height: 40px;
-}
-
-#banner-n-new-reveal-container .swiper-container > .swiper-button:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-#banner-n-new-reveal-container .swiper-container > .swiper-button > i {
-  top: 2px;
-}
-
-#banner-n-new-reveal-container .swiper-container > .swiper-button.prev {
-  left: 0;
-}
-
-#banner-n-new-reveal-container .swiper-container > .swiper-button.next {
-  right: 0;
-}
-
-#banner-n-new-reveal-container .swiper-container > .swiper-pagination > .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-}
-
-#banner-n-new-reveal-container .swiper-container > .swiper-pagination > .swiper-pagination-bullet-active {
-  background: #db3652;
-}
-
-#banner-n-new-reveal-container .swiper-container:hover > .swiper-button {
-  display: block;
-}
-
-/****************************************************************************
-* swiper container style override end
+* recommend start
 ****************************************************************************/
 
 #recommend-sidebar {
@@ -220,3 +170,90 @@
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
 }
+
+#recommend-sidebar img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#recommend-sidebar .product-name {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#recommend-sidebar ._icon {
+  position: absolute;
+  left: 0;
+}
+
+#recommend-1-container {
+  height: 350px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+#recommend-1-container .product-preview {
+  display: block;
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+#recommend-1-container > ._icon-recommend {
+  top: 0;
+}
+
+#recommend-1-container .progress,
+#recommend-1-container > p {
+  margin-bottom: 8px;
+}
+
+#recommend-1-container button {
+  margin-top: 10px;
+}
+
+#recommend-2-container {
+  height: 220px;
+}
+
+#recommend-2-container ._icon-recommend-new {
+  top: 10px;
+  z-index: 2;
+}
+
+.recommend-2-item {
+  padding: 15px;
+  text-align: center;
+}
+
+.recommend-2-item > .divider {
+  height: 6px;
+  overflow: hidden;
+  margin-top: 2px;
+  border-top: 1px dashed #ddd;
+}
+
+.recommend-2-item > .product-preview {
+  display: block;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.recommend-2-item > .desc {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+#recommend-2-container > .swiper-container > .swiper-button {
+  top: 90px;
+}
+
+/****************************************************************************
+* recommend end
+****************************************************************************/

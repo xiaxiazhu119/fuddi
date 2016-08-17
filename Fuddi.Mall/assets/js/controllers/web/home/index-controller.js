@@ -23,6 +23,14 @@ require(['/assets/js/app.js'], function () {
       paginationClickable: true
     });
 
+    var recommendSwiper = new swiper('#recommend-2-container>.swiper-container', {
+      autoplay: 0,
+      loop: true,
+      autoplayDisableOnInteraction: false,
+      prevButton: '#recommend-2-swiper-button-prev',
+      nextButton: '#recommend-2-swiper-button-next'
+    });
+
     /*
      console.log(ajaxService);
      console.log(config);
