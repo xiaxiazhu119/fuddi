@@ -238,6 +238,9 @@
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Passport\SignIn.cshtml" />
     <Content Include="Views\Passport\SignUp.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Announcement\Detail.cshtml" />
+    <Content Include="Views\Announcement\List.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

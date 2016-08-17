@@ -1,5 +1,21 @@
 ﻿@charset "UTF-8";
 
+.product-preview {
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.product-preview > img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-name {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
 .part {
   margin-bottom: 1.5em;
 }
@@ -119,6 +135,7 @@
   height: 170px;
   margin: 10px 0 0 10px;
   padding: 0 10px;
+  color: #999;
 }
 
 .new-reveal-item:nth-child(odd) {
@@ -128,7 +145,7 @@
 .new-reveal-item > .product-name {
   width: 220px;
   margin: 4px 0 6px 0;
-  font-size: 14px;
+  /*font-size: 14px;*/
   line-height: 150%;
 }
 
@@ -169,17 +186,22 @@
   width: 230px;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
+  color: #999;
 }
 
+/*
 #recommend-sidebar img {
   width: 100%;
   margin: 0 auto;
 }
+*/
 
+/*
 #recommend-sidebar .product-name {
   margin-top: 10px;
   font-size: 14px;
 }
+*/
 
 #recommend-sidebar ._icon {
   position: absolute;
@@ -193,11 +215,11 @@
 }
 
 #recommend-1-container .product-preview {
-  display: block;
+  /*display: block;*/
   width: 180px;
   height: 180px;
-  overflow: hidden;
-  margin: 0 auto;
+  /*overflow: hidden;*/
+  /*margin: 0 auto;*/
 }
 
 #recommend-1-container > ._icon-recommend {
@@ -206,11 +228,11 @@
 
 #recommend-1-container .progress,
 #recommend-1-container > p {
-  margin-bottom: 8px;
+  /*margin-bottom: 8px;*/
 }
 
 #recommend-1-container button {
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 #recommend-2-container {
@@ -235,11 +257,11 @@
 }
 
 .recommend-2-item > .product-preview {
-  display: block;
+  /*display: block;*/
   width: 120px;
   height: 120px;
-  overflow: hidden;
-  margin: 0 auto;
+  /*overflow: hidden;*/
+  /*margin: 0 auto;*/
 }
 
 .recommend-2-item > .desc {
@@ -265,6 +287,81 @@
   font-weight: 600;
 }
 
+.part .more {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  color: #999;
+}
+
+.part .more:hover {
+  color: #555;
+}
+
+.part .part-item {
+  position: relative;
+  float: left;
+  width: 241px;
+  height: 400px;
+  margin: -1px -1px 0 0;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  color: #999;
+}
+
+.part .part-item:hover {
+  padding: 9px 19px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+.part .part-item.category-banner:hover {
+  border: 1px solid #ddd;
+}
+
+.part .part-item > .product-preview {
+  width: 200px;
+  height: 200px;
+}
+
+.part .part-item > .product-name {
+  /*text-align: center;*/
+}
+
+.part .part-item > .shopping-container {
+  /*margin-top: 4px;*/
+}
+
+.part .part-item > ._icon-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.part .part-item:hover > ._icon-tag {
+  top: -1px;
+  left: -1px;
+}
+
+.part .part-item .cart {
+  display: inline-block;
+  position: relative;
+  top: 6px;
+  left: 10px;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #db3652;
+  border-radius: 22px;
+  color: #db3652;
+  font-size: 22px;
+  line-height: 44px;
+}
+
+.part .part-item .cart:hover {
+  background: #db3652;
+  color: #fff;
+}
+
 /****************************************************************************
 * part-2 start
 ****************************************************************************/
@@ -278,38 +375,25 @@
 }
 
 #part-2 > #hot-part {
-  width: 960px;
-  margin-right: 10px;
-}
-
-#part-2 > #hot-part > .more {
-  position: absolute;
-  top: 4px;
-  right: 0;
-  color: #999;
-}
-
-#part-2 > #hot-part > .more:hover {
-  color: #555;
+  width: 961px;
+  margin-right: 9px;
 }
 
 #part-2 > #hot-part ul {
+  height: 800px;
   margin-top: 2px;
 }
 
+/*
 #part-2 > #hot-part .hot-item {
   float: left;
-  width: 240px;
+  width: 241px;
   height: 400px;
   border: 1px solid #ddd;
   margin-top: -1px;
   margin-right: -1px;
 }
-
-#part-2 > #hot-part .hot-item:hover {
-  border: 2px solid #ccc;
-  cursor: pointer;
-}
+*/
 
 #part-2 > #legend {
   width: 230px;
@@ -354,11 +438,11 @@
 #part-2 > #legend > .content > .swiper .bx-viewport {
   height: 768px !important;
 }
-*/
 
 #part-2 > #legend > .content > .swiper > #legend-slide .slide-item:nth-child(odd) {
   background: #f5f5f5;
 }
+*/
 
 #part-2 > #legend > .content > .btm {
   height: 30px;
@@ -371,4 +455,24 @@
 
 /****************************************************************************
 * part-2 end
+****************************************************************************/
+
+/****************************************************************************
+* category part start
+****************************************************************************/
+
+.category-part {
+  height: 430px;
+}
+
+.category-part > ul {
+  height: 400px;
+}
+
+.category-part .part-item:last-child {
+  width: 240px;
+}
+
+/****************************************************************************
+* category part end
 ****************************************************************************/

@@ -31,9 +31,9 @@ require(['/assets/js/app.js'], function () {
       nextButton: '#recommend-2-swiper-button-next'
     });
 
-    $("#legend-slide").jCarouselLite({
-      vertical: true
-    });
+    // $("#legend-slide").jCarouselLite({
+    //   vertical: true
+    // });
 
     // $('#legend-slide').jcarousel({
     //   animation: 'fast',

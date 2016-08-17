@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Fuddi.SiteUtils
+@{
   ViewBag.Title = "Index";
   Layout = "~/Views/Shared/_MallLayout.cshtml";
 }
@@ -60,7 +61,13 @@
                 本期参与：30人次<br />幸运号码：10000027
               </div>
             </div>
-            <div class="new-reveal-item">2</div>
+            <div class="new-reveal-item">
+
+              <h3 class="product-name">
+                <a href="/product/detail?pid=">网易严选 色织双层格子浴衣</a>
+              </h3>
+
+            </div>
           </div>
           <div class="swiper-slide">
             <div class="new-reveal-item">3</div>
@@ -139,12 +146,23 @@
 
 <div id="part-2" class="part">
   <div id="hot-part">
-    <h2 class="part-title">最热商品</h2>
     <a href="/" class="more">更多商品，点击查看 &gt;&gt;</a>
+    <h2 class="part-title">最热商品</h2>
     <ul>
       @for (int i = 0; i < 8; i++)
       {
-        <li class="hot-item"></li>
+        <li class="hot-item part-item">
+          <a class="product-preview" href="/product/detail?pid=">
+            <img src="//www.sonystyle.com.cn/products/playstation/images/game_saintseiya_ps4/pro_img/sdsbox1_504.jpg" alt="" />
+          </a>
+          <h3 class="product-name">
+            <a href="/product/detail?pid=">网易严选 色织双层格子浴衣</a>
+          </h3>
+          <p>总需：123人次</p>
+          <div class="progress">
+            <div class="progress-bar" style="width:50%;"></div>
+          </div>
+        </li>
       }
     </ul>
   </div>
@@ -173,3 +191,45 @@
     </div>
   </div>
 </div>
+
+@foreach (var item in CacheHelper.Instance.CategoryList)
+{
+  <div class="part category-part">
+    <a href="/" class="more">更多商品，点击查看 &gt;&gt;</a>
+    <h2 class="part-title">@(item.Name)</h2>
+    <ul>
+      <li class="category-banner part-item"></li>
+      @for (int i = 0; i < 4; i++)
+      {
+        <li class="part-item">
+          <i class="_icon _icon-tag _icon-tag-without-char _icon-tag-without-char-purple">十元专区</i>
+          <a class="product-preview" href="/product/detail?pid=">
+            <img src="//www.sonystyle.com.cn/products/playstation/images/game_saintseiya_ps4/pro_img/sdsbox1_504.jpg" alt="" />
+          </a>
+          <h3 class="product-name">
+            <a href="/product/detail?pid=">网易严选 色织双层格子浴衣</a>
+          </h3>
+          <p>总需：123人次</p>
+          <div class="progress">
+            <div class="progress-bar" style="width:50%;"></div>
+          </div>
+          <div>
+            <p class="pull-right text-right">
+              213<br />剩余人次
+            </p>
+            <p class="pull-left">
+              213<br />已参与人次
+            </p>
+            <div class="clearfix"></div>
+          </div>
+          <p class="text-center shopping-container">
+            <button type="button" class="btn btn-buy">立即购买</button>
+            <a href="javascript:;" class="cart">
+              <i class="glyphicon glyphicon-shopping-cart"></i>
+            </a>
+          </p>
+        </li>
+      }
+    </ul>
+  </div>
+}

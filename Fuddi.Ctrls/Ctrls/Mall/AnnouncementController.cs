@@ -8,13 +8,13 @@ using Fuddi.Enum;
 
 namespace Fuddi.Ctrls.Mall
 {
-    public class ProductController : MallBaseController
+    public class AnnouncementController : MallBaseController
     {
-        public ActionResult List(int? cid)
+        public ActionResult List()
         {
             return View();
         }
-        public ActionResult Detail(int? pid)
+        public ActionResult Detail(int? id)
         {
             return View();
         }
