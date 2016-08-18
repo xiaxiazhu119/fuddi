@@ -12,15 +12,17 @@ namespace Fuddi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OD_Product
+    public partial class OD_Term
     {
         public int ID { get; set; }
-        public string Name { get; set; }
-        public int CategoryID { get; set; }
-        public string Preview { get; set; }
-        public string SimpleDesc { get; set; }
-        public string DetailDesc { get; set; }
-        public int TotalSell { get; set; }
+        public string TermNo { get; set; }
+        public int ProductID { get; set; }
+        public int DictionaryID { get; set; }
+        public int Current { get; set; }
+        public int Rest { get; set; }
+        public int Total { get; set; }
+        public int DefaultValue { get; set; }
+        public bool AutoStart { get; set; }
         public bool DelFlag { get; set; }
         public System.DateTime CreateTime { get; set; }
     }

@@ -54,7 +54,11 @@
   <ItemGroup>
     <Compile Include="CustomModels\CategoryModel.cs" />
     <Compile Include="CustomModels\MgrModel.cs" />
+    <Compile Include="CustomModels\ProductModel.cs" />
     <Compile Include="OD_Category.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OD_Dictionary.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
     <Compile Include="OD_Manager.cs">
@@ -66,7 +70,19 @@
     <Compile Include="OD_Product.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="OD_ProductCategoryRelation.cs">
+    <Compile Include="OD_ProductDictionary.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OD_ProductImage.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OD_Term.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="od_v_product_dictionary.cs">
+      <DependentUpon>OneDreamModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="od_v_term.cs">
       <DependentUpon>OneDreamModels.tt</DependentUpon>
     </Compile>
     <Compile Include="OneDreamModels.Context.cs">

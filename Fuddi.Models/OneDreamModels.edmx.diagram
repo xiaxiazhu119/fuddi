@@ -8,7 +8,12 @@
         <EntityTypeShape EntityType="OneDreamModel.OD_Manager" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OneDreamModel.OD_MgrLog" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OneDreamModel.OD_Category" Width="1.5" PointX="0.875" PointY="0.875" />
-        <EntityTypeShape EntityType="OneDreamModel.OD_ProductCategoryRelation" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="OneDreamModel.OD_Dictionary" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="OneDreamModel.OD_ProductDictionary" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OneDreamModel.OD_ProductImage" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="OneDreamModel.od_v_product_dictionary" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="OneDreamModel.OD_Term" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OneDreamModel.od_v_term" Width="1.5" PointX="7.375" PointY="4.75" />
         <EntityTypeShape EntityType="OneDreamModel.OD_Product" Width="1.5" PointX="0.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>

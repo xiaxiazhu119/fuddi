@@ -19,14 +19,14 @@ namespace Fuddi.Enum
     }
 
     public enum LogActionEnum
-    { 
+    {
         SignIn,
         SignUp,
         SignOut
     }
 
     public enum ResponseEnum
-    { 
+    {
         ApplicationError = -9999999,
         OperationSuccess = 9999001,
 
@@ -50,6 +50,27 @@ namespace Fuddi.Enum
     {
         Add,
         Edit
+    }
+
+    public enum DictionaryTypeEnum
+    {
+        Value = 1,
+        Tag = 2,
+        QuickTimes = 3
+    }
+
+    public enum SortEnum
+    {
+        Popular,
+        Rest,
+        Latest,
+        Total
+    }
+
+    public enum OrderByEnum
+    {
+        DESC,
+        ASC
     }
 
 }

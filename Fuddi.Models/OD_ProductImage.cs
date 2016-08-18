@@ -12,16 +12,12 @@ namespace Fuddi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OD_Product
+    public partial class OD_ProductImage
     {
         public int ID { get; set; }
-        public string Name { get; set; }
-        public int CategoryID { get; set; }
-        public string Preview { get; set; }
-        public string SimpleDesc { get; set; }
-        public string DetailDesc { get; set; }
-        public int TotalSell { get; set; }
-        public bool DelFlag { get; set; }
-        public System.DateTime CreateTime { get; set; }
+        public int ProductID { get; set; }
+        public string Path { get; set; }
+        public string FileName { get; set; }
+        public int Sort { get; set; }
     }
 }

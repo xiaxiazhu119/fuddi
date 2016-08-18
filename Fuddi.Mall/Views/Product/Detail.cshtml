@@ -1,9 +1,21 @@
-﻿@{
+﻿@using Fuddi.SiteUtils;
+@{
   ViewBag.Title = "Product Detail";
   Layout = "~/Views/Shared/_MallLayout.cshtml";
 }
-
 @section assets{
+  <link rel="stylesheet" href="/assets/css/web/product/product.css">
+  <script src="/assets/js/controllers/web/product/detail-controller.js"></script>
 }
 
-<h2>Product Detail</h2>
+<div class="container breadcrumb">
+  <a href="/">首页</a> &gt;
+  @if (cid == 0)
+  {
+    <span class="current">全部商品</span>
+  }
+  else
+  {
+    <a href="/product/list">全部商品</a> @Html.Raw("&gt;") <span class="current">@(SiteUtil.Instance.GetCategoryNameByID(cid))</span>
+  }
+</div>

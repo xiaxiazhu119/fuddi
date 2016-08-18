@@ -1,4 +1,7 @@
 ﻿@using Fuddi.SiteUtils;
+@using Fuddi.Models;
+@using PagedList;
+@using PagedList.Mvc;
 @{
   ViewBag.Title = "Product List";
   Layout = "~/Views/Shared/_MallLayout.cshtml";
@@ -9,6 +12,8 @@
   <link rel="stylesheet" href="/assets/css/web/product/product.css">
   <script src="/assets/js/controllers/web/product/list-controller.js"></script>
 }
+
+@model PagedList.StaticPagedList<od_v_term>
 
 <div class="container breadcrumb">
   <a href="/">首页</a> &gt;
@@ -96,4 +101,8 @@
     </div>
   }
   <div class="clearfix"></div>
+</div>
+
+<div>
+  @Html.PagedListPager((IPagedList)Model, page => Url.Action("/product/list", new { page = page, cid = TempData["cid"], kw = TempData["kw"], se = TempData["se"], oe = TempData["oe"], }))
 </div>

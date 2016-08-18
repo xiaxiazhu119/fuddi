@@ -53,6 +53,7 @@
     <Compile Include="BaseDAL.cs" />
     <Compile Include="CategoryDAL.cs" />
     <Compile Include="MgrDAL.cs" />
+    <Compile Include="ProductDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

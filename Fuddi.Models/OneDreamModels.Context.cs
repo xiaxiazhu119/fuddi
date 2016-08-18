@@ -28,7 +28,12 @@ namespace Fuddi.Models
         public virtual DbSet<OD_Manager> OD_Manager { get; set; }
         public virtual DbSet<OD_MgrLog> OD_MgrLog { get; set; }
         public virtual DbSet<OD_Category> OD_Category { get; set; }
-        public virtual DbSet<OD_ProductCategoryRelation> OD_ProductCategoryRelation { get; set; }
+        public virtual DbSet<OD_Dictionary> OD_Dictionary { get; set; }
+        public virtual DbSet<OD_ProductDictionary> OD_ProductDictionary { get; set; }
+        public virtual DbSet<OD_ProductImage> OD_ProductImage { get; set; }
+        public virtual DbSet<od_v_product_dictionary> od_v_product_dictionary { get; set; }
+        public virtual DbSet<OD_Term> OD_Term { get; set; }
+        public virtual DbSet<od_v_term> od_v_term { get; set; }
         public virtual DbSet<OD_Product> OD_Product { get; set; }
     }
 }

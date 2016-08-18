@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryBLL.cs" />
+    <Compile Include="ProductBLL.cs" />
     <Compile Include="MgrBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -47,6 +48,10 @@
     <ProjectReference Include="..\Fuddi.DAL\Fuddi.DAL.csproj">
       <Project>{ce0ecbb3-8560-44cd-a31e-affb87cc839d}</Project>
       <Name>Fuddi.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuddi.Enum\Fuddi.Enum.csproj">
+      <Project>{7b1e5e51-2cfa-4327-877e-9eaeb09a7ee2}</Project>
+      <Name>Fuddi.Enum</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fuddi.Models\Fuddi.Models.csproj">
       <Project>{b0e367e5-7f2f-42dc-86f2-4cadaa58cd53}</Project>
