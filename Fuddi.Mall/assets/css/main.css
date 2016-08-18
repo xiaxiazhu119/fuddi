@@ -51,3 +51,7 @@ ul > li {
 div {
   position: relative;
 }
+
+div.clearfix {
+  position: static;
+}

@@ -20,5 +20,6 @@ namespace Fuddi.Models
         public int Lv { get; set; }
         public bool DelFlag { get; set; }
         public System.DateTime CreateTime { get; set; }
+        public string IconCls { get; set; }
     }
 }

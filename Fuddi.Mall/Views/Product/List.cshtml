@@ -1,9 +1,99 @@
-﻿@{
+﻿@using Fuddi.SiteUtils;
+@{
   ViewBag.Title = "Product List";
   Layout = "~/Views/Shared/_MallLayout.cshtml";
+  int cid = (int)TempData["cid"];
 }
 
 @section assets{
+  <link rel="stylesheet" href="/assets/css/web/product/product.css">
+  <script src="/assets/js/controllers/web/product/list-controller.js"></script>
 }
 
-<h2>Product List</h2>
+<div class="container breadcrumb">
+  <a href="/">首页</a> &gt;
+  @if (cid == 0)
+  {
+    <span class="current">全部商品</span>
+  }
+  else
+  {
+    <a href="/product/list">全部商品</a> @Html.Raw("&gt;") <span class="current">@(SiteUtil.Instance.GetCategoryNameByID(cid))</span>
+  }
+</div>
+
+<div class="container" id="category-list-box">
+  <h4>所有商品<small>（共 <span>21</span> 件相关商品）</small></h4>
+  <div id="catgory-list">
+    @foreach (var item in CacheHelper.Instance.CategoryList)
+    {
+      <div class="category-item">
+        <a href="/product/list?cid=@(item.ID)" class="@(cid.Equals(item.ID) ? "active" : "")">
+          <span>
+            <span>
+              <i class="_icon _icon-category @(item.IconCls)"></i>
+              <i class="_icon _icon-category @(item.IconCls)"></i>
+            </span>
+          </span>
+          @(item.Name)
+        </a>
+      </div>
+    }
+  </div>
+</div>
+
+<div id="list-sort-container" class="container">
+  排序：
+  <a href="javascript:;" class="sort-item popular">人气商品</a>
+  <a href="javascript:;" class="sort-item popular">剩余人次</a>
+  <a href="javascript:;" class="sort-item popular">最新商品</a>
+  <a href="javascript:;" class="sort-item popular">总需人次<i class="glyphicon glyphicon-arrow-up"></i></a>
+  <a href="javascript:;" class="sort-item popular">总需人次<i class="glyphicon glyphicon-arrow-down"></i></a>
+</div>
+
+<div id="product-list-container" class="container">
+  @for (int i = 0; i < 20; i++)
+  {
+    <div class="product-item">
+      <div class="info">
+        <a href="/product/detail?pid=" class="product-preview">
+          <img src="//www.sonystyle.com.cn/products/playstation/images/game_saintseiya_ps4/pro_img/sdsbox1_504.jpg" alt="" />
+        </a>
+        <h3 class="product-name">
+          <a href="/product/detail?pid=">网易严选 色织双层格子浴衣</a>
+        </h3>
+        <p>总需：123人次</p>
+        <div class="progress">
+          <div class="progress-bar" style="width:50%;"></div>
+        </div>
+        <div>
+          <p class="pull-right text-right">
+            213<br />剩余人次
+          </p>
+          <p class="pull-left">
+            213<br />已参与人次
+          </p>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="ctrl">
+        <div>
+          我要参与：
+          <div>
+            <a href="javascript:;" class="ctrl-symbol minus">
+              <i class="glyphicon glyphicon-minus"></i>
+            </a>
+            <input id="times-@(i)" type="text" class="times" value="" maxlength="8" />
+            <a href="javascript:;" class="ctrl-symbol plus">
+              <i class="glyphicon glyphicon-plus"></i>
+            </a>
+          </div>
+          人次
+        </div>
+        <button type="button" class="btn btn-buy">立即购买</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary-lighter">加入清单</button>
+      </div>
+    </div>
+  }
+  <div class="clearfix"></div>
+</div>

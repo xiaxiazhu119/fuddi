@@ -11,7 +11,7 @@
   <script src="/assets/js/controllers/web/home/index-controller.js"></script>
 }
 
-<div id="part-1" class="part">
+<div id="part-1" class="container part">
   <div id="announcement-container">
     <a href="/announcement/list" class="more">查看更多 &gt;&gt;</a>
     <h4>系统公告</h4>
@@ -144,7 +144,7 @@
   </div>
 </div>
 
-<div id="part-2" class="part">
+<div id="part-2" class="container part">
   <div id="hot-part">
     <a href="/" class="more">更多商品，点击查看 &gt;&gt;</a>
     <h2 class="part-title">最热商品</h2>
@@ -194,7 +194,7 @@
 
 @foreach (var item in CacheHelper.Instance.CategoryList)
 {
-  <div class="part category-part">
+  <div class="container part category-part">
     <a href="/" class="more">更多商品，点击查看 &gt;&gt;</a>
     <h2 class="part-title">@(item.Name)</h2>
     <ul>
@@ -222,7 +222,7 @@
             </p>
             <div class="clearfix"></div>
           </div>
-          <p class="text-center shopping-container">
+          <p class="text-center ctrl">
             <button type="button" class="btn btn-buy">立即购买</button>
             <a href="javascript:;" class="cart">
               <i class="glyphicon glyphicon-shopping-cart"></i>

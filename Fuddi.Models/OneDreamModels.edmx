@@ -12,6 +12,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ParentID" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IconCls" Type="varchar" MaxLength="50" />
           <Property Name="Lv" Type="int" Nullable="false" />
           <Property Name="DelFlag" Type="bit" Nullable="false" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
@@ -58,10 +59,6 @@
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“fuddijp.fuddijp_f.v_category_group_relation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“fuddijp.fuddijp_f.v_value_product_relation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityContainer Name="OneDreamModelStoreContainer">
           <EntitySet Name="OD_Category" EntityType="Self.OD_Category" Schema="fuddijp_f" store:Type="Tables" />
           <EntitySet Name="OD_Manager" EntityType="Self.OD_Manager" Schema="fuddijp_f" store:Type="Tables" />
@@ -113,6 +110,7 @@
           <Property Name="Lv" Type="Int32" Nullable="false" />
           <Property Name="DelFlag" Type="Boolean" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IconCls" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="OD_ProductCategoryRelation">
           <Key>
@@ -167,6 +165,7 @@
           <EntitySetMapping Name="OD_Category">
             <EntityTypeMapping TypeName="OneDreamModel.OD_Category">
               <MappingFragment StoreEntitySet="OD_Category">
+                <ScalarProperty Name="IconCls" ColumnName="IconCls" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="DelFlag" ColumnName="DelFlag" />
                 <ScalarProperty Name="Lv" ColumnName="Lv" />

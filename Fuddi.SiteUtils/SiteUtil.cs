@@ -5,6 +5,7 @@ using System.Text;
 
 using Fuddi.Configuration;
 using X.Common;
+using Fuddi.Models;
 
 namespace Fuddi.SiteUtils
 {
@@ -111,6 +112,17 @@ namespace Fuddi.SiteUtils
         public string GetUrlEncodeCurrentQueryAndPath()
         {
             return System.Web.HttpUtility.UrlEncode(GetCurrentQueryAndPath());
+        }
+
+        public string GetCategoryNameByID(int id)
+        {
+            var model = GetCategoryByID(id);
+            return model == null ? "" : model.Name;
+        }
+
+        public OD_Category GetCategoryByID(int id)
+        {
+            return CacheHelper.Instance.CategoryList.FirstOrDefault(m => m.ID.Equals(id));
         }
     }
 }

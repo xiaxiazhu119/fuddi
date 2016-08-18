@@ -5,6 +5,7 @@ using System.Text;
 using System.Web.Mvc;
 
 using Fuddi.Enum;
+using X.Common;
 
 namespace Fuddi.Ctrls.Mall
 {
@@ -12,6 +13,8 @@ namespace Fuddi.Ctrls.Mall
     {
         public ActionResult List(int? cid)
         {
+            int _cid = TypeConverter.ObjectToInt(cid, setCfgInstance.DEFAULT_INT_VALUE);
+            TempData["cid"] = _cid;
             return View();
         }
         public ActionResult Detail(int? pid)

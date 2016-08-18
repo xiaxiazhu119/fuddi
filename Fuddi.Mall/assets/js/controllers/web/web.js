@@ -9,15 +9,15 @@ require(['/assets/js/app.js'], function () {
       var $cateList = $('#main-category-nav-container>#main-list');
       $cateList.hide();
       var $menuIcon = $('#main-category-nav-container>#cate-all>i>i');
-      $menuIcon.parent().show();
-      var duration = 200;
-      var bo = '=14px';
+      $menuIcon.show();
+      // var duration = 200;
+      // var bo = '=14px';
       // console.log($menuIcon);
       $('#main-category-nav-container').hover(function () {
-        Utils.animate($menuIcon, { top: '+' + bo }, duration);
+        // Utils.animate($menuIcon, { top: '+' + bo }, duration);
         $cateList.slideDown(300);
       }, function () {
-        Utils.animate($menuIcon, { top: '-' + bo }, duration);
+        // Utils.animate($menuIcon, { top: '-' + bo }, duration);
         $cateList.slideUp(300);
       });
     }

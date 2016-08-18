@@ -1,21 +1,5 @@
 ﻿@charset "UTF-8";
 
-.product-preview {
-  display: block;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.product-preview > img {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.product-name {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
 .part {
   margin-bottom: 1.5em;
 }
@@ -328,7 +312,7 @@
   /*text-align: center;*/
 }
 
-.part .part-item > .shopping-container {
+.part .part-item > .ctrl {
   /*margin-top: 4px;*/
 }
 

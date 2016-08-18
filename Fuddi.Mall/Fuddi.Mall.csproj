@@ -151,6 +151,7 @@
     <Content Include="assets\css\cms\category.css" />
     <Content Include="assets\css\web.css" />
     <Content Include="assets\css\web\home\index.css" />
+    <Content Include="assets\css\web\product\product.css" />
     <Content Include="assets\images\icon.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\common\config.js" />
@@ -163,6 +164,8 @@
     <Content Include="assets\js\controllers\cms\home\signin-controller.js" />
     <Content Include="assets\js\controllers\cms\product\productlist-controller.js" />
     <Content Include="assets\js\controllers\web\home\index-controller.js" />
+    <Content Include="assets\js\controllers\web\product\detail-controller.js" />
+    <Content Include="assets\js\controllers\web\product\list-controller.js" />
     <Content Include="assets\js\controllers\web\web.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\css\main.css" />

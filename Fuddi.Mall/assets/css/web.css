@@ -16,6 +16,7 @@ a:hover {
   width: 1200px;
   padding-left: 0;
   padding-right: 0;
+  margin-bottom: 1em;
 }
 
 ._icon {
@@ -56,19 +57,61 @@ a:hover {
   background-position: 0 -660px;
 }
 
+._icon-category {
+  width: 60px;
+  height: 60px;
+  background-position: 0 -540px;
+}
+
+._icon-category-mobile {
+}
+
+._icon-category-pc {
+  background-position: -60px -540px;
+}
+
+._icon-category-digital {
+  background-position: -120px -540px;
+}
+
+._icon-category-female {
+  background-position: -180px -540px;
+}
+
+._icon-category-food {
+  background-position: -240px -540px;
+}
+
+._icon-category-fasion {
+  background-position: -300px -540px;
+}
+
+._icon-category-etc {
+  background-position: -360px -540px;
+}
+
 .btn-buy,
 .btn-buy:hover {
   padding-left: 20px;
   padding-right: 20px;
-  color: #fff;
-}
-
-.btn-buy {
   background: #db3652;
+  color: #fff;
 }
 
 .btn-buy:hover {
   background: #c61935;
+}
+
+.btn-primary-lighter,
+.btn-primary-lighter:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #fff;
+  background: #39f;
+}
+
+.btn-primary-lighter:hover {
+  background: #337ab7;
 }
 
 .progress {
@@ -80,6 +123,22 @@ a:hover {
 .progress > .progress-bar {
   border-radius: 4px;
   background: #fdb31c;
+}
+
+.product-preview {
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.product-preview > img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-name {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 /****************************************************************************
@@ -130,6 +189,11 @@ a:hover {
 
 .swiper-container:hover > .swiper-button {
   display: block;
+}
+
+#site-top-nav > .container,
+#header .container {
+  margin-bottom: 0;
 }
 
 /****************************************************************************
@@ -421,26 +485,35 @@ a:hover {
 }
 
 #main-category-nav-container .category-nav-item#cate-all > i {
-  display: none;
-  position: absolute;
-  top: 12px;
-  right: 2em;
+  position: relative;
   width: 13px;
   height: 15px;
+  margin: 11px 2em 0 0;
   overflow: hidden;
   color: #fff;
 }
 
 #main-category-nav-container .category-nav-item#cate-all > i > i {
+  /*display: none;*/
   position: absolute;
-  top: -14px;
+  top: 0;
   left: 0;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 #main-category-nav-container .category-nav-item#cate-all > i > i > .glyphicon {
   display: block;
   width: 13px;
   height: 14px;
+  margin-bottom: 2px;
+}
+
+#main-category-nav-container .category-nav-item#cate-all:hover > i > i {
+  top: -14px;
 }
 
 /****************************************************************************
